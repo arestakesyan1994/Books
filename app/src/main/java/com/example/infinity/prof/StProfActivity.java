@@ -26,6 +26,7 @@ import com.example.infinity.prof.fragment.CodeBattleFragment;
 import com.example.infinity.prof.fragment.FilerFragment;
 import com.example.infinity.prof.fragment.HomeFragment;
 import com.example.infinity.prof.fragment.KargavorumnerFragment;
+import com.example.infinity.prof.fragment.ModuliGnahatumFragment;
 import com.example.infinity.prof.fragment.QnnArdFragment;
 import com.example.infinity.prof.fragment.QnnFragment;
 import com.example.infinity.prof.fragment.TesakanFragment;
@@ -170,6 +171,14 @@ public class StProfActivity extends AppCompatActivity
             fragment = new FilerFragment();
             Toast.makeText(StProfActivity.this, "Ֆայլեր", Toast.LENGTH_SHORT).show();
             displaySelectedFragment(fragment);
+        } else if (id == R.id.kargavorumner) {
+            fragment = new KargavorumnerFragment();
+            displaySelectedFragment(fragment);
+            Toast.makeText(StProfActivity.this, "Կարգավորումներ", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.modul) {
+            fragment = new ModuliGnahatumFragment();
+            displaySelectedFragment(fragment);
+            Toast.makeText(StProfActivity.this, "Մոդուլի գնահատում", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.videoDaser) {
             fragment = new VideoFragment();
             Toast.makeText(StProfActivity.this, "Վիդեո դասեր", Toast.LENGTH_SHORT).show();
@@ -178,10 +187,6 @@ public class StProfActivity extends AppCompatActivity
             fragment = new TesakanFragment();
             displaySelectedFragment(fragment);
             Toast.makeText(StProfActivity.this, "Տեսական նյութ", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.kargavorumner) {
-            fragment = new KargavorumnerFragment();
-            displaySelectedFragment(fragment);
-            Toast.makeText(StProfActivity.this, "Կարգավորումներ", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.logout) {
             startActivity(new Intent(StProfActivity.this, LoginActivity.class));
             Toast.makeText(StProfActivity.this, "LogOut ", Toast.LENGTH_SHORT).show();

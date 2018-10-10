@@ -11,6 +11,7 @@ public class NavigationDrawerConstants {
     public final static String TAG_TESAKAN = "Տեսական նյութ";
     public final static String TAG_TNAYIN = "Տնային աշխատանք";
     public final static String TAG_TESTER = "Թեստեր";
+    public final static String TAG_MODULI_GNAHATUM = "Մոդուլի գնահատում";
     public final static String TAG_VIDEO = "Վիդեո դասեր";
     public final static String SITE_URL = "http://androiddeft.com";
     public final static String SHARE_TITLE = "Android Development Tutorials";

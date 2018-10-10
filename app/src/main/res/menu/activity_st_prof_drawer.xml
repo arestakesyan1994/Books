@@ -14,32 +14,41 @@
             android:title="CodeBattle" />
         <item
             android:id="@+id/tnayin"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_vertical"
             android:title="Տնային աշխատանք" />
         <item
             android:id="@+id/qnnutyanArd"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_collection"
             android:title="Քննության արդյունքներ" />
         <item
             android:id="@+id/qnnutyun"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_collection"
             android:title="Քննություն" />
         <item
             android:id="@+id/tester"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_local"
             android:title="Թեստեր" />
         <item
             android:id="@+id/fayler"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_file"
             android:title="Ֆայլեր" />
         <item
+            android:id="@+id/kargavorumner"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Կարգավորումներ" />
+        <item
+            android:id="@+id/modul"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Կարգավորումներ" />
+        <item
             android:id="@+id/videoDaser"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_videos"
             android:title="Վիդեո դասեր" />
         <item
             android:id="@+id/tesakanNyut"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_library"
             android:title="Տեսական նյութ" />
+
     </group>
 
     <item android:title="Communicate">
@@ -48,14 +57,11 @@
             <!--android:id="@+id/nav_share"-->
             <!--android:icon="@drawable/ic_menu_share"-->
             <!--android:title="Share" />-->
-            <item
-                android:id="@+id/kargavorumner"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Կարգավորումներ" />
+
             <item
                 android:id="@+id/logout"
                 android:orderInCategory="400"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_logout"
                 android:title="Logout"/>
             <!--android:icon="@drawable/ic_logout"-->
             <!--/>-->
