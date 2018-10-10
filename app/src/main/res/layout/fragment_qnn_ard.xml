@@ -68,9 +68,7 @@
                     <TableLayout
                         android:layout_width="match_parent"
                         android:layout_height="408dp"
-                        android:sriv_border_color="#8bc34a"
-                        android:sriv_border_width="2dp"
-                        android:sriv_oval="true">
+                      >
 
                         <TableRow
                             android:layout_width="match_parent"

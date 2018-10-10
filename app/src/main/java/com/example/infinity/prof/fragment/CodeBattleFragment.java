@@ -35,7 +35,6 @@ public class CodeBattleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View home = inflater.inflate(R.layout.fragment_code_battle, container, false);
 
         mApiService = UtilsApi.getAPIService();

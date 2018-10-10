@@ -11,7 +11,6 @@ import com.example.infinity.prof.constants.NavigationDrawerConstants;
 
 public class FilerFragment extends Fragment {
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +20,6 @@ public class FilerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_filer, container, false);
     }
 
