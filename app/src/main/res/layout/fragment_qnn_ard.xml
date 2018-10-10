@@ -78,6 +78,7 @@
                                 android:id="@+id/textView34"
                                 android:layout_width="167dp"
                                 android:layout_height="wrap_content"
+                                android:background="?attr/colorControlHighlight"
                                 android:padding="5dp"
                                 android:text="Առարկա"
                                 android:textColor="@android:color/background_dark"
@@ -86,9 +87,9 @@
 
                             <TextView
                                 android:id="@+id/textView33"
-                                android:layout_width="207dp"
+                                android:layout_width="167dp"
                                 android:layout_height="wrap_content"
-                                android:lineSpacingExtra="8sp"
+                                android:background="?attr/colorControlHighlight"
                                 android:padding="5dp"
                                 android:text="գնահատական"
                                 android:textColor="@android:color/background_dark"

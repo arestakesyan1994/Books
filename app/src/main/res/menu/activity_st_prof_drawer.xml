@@ -39,7 +39,7 @@
         <item
             android:id="@+id/modul"
             android:icon="@drawable/ic_menu_share"
-            android:title="Կարգավորումներ" />
+            android:title="Մոդուլի գնահատում" />
         <item
             android:id="@+id/videoDaser"
             android:icon="@drawable/ic_videos"
