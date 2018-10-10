@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/glxavor"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Գլխավոր" />
+        <item
+            android:id="@+id/CodeBattle"
+            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:title="CodeBattle" />
+        <item
+            android:id="@+id/tnayin"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Տնային աշխատանք" />
+        <item
+            android:id="@+id/qnnutyanArd"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Քննության արդյունքներ" />
+        <item
+            android:id="@+id/qnnutyun"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Քննություն" />
+        <item
+            android:id="@+id/tester"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Թեստեր" />
+        <item
+            android:id="@+id/fayler"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Ֆայլեր" />
+        <item
+            android:id="@+id/videoDaser"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Վիդեո դասեր" />
+        <item
+            android:id="@+id/tesakanNyut"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Տեսական նյութ" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <!--<item-->
+            <!--android:id="@+id/nav_share"-->
+            <!--android:icon="@drawable/ic_menu_share"-->
+            <!--android:title="Share" />-->
+            <item
+                android:id="@+id/kargavorumner"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Կարգավորումներ" />
+            <item
+                android:id="@+id/logout"
+                android:orderInCategory="400"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Logout"/>
+            <!--android:icon="@drawable/ic_logout"-->
+            <!--/>-->
+        </menu>
+    </item>
+
+</menu>

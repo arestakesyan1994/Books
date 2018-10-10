@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Պրոֆայթի ուսումնական կենտրոն</string>
+    <!-- Strings related to login -->
+    <string name="prompt_username">Մուտքանուն...</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Ծածկագիր...</string>
+    <string name="action_sign_in">Մուտք</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_st_prof">StProfActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="codebattle">CodeBattle խաղը կօգնի Ձեզ զարգացնել Ձեր տրամաբանությունը, կոդ գրելու կարողությունը և ալգորիթմական մտածելակերպը տարբեր բարդության խնդիրներ լուծելու միջոցով</string>
+    <string name="yntrum_enq">  * Ընտրում ենք ակտիվ խնդիրը, որը պատկերված է կանաչ գույնով\n * Գրում ենք խնդիրը լուծող ֆունկցիան JavaScript ծրագրավորման լեզվով\n * Խնդիրը կարող եք գրել Ձեր կողմից նախընտրելի խմբագրիչով (օրինակ sublime)\n * Արդյունքը պետք է տեղադրել մեր խմբագրիչում և սեղմել ՍՏՈՒԳԵԼ\n * Եթե կան սխալներ, անհրաժեշտ է ուղղել դրանք Եթե համակարգը հաստատեց, որ խնդիրը ճիշտ է լուծված, ապա ընտրեք ՈՒՂԱՐԿԵԼ \n * Այսպիսով կակտիվանա հաջորդ խնդիրը</string>
+    <string name="xax">Խաղը ստեղծված է CodeFights, LeetCode, CodeByte, DevSkill խաղերի մոտիվներով</string>
+
+    <string name="title_activity_code_battle">CodeBattleActivity</string>
+    <string name="title_activity_tnayin">TnayinActivity</string>
+    <string name="title_activity_qnn_ard">QnnArdActivity</string>
+    <string name="title_activity_qnn">QnnActivity</string>
+    <string name="title_activity_tester">TesterActivity</string>
+    <string name="title_activity_filer">FilerActivity</string>
+    <string name="title_activity_video">VideoActivity</string>
+    <string name="title_activity_tesakan">TesakanActivity</string>
+    <string name="title_activity_kargavorumner">KargavorumnerActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="codebattles">CodeBattle</string>
+    <string name="das">Դաս</string>
+    <string name="modul">Մոդուլ</string>
+    <string name="zip_rar_winrar">Հարգելի՛ ուսանող, առաջադրանքն անհրաժեշտ է ուղարկել միայն zip կամ rar ֆորմատներով, ինչը հնարավոր է ստանալ WinRar ծրագրի օգնությամբ:</string>
+    <string name="upload_8mb">Upload -ի առավելագույն ծավալը 8MB</string>
+    <string name="w">Ուղարկել առաջադրանքը</string>
+    <string name="ww">ՎԵՐԲԵՌՆԵԼ</string>
+    <string name="n_n">*Արդյո՞ք դասն արդյունավետ էր  * Արդյո՞ք նյութը մատուցվել է պարզ և մատչելի   *Արդյո՞ք կարգապահությունը լսարանում պահպանված է պատշաճ մակարդակով</string>
+
+</resources>

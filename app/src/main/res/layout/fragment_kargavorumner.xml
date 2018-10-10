@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.KargavorumnerFragment">
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="368dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:layout_alignParentLeft="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/myProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:indeterminateBehavior="cycle"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="?attr/actionBarSize"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.joooonho.SelectableRoundedImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="180dp"
+                            android:layout_height="166dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/placeholder"
+                            app:sriv_border_color="#8bc34a"
+                            app:sriv_border_width="2dp"
+                            app:sriv_oval="true" />
+                        <!--<ImageView-->
+                        <!--android:id="@+id/imageView"-->
+                        <!--android:layout_width="208dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--app:srcCompat="@drawable/placeholder" />-->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView17"
+                                android:layout_width="match_parent"
+                                android:layout_height="104dp"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:id="@+id/chooseBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Choose Photo..." />
+
+                            <TextView
+                                android:id="@+id/textView5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="             MAX - 8MB"
+                                android:textColor="@android:color/background_dark"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!--<Button-->
+                    <!--android:id="@+id/openActivityBtn"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:background="@color/colorAccent"-->
+                    <!--android:clickable="true"-->
+                    <!--android:text="View All"-->
+                    <!--android:textColor="@android:color/white" />-->
+
+                    <Button
+                        android:id="@+id/sendBtn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/colorAccent"
+                        android:clickable="true"
+                        android:text="Նկարի փոփոխություն"
+                        android:textColor="@android:color/white" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="Հին ծածկագիրը"
+                            android:textColor="@android:color/background_dark"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/hPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textMultiLine" />
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="Նոր ծածկագիրը"
+                            android:textColor="@android:color/background_dark"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/nPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textMultiLine" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="149dp"
+                        android:layout_height="wrap_content"
+                        android:text="Հաստատել" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Վճարումներ"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Հարգելի ուսանող, խնդրում ենք նշել ցանկացած ամսվա այն 5 օրվա ինտերվալը, որի ընթացքում Ձեզ հարմար է կատարել վճարում"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Օրը  սկսված"
+                                android:textColor="@android:color/background_dark"
+                                android:textStyle="bold" />
+
+                            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                                android:id="@+id/or_sksvac"
+                                android:layout_width="160dp"
+                                android:layout_height="45dp"
+                                android:hint="Ընտրել օրը" />
+
+                            <TextView
+                                android:id="@+id/textView10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Օրը մինչև"
+                                android:textColor="@android:color/background_dark"
+                                android:textStyle="bold" />
+
+                            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                                android:id="@+id/or_sksvac2"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:hint="Ընտրել օրը" />
+
+                            <Button
+                                android:id="@+id/button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Հաստատել" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView14"
+                                android:layout_width="223dp"
+                                android:layout_height="139dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="69dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="216dp"
+                            android:layout_height="48dp"
+                            android:text="ՊՐՈՖԱՅԹԻ ՈՒՍՈՒՄՆԱԿԱՆ ԿԵՆՏՐՈՆ\n       © ԱՐՄԵՆ ՄԱՐՋԻՆՅԱՆ"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/background_dark"
+                            android:textSize="8sp"
+                            android:textStyle="italic"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>
