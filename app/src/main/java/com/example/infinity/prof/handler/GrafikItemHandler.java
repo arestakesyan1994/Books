@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 
 import com.example.infinity.prof.LoginActivity;
 import com.example.infinity.prof.model.GrafikItem;
+import com.example.infinity.prof.model.StudentsItem;
 
 import java.util.HashMap;
 
@@ -54,6 +55,12 @@ public class GrafikItemHandler {
         editor.putString(GRAFIK_TEACHER_ID, (String) grafikItem.getTeacherId());
         editor.putString(GRAFIK_DAY, (String) grafikItem.getDay());
         editor.putString(GRAFIK_ACTIVE, (String) grafikItem.getActive());
+        this.editor.commit();
+    }
+
+    public void createStHandler(StudentsItem studentsItem){
+        editor.putBoolean(IS_LOGIN,true);
+        editor.putString(GRAFIK_GROUP_ID, studentsItem.getGroupId());
         this.editor.commit();
     }
 

@@ -1,6 +1,7 @@
 package com.example.infinity.prof.url;
 
 
+import com.example.infinity.prof.model.GrafikItem;
 import com.example.infinity.prof.model.StudentsItem;
 
 import retrofit2.Call;
@@ -13,5 +14,9 @@ public interface ApiService {
     @POST("get") //POJO
     Call<StudentsItem> loginRequest(@Field("login") String login,
                                     @Field("password") String password);
+
+   @FormUrlEncoded
+    @POST("get") //POJO
+    Call<GrafikItem> grafRequest();
 
 }

@@ -1,5 +1,6 @@
 package com.example.infinity.prof.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
@@ -8,18 +9,23 @@ import javax.annotation.Generated;
 public class ModulesItem{
 
 	@SerializedName("name")
+	@Expose
 	private String name;
 
 	@SerializedName("about")
+	@Expose
 	private String about;
 
 	@SerializedName("kurs")
+	@Expose
 	private String kurs;
 
 	@SerializedName("id")
+	@Expose
 	private int id;
 
 	@SerializedName("lessons_count")
+	@Expose
 	private String lessonsCount;
 
 	public void setName(String name){

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 
 import com.example.infinity.prof.LoginActivity;
 import com.example.infinity.prof.model.Group;
+import com.example.infinity.prof.model.StudentsItem;
 
 import java.util.HashMap;
 
@@ -57,10 +58,9 @@ public class GroupHandler {
         editor.putString(GROUP_TEACHER_ID, (String) group.getTeacherId());
         editor.putString(GROUP_GNAME, (String) group.getName());
         editor.putString(GROUP_ACTIVE, (String) group.getActive());
-//        editor.putString(GROUP_STUDENTS, (String) group.getStudents());
+//      editor.putString(GROUP_STUDENTS, (String) group.getStudents());
         editor.putString(GROUP_STUDENTS, String.valueOf(group.getStudents()));
         editor.putString(GROUP_PART_ID, group.getPartId());
-
         this.editor.commit();
     }
 
