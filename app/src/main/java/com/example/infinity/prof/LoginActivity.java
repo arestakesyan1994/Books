@@ -19,8 +19,12 @@ import com.example.infinity.prof.model.StudentsItem;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -71,7 +75,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         response.body();
                         if (response.body().getId() != 0) {
                             session.createLoginSession(response.body());
-                            groaf();
+                            System.out.println(session);
+                            mApiService.grafRequest(mUserName.getText().toString(), mPasswordView.getText().toString()).enqueue(new Callback<GrafikItem>() {
+                                @Override
+                                public void onResponse(Call<GrafikItem> call, Response<GrafikItem> responses) {
+                                    responses.body();
+                                    System.out.println(responses.body());
+                                }
+
+                                @Override
+                                public void onFailure(Call<GrafikItem> call, Throwable t) {
+
+                                }
+                            });
+//                            List<GrafikItem> grafikItems = new ArrayList<>();
+//                            Class<? extends List> grItems = grafikItems.getClass();
+//                            System.out.println(grItems);
+
+//                            groaf();
 //                            grafikItemHandler.createStHandler(response.body());
                             Intent intent = new Intent(getApplicationContext(), StProfActivity.class);
                             startActivity(intent);
@@ -81,21 +102,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
 
-                    private void groaf() {
-                        mApiService.grafRequest()
-                                .enqueue(new Callback<GrafikItem>() {
-                                    @Override
-                                    public void onResponse(Call<GrafikItem> call, retrofit2.Response<GrafikItem> response) {
-                                        response.body();
-
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<GrafikItem> call, Throwable t) {
-
-                                    }
-                                });
-                    }
+//                    private void groaf() {
+//                        mApiService.grafRequest()
+//                                .enqueue(new Callback<GrafikItem>() {
+//                                    @Override
+//                                    public void onResponse(Call<GrafikItem> call, retrofit2.Response<GrafikItem> response) {
+//                                        response.body();
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onFailure(Call<GrafikItem> call, Throwable t) {
+//
+//                                    }
+//                                });
+//                    }
 
                     @Override
                     public void onFailure(Call<StudentsItem> call, Throwable t) {
