@@ -156,6 +156,7 @@ public class SessionHandler {
         user.put(KEY_SHOW_TESTS,pref.getString(KEY_SHOW_TESTS,null));
         return user;
     }
+
     public void checkLogin(){
         if(!this.isLoggedIn()){
             Intent i = new Intent(_context, LoginActivity.class);

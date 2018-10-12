@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.infinity.prof.handler.GrafikItemHandler;
 import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.model.StudentsItem;
 import com.example.infinity.prof.url.ApiService;
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Context mContext;
     ApiService mApiService;
     SessionHandler session;
+    GrafikItemHandler grafikItemHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

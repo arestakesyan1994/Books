@@ -12,6 +12,8 @@ import com.bumptech.glide.Glide;
 import com.example.infinity.prof.R;
 import com.example.infinity.prof.constants.NavigationDrawerConstants;
 import com.example.infinity.prof.handler.GrafikItemHandler;
+import com.example.infinity.prof.handler.GroupHandler;
+import com.example.infinity.prof.handler.ResponseHandler;
 import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
@@ -20,9 +22,9 @@ import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
 
-    SessionHandler session;
+    ResponseHandler session;
     GrafikItemHandler grafikHandler;
-    TextView uRating, nAnds, mrcuyt, xumb;
+    TextView uRating, nAnds, mrcuyt, xumb, teacher;
     ImageView userImage, userImageA;
     ApiService mApiService;
 
@@ -42,15 +44,24 @@ public class HomeFragment extends Fragment {
 
         mApiService = UtilsApi.getAPIService();
 
-        session = new SessionHandler(getActivity().getApplicationContext());
+        session = new ResponseHandler(getActivity().getApplicationContext());
         session.checkLogin();
 
-        HashMap<String, String> user = session.getUserDetails();
+        HashMap<String, String> user = session.getGrafikDetails();
         String name = user.get(SessionHandler.KEY_NAME);
         String surname = user.get(SessionHandler.KEY_SURNAME);
         String image = user.get(SessionHandler.KEY_PHOTO);
         String rating = user.get(SessionHandler.KEY_AVG);
         String xumbs = user.get(SessionHandler.KEY_GROUP_ID);
+
+//        grafikHandler = new GrafikItemHandler(getActivity().getApplicationContext());
+//        grafikHandler.checkLogin();
+//
+//        HashMap<String,String> grafik = grafikHandler.getGrafikDetails();
+//        String teacherId = grafik.get(GrafikItemHandler.GRAFIK_TEACHER_ID);
+//
+//        teacher =(TextView) home.findViewById(R.id.teacher);
+//        teacher.setText(teacherId);
 
         nAnds = (TextView) home.findViewById(R.id.nAnds);
         nAnds.setText(name + " " + surname);
