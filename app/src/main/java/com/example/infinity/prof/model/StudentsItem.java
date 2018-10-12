@@ -52,10 +52,6 @@ public class StudentsItem {
     @Expose
     private Object gumar;
 
-    @SerializedName("password")
-    @Expose
-    private String password;
-
     @SerializedName("paymanagri_skizb")
     @Expose
     private String paymanagriSkizb;
@@ -68,9 +64,25 @@ public class StudentsItem {
     @Expose
     private String lessonRate;
 
+    @SerializedName("name")
+    @Expose
+    private String name;
+
     @SerializedName("surname")
     @Expose
     private String surname;
+
+    @SerializedName("email")
+    @Expose
+    private String email;
+
+    @SerializedName("password")
+    @Expose
+    private String password;
+
+    @SerializedName("group_id")
+    @Expose
+    private String groupId;
 
     @SerializedName("kurs")
     @Expose
@@ -79,10 +91,6 @@ public class StudentsItem {
     @SerializedName("id")
     @Expose
     private int id;
-
-    @SerializedName("email")
-    @Expose
-    private String email;
 
     @SerializedName("code_task_level")
     @Expose
@@ -124,17 +132,9 @@ public class StudentsItem {
     @Expose
     private Object zexch;
 
-    @SerializedName("group_id")
-    @Expose
-    private String groupId;
-
     @SerializedName("release_date")
     @Expose
     private Object releaseDate;
-
-    @SerializedName("name")
-    @Expose
-    private String name;
 
     @SerializedName("online")
     @Expose

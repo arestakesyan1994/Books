@@ -64,6 +64,12 @@ public class GrafikItemHandler {
     }
 
 
+    public void createStHandler(StudentsItem studentsItem){
+        editor.putBoolean(IS_LOGIN,true);
+        editor.putString(GRAFIK_GROUP_ID, studentsItem.getGroupId());
+        this.editor.commit();
+    }
+
     public HashMap<String, String> getGrafikDetails(){
         HashMap<String, String> user = new HashMap<>();
         user.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
