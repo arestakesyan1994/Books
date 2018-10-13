@@ -14,9 +14,9 @@ public interface ApiService {
     @POST("get") //POJO
     Call<StudentsItem> loginRequest(@Field("login") String login,
                                     @Field("password") String password);
-//
-//   @FormUrlEncoded
-//    @POST("get") //POJO
-//    Call<GrafikItem> grafRequest();
+
+   @FormUrlEncoded
+    @POST("get") //POJO
+    Call<GrafikItem> grafRequest();
 
 }
