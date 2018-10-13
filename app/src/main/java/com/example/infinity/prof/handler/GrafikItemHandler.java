@@ -1,5 +1,6 @@
 package com.example.infinity.prof.handler;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,6 +9,9 @@ import com.example.infinity.prof.LoginActivity;
 import com.example.infinity.prof.model.GrafikItem;
 import com.example.infinity.prof.model.StudentsItem;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GrafikItemHandler {
@@ -15,7 +19,14 @@ public class GrafikItemHandler {
     SharedPreferences.Editor editor;
     private static Context _context;
     private static GrafikItemHandler mInstance;
+    private ProgressDialog pDialog;
 
+    // Creating JSON Parser object
+    // https://www.androidhive.info/2012/05/how-to-connect-android-with-php-mysql/
+    // JSONParser jParser = new JSONParser();
+
+//    ArrayList<HashMap<String, String>> productsList;
+//    JSONArray grafik = null;
 
     int PRIVATE_MODE = 0;
 

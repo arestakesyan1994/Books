@@ -17,6 +17,7 @@ public interface ApiService {
 
    @FormUrlEncoded
     @POST("get") //POJO
-    Call<GrafikItem> grafRequest();
+    Call<GrafikItem> grafRequest(@Field("login") String login,
+                                 @Field("password") String password);
 
 }

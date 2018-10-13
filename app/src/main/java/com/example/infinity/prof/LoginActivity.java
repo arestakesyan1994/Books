@@ -19,8 +19,11 @@ import com.example.infinity.prof.model.StudentsItem;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,6 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button btnLogin;
     private View mProgressView;
     private View mLoginFormView;
+    ArrayList<String> arrayList = new ArrayList<>();
 
 
     Context mContext;
@@ -71,30 +75,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         response.body();
                         if (response.body().getId() != 0) {
                             session.createLoginSession(response.body());
-                            groaf();
-//                            grafikItemHandler.createStHandler(response.body());
+                            System.out.println(response.body());
+
+
+
+                            mApiService.grafRequest(mUserName.getText().toString(), mPasswordView.getText().toString()).enqueue(new Callback<GrafikItem>() {
+                                @Override
+                                public void onResponse(Call<GrafikItem> call, Response<GrafikItem> responses) {
+                                    responses.body();
+                                    System.out.println(responses.body().getGroupId());
+
+
+                                }
+                                @Override
+                                public void onFailure(Call<GrafikItem> call, Throwable t) {
+
+                                }
+                            });
+
+
                             Intent intent = new Intent(getApplicationContext(), StProfActivity.class);
                             startActivity(intent);
                             Toast.makeText(LoginActivity.this, "Բարի գլուստ " + response.body().getName() + " " + response.body().getSurname(), Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(LoginActivity.this, "Sorry, User Name or Password wrong.\n try again...", Toast.LENGTH_SHORT).show();
                         }
-                    }
-
-                    private void groaf() {
-                        mApiService.grafRequest()
-                                .enqueue(new Callback<GrafikItem>() {
-                                    @Override
-                                    public void onResponse(Call<GrafikItem> call, retrofit2.Response<GrafikItem> response) {
-                                        response.body();
-
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<GrafikItem> call, Throwable t) {
-
-                                    }
-                                });
                     }
 
                     @Override

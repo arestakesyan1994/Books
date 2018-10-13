@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.example.infinity.prof.LoginActivity;
+import com.example.infinity.prof.model.GrafikItem;
 import com.example.infinity.prof.model.StudentsItem;
 
 import java.util.HashMap;
@@ -61,6 +62,15 @@ public class SessionHandler {
     public static final String KEY_SHOW_TESTS = "showTests";
     public static final String KEY_STATUS = "status";
 
+    public static final String GRAFIK_GROUP_ID = "groupId";
+    public static final String GRAFIK_TEACHER_ID = "teacherId";
+    public static final String GRAFIK_START = "start";
+    public static final String GRAFIK_ACTIVE = "active";
+    public static final String GRAFIK_END = "end";
+    public static final String GRAFIK_ID= "id";
+    public static final String GRAFIK_DAY_ID= "dayId";
+    public static final String GRAFIK_DAY= "day";
+
     public SessionHandler(Context context){
         this._context = context;
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
@@ -108,6 +118,7 @@ public class SessionHandler {
         editor.putString(KEY_LEVEL_NAME, studentsItem.getLevelName());
         editor.putString(KEY_ZEXCH, (String) studentsItem.getZexch());
         editor.putString(KEY_GROUP_ID, studentsItem.getGroupId());
+
         editor.putString(KEY_RELEASE_DATE, (String) studentsItem.getReleaseDate());
         editor.putString(KEY_ONLINE, studentsItem.getOnline());
         editor.putString(KEY_PAYMANAGRT_AVART, studentsItem.getOnline());
