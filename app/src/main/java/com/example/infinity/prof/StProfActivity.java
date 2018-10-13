@@ -46,7 +46,6 @@ public class StProfActivity extends AppCompatActivity
 
     SessionHandler session;
     GroupHandler groups;
-    GrafikItemHandler grafikHandler;
     TextView uRating, nAnds, mrcuyt, modul, xumb, nAndsA,uRatingA;
     ImageView userImage, userImageA;
     ApiService mApiService;

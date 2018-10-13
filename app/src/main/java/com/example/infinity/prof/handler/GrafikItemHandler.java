@@ -32,6 +32,7 @@ public class GrafikItemHandler {
     public static final String GRAFIK_ID= "id";
     public static final String GRAFIK_DAY_ID= "dayId";
     public static final String GRAFIK_DAY= "day";
+    private StudentsItem studentsItem;
 
     public GrafikItemHandler(Context context){
         this._context = context;
@@ -59,15 +60,9 @@ public class GrafikItemHandler {
     }
     
     public void createStHandler(StudentsItem studentsItem){
+        this.studentsItem = studentsItem;
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(GRAFIK_GROUP_ID, studentsItem.getGroupId());
-    }
-
-
-    public void createStHandler(StudentsItem studentsItem){
-        editor.putBoolean(IS_LOGIN,true);
-        editor.putString(GRAFIK_GROUP_ID, studentsItem.getGroupId());
-        this.editor.commit();
     }
 
     public HashMap<String, String> getGrafikDetails(){

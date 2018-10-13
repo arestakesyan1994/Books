@@ -18,7 +18,9 @@ import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -53,6 +55,13 @@ public class HomeFragment extends Fragment {
         String image = user.get(SessionHandler.KEY_PHOTO);
         String rating = user.get(SessionHandler.KEY_AVG);
         String xumbs = user.get(SessionHandler.KEY_GROUP_ID);
+
+
+        List<GrafikItemHandler> grafikItemHandlerList = new ArrayList<>();
+
+
+
+
 
 //        grafikHandler = new GrafikItemHandler(getActivity().getApplicationContext());
 //        grafikHandler.checkLogin();

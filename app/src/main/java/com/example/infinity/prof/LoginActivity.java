@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Context mContext;
     ApiService mApiService;
     SessionHandler session;
-    GrafikItemHandler grafikItemHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +70,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         response.body();
                         if (response.body().getId() != 0) {
                             session.createLoginSession(response.body());
-                            groaf();
 //                            grafikItemHandler.createStHandler(response.body());
                             Intent intent = new Intent(getApplicationContext(), StProfActivity.class);
                             startActivity(intent);
@@ -80,22 +78,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Toast.makeText(LoginActivity.this, "Sorry, User Name or Password wrong.\n try again...", Toast.LENGTH_SHORT).show();
                         }
                     }
-
-                    private void groaf() {
-                        mApiService.grafRequest()
-                                .enqueue(new Callback<GrafikItem>() {
-                                    @Override
-                                    public void onResponse(Call<GrafikItem> call, retrofit2.Response<GrafikItem> response) {
-                                        response.body();
-
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<GrafikItem> call, Throwable t) {
-
-                                    }
-                                });
-                    }
+//
+//                    private void groaf() {
+//                        mApiService.grafRequest()
+//                                .enqueue(new Callback<GrafikItem>() {
+//                                    @Override
+//                                    public void onResponse(Call<GrafikItem> call, retrofit2.Response<GrafikItem> response) {
+//                                        response.body();
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onFailure(Call<GrafikItem> call, Throwable t) {
+//
+//                                    }
+//                                });
+//                    }
 
                     @Override
                     public void onFailure(Call<StudentsItem> call, Throwable t) {
