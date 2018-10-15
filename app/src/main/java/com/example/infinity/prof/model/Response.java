@@ -1,5 +1,6 @@
 package com.example.infinity.prof.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -10,130 +11,227 @@ import javax.annotation.Generated;
 public class Response{
 
 	@SerializedName("date")
+	@Expose
 	private String date;
 
 	@SerializedName("reason")
+	@Expose
 	private String reason;
 
 	@SerializedName("game")
+	@Expose
 	private String game;
 
 	@SerializedName("grafik")
+	@Expose
 	private List<GrafikItem> grafik;
 
 	@SerializedName("show_phone")
+	@Expose
 	private String showPhone;
 
 	@SerializedName("examen_access")
+	@Expose
 	private String examenAccess;
 
 	@SerializedName("description")
+	@Expose
 	private String description;
 
 	@SerializedName("type")
+	@Expose
 	private Object type;
 
 	@SerializedName("login")
+	@Expose
 	private String login;
 
 	@SerializedName("is_playing_game")
+	@Expose
 	private String isPlayingGame;
 
 	@SerializedName("score")
+	@Expose
 	private String score;
 
 	@SerializedName("gumar")
+	@Expose
 	private Object gumar;
 
 	@SerializedName("password")
+	@Expose
 	private String password;
 
 	@SerializedName("paymanagri_skizb")
+	@Expose
 	private String paymanagriSkizb;
 
 	@SerializedName("avg")
+	@Expose
 	private String avg;
 
 	@SerializedName("teacher")
+	@Expose
 	private Teacher teacher;
 
 	@SerializedName("lesson_rate")
+	@Expose
 	private String lessonRate;
 
 	@SerializedName("surname")
+	@Expose
 	private String surname;
 
 	@SerializedName("kurs")
+	@Expose
 	private Object kurs;
 
 	@SerializedName("id")
+	@Expose
 	private int id;
 
 	@SerializedName("email")
+	@Expose
 	private String email;
 
 	@SerializedName("group")
+	@Expose
 	private Group group;
 
 	@SerializedName("code_task_level")
+	@Expose
 	private String codeTaskLevel;
 
 	@SerializedName("prefers")
+	@Expose
 	private String prefers;
 
 	@SerializedName("current_payment")
+	@Expose
 	private String currentPayment;
 
 	@SerializedName("sex")
+	@Expose
 	private String sex;
 
 	@SerializedName("photo")
+	@Expose
 	private String photo;
 
 	@SerializedName("code_level")
+	@Expose
 	private String codeLevel;
 
 	@SerializedName("artificial_rate")
+	@Expose
 	private String artificialRate;
 
 	@SerializedName("game_activity")
+	@Expose
 	private String gameActivity;
 
 	@SerializedName("modules")
+	@Expose
 	private List<ModulesItem> modules;
 
 	@SerializedName("level_name")
+	@Expose
 	private String levelName;
 
 	@SerializedName("zexch")
+	@Expose
 	private Object zexch;
 
 	@SerializedName("group_id")
+	@Expose
 	private String groupId;
 
 	@SerializedName("release_date")
+	@Expose
 	private Object releaseDate;
 
 	@SerializedName("name")
+	@Expose
 	private String name;
 
 	@SerializedName("online")
+	@Expose
 	private String online;
 
 	@SerializedName("phone_number")
+	@Expose
 	private String phoneNumber;
 
 	@SerializedName("paymanagri_avart")
+	@Expose
 	private String paymanagriAvart;
 
 	@SerializedName("show_tests")
+	@Expose
 	private String showTests;
 
 	@SerializedName("notifications")
+	@Expose
 	private List<NotificationsItem> notifications;
 
 	@SerializedName("status")
+	@Expose
 	private String status;
+
+	public Response() {
+	}
+
+	public Response(String date, String reason, String game, List<GrafikItem> grafik, String showPhone, String examenAccess,
+					String description, Object type, String login, String isPlayingGame, String score,
+					Object gumar, String password, String paymanagriSkizb, String avg, Teacher teacher, String lessonRate,
+					String surname, Object kurs, int id, String email, Group group, String codeTaskLevel,
+					String prefers, String currentPayment, String sex, String photo, String codeLevel, String artificialRate,
+					String gameActivity, List<ModulesItem> modules, String levelName, Object zexch, String groupId,
+					Object releaseDate, String name, String online, String phoneNumber, String paymanagriAvart,
+					String showTests, List<NotificationsItem> notifications, String status) {
+		this.date = date;
+		this.reason = reason;
+		this.game = game;
+		this.grafik = grafik;
+		this.showPhone = showPhone;
+		this.examenAccess = examenAccess;
+		this.description = description;
+		this.type = type;
+		this.login = login;
+		this.isPlayingGame = isPlayingGame;
+		this.score = score;
+		this.gumar = gumar;
+		this.password = password;
+		this.paymanagriSkizb = paymanagriSkizb;
+		this.avg = avg;
+		this.teacher = teacher;
+		this.lessonRate = lessonRate;
+		this.surname = surname;
+		this.kurs = kurs;
+		this.id = id;
+		this.email = email;
+		this.group = group;
+		this.codeTaskLevel = codeTaskLevel;
+		this.prefers = prefers;
+		this.currentPayment = currentPayment;
+		this.sex = sex;
+		this.photo = photo;
+		this.codeLevel = codeLevel;
+		this.artificialRate = artificialRate;
+		this.gameActivity = gameActivity;
+		this.modules = modules;
+		this.levelName = levelName;
+		this.zexch = zexch;
+		this.groupId = groupId;
+		this.releaseDate = releaseDate;
+		this.name = name;
+		this.online = online;
+		this.phoneNumber = phoneNumber;
+		this.paymanagriAvart = paymanagriAvart;
+		this.showTests = showTests;
+		this.notifications = notifications;
+		this.status = status;
+	}
 
 	public void setDate(String date){
 		this.date = date;

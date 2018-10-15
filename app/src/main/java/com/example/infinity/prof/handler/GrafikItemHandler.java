@@ -9,9 +9,6 @@ import com.example.infinity.prof.LoginActivity;
 import com.example.infinity.prof.model.GrafikItem;
 import com.example.infinity.prof.model.StudentsItem;
 
-import org.json.JSONArray;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GrafikItemHandler {
@@ -43,7 +40,6 @@ public class GrafikItemHandler {
     public static final String GRAFIK_ID= "id";
     public static final String GRAFIK_DAY_ID= "dayId";
     public static final String GRAFIK_DAY= "day";
-    private StudentsItem studentsItem;
 
     public GrafikItemHandler(Context context){
         this._context = context;
@@ -70,11 +66,8 @@ public class GrafikItemHandler {
         this.editor.commit();
     }
     
-    public void createStHandler(StudentsItem studentsItem){
-        this.studentsItem = studentsItem;
-        editor.putBoolean(IS_LOGIN, true);
-        editor.putString(GRAFIK_GROUP_ID, studentsItem.getGroupId());
-    }
+//
+
 
     public HashMap<String, String> getGrafikDetails(){
         HashMap<String, String> user = new HashMap<>();

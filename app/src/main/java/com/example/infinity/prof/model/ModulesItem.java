@@ -28,6 +28,17 @@ public class ModulesItem{
 	@Expose
 	private String lessonsCount;
 
+	public ModulesItem() {
+	}
+
+	public ModulesItem(String name, String about, String kurs, int id, String lessonsCount) {
+		this.name = name;
+		this.about = about;
+		this.kurs = kurs;
+		this.id = id;
+		this.lessonsCount = lessonsCount;
+	}
+
 	public void setName(String name){
 		this.name = name;
 	}

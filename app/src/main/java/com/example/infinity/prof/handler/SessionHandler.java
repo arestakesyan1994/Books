@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 
 import com.example.infinity.prof.LoginActivity;
 import com.example.infinity.prof.model.GrafikItem;
+import com.example.infinity.prof.model.Group;
 import com.example.infinity.prof.model.StudentsItem;
 
 import java.util.HashMap;
@@ -117,12 +118,23 @@ public class SessionHandler {
         editor.putString(KEY_GAME_ACTIVITY, studentsItem.getGameActivity());
         editor.putString(KEY_LEVEL_NAME, studentsItem.getLevelName());
         editor.putString(KEY_ZEXCH, (String) studentsItem.getZexch());
-        editor.putString(KEY_GROUP_ID, studentsItem.getGroupId());
-
+        editor.putString(KEY_GROUP_ID, String.valueOf(studentsItem.getGroupId()));
         editor.putString(KEY_RELEASE_DATE, (String) studentsItem.getReleaseDate());
         editor.putString(KEY_ONLINE, studentsItem.getOnline());
         editor.putString(KEY_PAYMANAGRT_AVART, studentsItem.getOnline());
         editor.putString(KEY_SHOW_TESTS, studentsItem.getShowTests());
+
+//        GrafikItem grafikItem = null;
+//        editor.putString(GRAFIK_ID, String.valueOf(grafikItem.getId()));
+//        editor.putString(GRAFIK_GROUP_ID,  studentsItem.getGroupId());
+//        editor.putString(GRAFIK_START,  grafikItem.getStart());
+//        editor.putString(GRAFIK_END,  grafikItem.getEnd());
+//        editor.putString(GRAFIK_DAY_ID, grafikItem.getDayId());
+//        editor.putString(GRAFIK_TEACHER_ID, grafikItem.getTeacherId());
+//        editor.putString(GRAFIK_DAY, grafikItem.getDay());
+//        editor.putString(GRAFIK_ACTIVE, (String) grafikItem.getActive());
+
+
         editor.commit();
     }
 
@@ -165,6 +177,15 @@ public class SessionHandler {
         user.put(KEY_RELEASE_DATE,pref.getString(KEY_RELEASE_DATE,null));
         user.put(KEY_PAYMANAGRT_AVART,pref.getString(KEY_PAYMANAGRT_AVART,null));
         user.put(KEY_SHOW_TESTS,pref.getString(KEY_SHOW_TESTS,null));
+
+//        user.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
+//        user.put(GRAFIK_GROUP_ID, pref.getString(GRAFIK_GROUP_ID, null));
+//        user.put(GRAFIK_START, pref.getString(GRAFIK_START, null));
+//        user.put(GRAFIK_END, pref.getString(GRAFIK_END, null));
+//        user.put(GRAFIK_DAY_ID, pref.getString(GRAFIK_DAY_ID, null));
+//        user.put(GRAFIK_TEACHER_ID, pref.getString(GRAFIK_TEACHER_ID, null));
+//        user.put(GRAFIK_DAY, pref.getString(GRAFIK_DAY, null));
+//        user.put(GRAFIK_ACTIVE, pref.getString(GRAFIK_ACTIVE, null));
         return user;
     }
 

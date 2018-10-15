@@ -60,9 +60,6 @@ public class HomeFragment extends Fragment {
         List<GrafikItemHandler> grafikItemHandlerList = new ArrayList<>();
 
 
-
-
-
 //        grafikHandler = new GrafikItemHandler(getActivity().getApplicationContext());
 //        grafikHandler.checkLogin();
 //

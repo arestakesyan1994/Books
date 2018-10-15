@@ -12,9 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.infinity.prof.handler.GrafikItemHandler;
 import com.example.infinity.prof.handler.SessionHandler;
-import com.example.infinity.prof.model.GrafikItem;
 import com.example.infinity.prof.model.StudentsItem;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
@@ -23,7 +21,6 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -39,7 +36,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Context mContext;
     ApiService mApiService;
     SessionHandler session;
-    GrafikItemHandler grafikItemHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +63,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mApiService = UtilsApi.getAPIService();
     }
 
+    // raffi-minasyan@profit.com
+    // c6159c32
+
     private void requestLogin() {
         mApiService.loginRequest(mUserName.getText().toString(), mPasswordView.getText().toString())
+
                 .enqueue(new Callback<StudentsItem>() {
                     @Override
                     public void onResponse(Call<StudentsItem> call, retrofit2.Response<StudentsItem> response) {
@@ -77,22 +77,78 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             session.createLoginSession(response.body());
                             System.out.println(response.body());
 
+    //
+//                            JSONObject mainObject = null;
+//                            try {
+//                                mainObject = new JSONObject(String.valueOf(mContext));
+//
+//                                JSONObject jsonAPI = mainObject.getJSONObject("notifications");
+//                                JSONArray array = (JSONArray) jsonAPI.get("student_id");
+//
+//                                for (int i = 0; i < array.length(); i++) {
+//
+//                                    JSONObject childObject = array.getJSONObject(i);
+//                                    String id = childObject.getString("id");
+//
+//                                    System.out.println(id);
+//
+//                                }
+//                            } catch (JSONException e) {
+//                                e.printStackTrace();
+//                            }
+//                            StudentsItem o = new StudentsItem().withGroupId(response.body().getGroupId());
+//                            GrafikItem grafikItem = new GrafikItem().withGroupId(response.body().getGroupId());
+//                            System.out.println(o);
+//                            System.out.println(grafikItem);
 
 
-                            mApiService.grafRequest(mUserName.getText().toString(), mPasswordView.getText().toString()).enqueue(new Callback<GrafikItem>() {
-                                @Override
-                                public void onResponse(Call<GrafikItem> call, Response<GrafikItem> responses) {
-                                    responses.body();
-                                    System.out.println(responses.body().getGroupId());
-
-
-                                }
-                                @Override
-                                public void onFailure(Call<GrafikItem> call, Throwable t) {
-
-                                }
-                            });
-
+//                            mApiService.grafRequest(mUserName.getText().toString(), mPasswordView.getText().toString()).enqueue(new Callback<GrafikItem>() {
+//                                @Override
+//                                public void onResponse(Call<GrafikItem> call, Response<GrafikItem> responses) {
+//                                    responses.body();
+//                                    System.out.println(response.body());
+//                                    System.out.println(responses.body());
+//
+////                                    try{
+////                                    List<String> items = new ArrayList<>();
+////                                    JSONObject root = new JSONObject();
+////
+////                                    JSONArray array= root.getJSONArray("grafik");
+////
+////                                    this.setTitle(root.getString("id"));
+////
+////                                    for(int i=0;i<array.length();i++)
+////                                    {
+////                                        JSONObject object= array.getJSONObject(i);
+////                                        items.add(object.getString("company"));
+////                                    }
+////
+////
+////                                    JSONObject nested= root.getJSONObject("nested");
+////                                    Log.d("TAG","flag value "+nested.getBoolean("flag"));
+////
+////                                } catch (JSONException e) {
+////                                    e.printStackTrace();
+////                                }
+//
+//
+////                                    try {
+////                                        JSONObject jObject = new JSONObject(String.valueOf(mContext));
+////                                        JSONObject offerObject = jObject.getJSONObject("group");
+////                                        String nameValue = offerObject.getString("name");
+////                                        System.out.println(nameValue);
+////                                    } catch (JSONException e) {
+////                                        e.printStackTrace();
+////                                    }
+//
+//
+//
+//                                }
+//                                @Override
+//                                public void onFailure(Call<GrafikItem> call, Throwable t) {
+//
+//                                }
+//                            });
 
                             Intent intent = new Intent(getApplicationContext(), StProfActivity.class);
                             startActivity(intent);

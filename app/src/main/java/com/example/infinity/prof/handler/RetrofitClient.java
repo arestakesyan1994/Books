@@ -22,7 +22,6 @@ public class RetrofitClient {
 //        return retrofit;
 //    }
 
-
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient(String baseUrl) {

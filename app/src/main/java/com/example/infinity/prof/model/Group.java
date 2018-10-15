@@ -1,5 +1,6 @@
 package com.example.infinity.prof.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -10,34 +11,61 @@ import javax.annotation.Generated;
 public class Group{
 
 	@SerializedName("lsaran_id")
+	@Expose
 	private Object lsaranId;
 
 	@SerializedName("module_id")
+	@Expose
 	private String moduleId;
 
 	@SerializedName("color")
+	@Expose
 	private String color;
 
 	@SerializedName("level")
+	@Expose
 	private Object level;
 
 	@SerializedName("teacher_id")
+	@Expose
 	private String teacherId;
 
 	@SerializedName("name")
+	@Expose
 	private String name;
 
 	@SerializedName("active")
+	@Expose
 	private String active;
 
 	@SerializedName("students")
+	@Expose
 	private List<StudentsItem> students;
 
 	@SerializedName("id")
+	@Expose
 	private int id;
 
 	@SerializedName("part_id")
+	@Expose
 	private String partId;
+
+	public Group() {
+	}
+
+	public Group(Object lsaranId, String moduleId, String color, Object level, String teacherId, String name,
+				 String active, List<StudentsItem> students, int id, String partId) {
+		this.lsaranId = lsaranId;
+		this.moduleId = moduleId;
+		this.color = color;
+		this.level = level;
+		this.teacherId = teacherId;
+		this.name = name;
+		this.active = active;
+		this.students = students;
+		this.id = id;
+		this.partId = partId;
+	}
 
 	public void setLsaranId(Object lsaranId){
 		this.lsaranId = lsaranId;

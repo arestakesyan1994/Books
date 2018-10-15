@@ -1,5 +1,6 @@
 package com.example.infinity.prof.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
@@ -8,28 +9,51 @@ import javax.annotation.Generated;
 public class GrafikItem{
 
 	@SerializedName("group_id")
+	@Expose
 	private String groupId;
 
 	@SerializedName("teacher_id")
+	@Expose
 	private String teacherId;
 
 	@SerializedName("start")
+	@Expose
 	private String start;
 
 	@SerializedName("active")
+	@Expose
 	private Object active;
 
 	@SerializedName("end")
+	@Expose
 	private String end;
 
 	@SerializedName("id")
+	@Expose
 	private int id;
 
 	@SerializedName("day_id")
+	@Expose
 	private String dayId;
 
 	@SerializedName("day")
+	@Expose
 	private String day;
+
+	public GrafikItem() {
+	}
+
+	public GrafikItem(String groupId, String teacherId, String start,
+					  Object active, String end, int id, String dayId, String day) {
+		this.groupId = groupId;
+		this.teacherId = teacherId;
+		this.start = start;
+		this.active = active;
+		this.end = end;
+		this.id = id;
+		this.dayId = dayId;
+		this.day = day;
+	}
 
 	public void setGroupId(String groupId){
 		this.groupId = groupId;
