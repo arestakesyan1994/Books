@@ -159,6 +159,11 @@ public class StudentsItem {
     public StudentsItem() {
     }
 
+//    public StudentsItem withGroupId(String groupId){
+//        this.groupId = groupId;
+//        return this;
+//    }
+
     public StudentsItem(String date, String reason, String game,
                         String showPhone, String examenAccess, String description,
                         Object type, String login, String isPlayingGame,

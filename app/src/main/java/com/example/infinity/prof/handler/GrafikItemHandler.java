@@ -1,5 +1,6 @@
 package com.example.infinity.prof.handler;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,7 +16,14 @@ public class GrafikItemHandler {
     SharedPreferences.Editor editor;
     private static Context _context;
     private static GrafikItemHandler mInstance;
+    private ProgressDialog pDialog;
 
+    // Creating JSON Parser object
+    // https://www.androidhive.info/2012/05/how-to-connect-android-with-php-mysql/
+    // JSONParser jParser = new JSONParser();
+
+//    ArrayList<HashMap<String, String>> productsList;
+//    JSONArray grafik = null;
 
     int PRIVATE_MODE = 0;
 
@@ -58,17 +66,8 @@ public class GrafikItemHandler {
         this.editor.commit();
     }
     
-    public void createStHandler(StudentsItem studentsItem){
-        editor.putBoolean(IS_LOGIN, true);
-        editor.putString(GRAFIK_GROUP_ID, studentsItem.getGroupId());
-    }
+//
 
-
-    public void createStHandler(StudentsItem studentsItem){
-        editor.putBoolean(IS_LOGIN,true);
-        editor.putString(GRAFIK_GROUP_ID, studentsItem.getGroupId());
-        this.editor.commit();
-    }
 
     public HashMap<String, String> getGrafikDetails(){
         HashMap<String, String> user = new HashMap<>();

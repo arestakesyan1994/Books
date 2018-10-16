@@ -1,5 +1,6 @@
 package com.example.infinity.prof.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
@@ -8,43 +9,76 @@ import javax.annotation.Generated;
 public class Teacher{
 
 	@SerializedName("raiting")
+	@Expose
 	private String raiting;
 
 	@SerializedName("avg_flow")
+	@Expose
 	private String avgFlow;
 
 	@SerializedName("avg_listen")
+	@Expose
 	private String avgListen;
 
 	@SerializedName("level")
+	@Expose
 	private String level;
 
 	@SerializedName("avg_project")
+	@Expose
 	private String avgProject;
 
 	@SerializedName("about")
+	@Expose
 	private String about;
 
 	@SerializedName("photo")
+	@Expose
 	private String photo;
 
 	@SerializedName("active")
+	@Expose
 	private String active;
 
 	@SerializedName("phone")
+	@Expose
 	private String phone;
 
 	@SerializedName("surname")
+	@Expose
 	private String surname;
 
 	@SerializedName("name")
+	@Expose
 	private String name;
 
 	@SerializedName("avg_stud")
+	@Expose
 	private String avgStud;
 
 	@SerializedName("id")
+	@Expose
 	private int id;
+
+	public Teacher() {
+	}
+
+	public Teacher(String raiting, String avgFlow, String avgListen, String level, String avgProject, String about,
+				   String photo, String active, String phone, String surname, String name, String avgStud, int id) {
+		this.raiting = raiting;
+		this.avgFlow = avgFlow;
+		this.avgListen = avgListen;
+		this.level = level;
+		this.avgProject = avgProject;
+		this.about = about;
+		this.photo = photo;
+		this.active = active;
+		this.phone = phone;
+		this.surname = surname;
+		this.name = name;
+		this.avgStud = avgStud;
+		this.id = id;
+	}
 
 	public void setRaiting(String raiting){
 		this.raiting = raiting;
