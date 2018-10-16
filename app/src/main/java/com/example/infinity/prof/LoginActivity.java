@@ -81,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 public void onResponse(Call<GrafikItem> call, Response<GrafikItem> responses) {
                                     responses.body();
                                     System.out.println(responses.body());
+
                                 }
 
                                 @Override
