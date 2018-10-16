@@ -12,10 +12,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.infinity.prof.handler.GrafikItemHandler;
 import com.example.infinity.prof.handler.SessionHandler;
+import com.example.infinity.prof.model.GrafikItem;
 import com.example.infinity.prof.model.StudentsItem;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
+import com.google.gson.JsonArray;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -36,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Context mContext;
     ApiService mApiService;
     SessionHandler session;
+    GrafikItem grafikItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,23 +85,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             session.createLoginSession(response.body());
                             System.out.println(response.body());
 
-    //
-//                            JSONObject mainObject = null;
+
+//                            JSONObject mainObject = new JSONObject();
 //                            try {
-//                                mainObject = new JSONObject(String.valueOf(mContext));
-//
-//                                JSONObject jsonAPI = mainObject.getJSONObject("notifications");
-//                                JSONArray array = (JSONArray) jsonAPI.get("student_id");
-//
-//                                for (int i = 0; i < array.length(); i++) {
-//
-//                                    JSONObject childObject = array.getJSONObject(i);
-//                                    String id = childObject.getString("id");
-//
-//                                    System.out.println(id);
+////                                mainObject.put(Integer.parseInt("id"), grafikItem.getId());
+//                                mainObject.put("group_id", grafikItem.getGroupId());
+//                                System.out.println(mainObject);
 //
 //                                }
-//                            } catch (JSONException e) {
+//                            catch (JSONException e) {
 //                                e.printStackTrace();
 //                            }
 //                            StudentsItem o = new StudentsItem().withGroupId(response.body().getGroupId());
