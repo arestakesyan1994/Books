@@ -19,6 +19,7 @@ import com.example.infinity.prof.model.GrafikItem;
 import com.example.infinity.prof.model.StudentsItem;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
+import com.google.android.gms.common.util.JsonUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,6 +46,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     ApiService mApiService;
     SessionHandler session;
     GrafikItemHandler grafikItemHandler;
+    StudentsItem studentsItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,131 +91,202 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             String urlJsonArry = "http://app.profitdeco.com/mobile/get?login=" + mUserName.getText().toString() + "&password=" + mPasswordView.getText().toString();
 
                             try {
-                                JSONObject mainObject = new JSONObject(urlJsonArry);
-                                String id = mainObject.getString("id");
-                                String name = mainObject.getString("name");
-                                String surname = mainObject.getString("surname");
-                                String paymanagri_avart = mainObject.getString("paymanagri_avart");
-                                String group_id = mainObject.getString("group_id");
-                                String zexch = mainObject.getString("zexch");
-                                String gumar = mainObject.getString("gumar");
-                                String status = mainObject.getString("status");
-                                String email = mainObject.getString("email");
-                                String phone_number = mainObject.getString("phone_number");
-                                String date = mainObject.getString("date");
-                                String description = mainObject.getString("description");
-                                String paymanagri_skizb = mainObject.getString("paymanagri_skizb");
-                                String reason = mainObject.getString("reason");
-                                String kurs = mainObject.getString("kurs");
-                                String type = mainObject.getString("type");
-                                String avg = mainObject.getString("avg");
-                                String login = mainObject.getString("login");
-                                String password = mainObject.getString("password");
-                                String photo = mainObject.getString("photo");
-                                String show_phone = mainObject.getString("show_phone");
-                                String prefers = mainObject.getString("prefers");
-                                String current_payment = mainObject.getString("current_payment");
-                                String online = mainObject.getString("online");
-                                String release_date = mainObject.getString("release_date");
-                                String artificial_rate = mainObject.getString("artificial_rate");
-                                String lesson_rate = mainObject.getString("lesson_rate");
-                                String code_level = mainObject.getString("code_level");
-                                String code_task_level = mainObject.getString("code_task_level");
-                                String level_name = mainObject.getString("level_name");
-                                String score = mainObject.getString("score");
-                                String show_tests = mainObject.getString("show_tests");
-                                String game = mainObject.getString("game");
-                                String examen_access = mainObject.getString("examen_access");
-                                String sex = mainObject.getString("sex");
-                                String game_activity = mainObject.getString("game_activity");
-                                String is_playing_game = mainObject.getString("is_playing_game");
-//                                JSONObject jsonAPI = mainObject.getJSONObject("jsonapi");
-                                JSONArray notifications = (JSONArray) mainObject.get("notifications");
-
-                                for (int i = 0; i < notifications.length(); i++) {
-
-                                    JSONObject childObject = notifications.getJSONObject(i);
-                                    String notId = childObject.getString("id");
-                                    String notStudentId = childObject.getString("student_id");
-                                    String notText = childObject.getString("text");
-                                    String notStatus = childObject.getString("status");
-                                    String notWhen = childObject.getString("when");
-
-                                }
-                                JSONArray grafik = (JSONArray) mainObject.get("grafik");
-
-                                for (int i = 0; i < grafik.length(); i++) {
-
-                                    JSONObject childObject = grafik.getJSONObject(i);
-                                    String grId = childObject.getString("id");
-                                    String grGroup_id = childObject.getString("group_id");
-                                    String grDayId = childObject.getString("day_id");
-                                    String grStatus = childObject.getString("status");
-                                    String grEnd = childObject.getString("end");
-                                    String grTeacherId = childObject.getString("teacher_id");
-                                    String grActive = childObject.getString("active");
-                                    String grDay = childObject.getString("day");
-
-                                }
-                                JSONObject group = mainObject.getJSONObject("group");
-                                String groupId = group.getString("id");
-                                String groupName = group.getString("name");
-                                String groupPartId = group.getString("part_id");
-                                String groupTeacherId = group.getString("teacher_id");
-                                String groupColor = group.getString("color");
-                                String groupLsaran_id = group.getString("lsaran_id");
-                                String groupLevel = group.getString("level");
-                                String groupActive= group.getString("active");
-                                String groupModuleId = group.getString("module_id");
-                                JSONArray students = (JSONArray) mainObject.get("students");
-
-                                for (int i = 0; i < notifications.length(); i++) {
-
-                                    JSONObject childObject = notifications.getJSONObject(i);
-                                    String idStudents = childObject.getString("id");
-                                    String nameStudents = childObject.getString("name");
-                                    String surnameStudents = childObject.getString("surname");
-                                    String paymanagriAvartStudents = childObject.getString("paymanagri_avart");
-                                    String group_idStudents = childObject.getString("group_id");
-                                    String zexchStudents = childObject.getString("zexch");
-                                    String gumarStudents = childObject.getString("gumar");
-                                    String statusStudents = childObject.getString("status");
-                                    String emailStudents = childObject.getString("email");
-                                    String phone_numberStudents = childObject.getString("phone_number");
-                                    String dateStudents = childObject.getString("date");
-                                    String descriptionStudents = childObject.getString("description");
-                                    String paymanagri_skizbStudents = childObject.getString("paymanagri_skizb");
-                                    String reasonStudents = childObject.getString("reason");
-                                    String kursStudents = childObject.getString("kurs");
-                                    String typeStudents = childObject.getString("type");
-                                    String avgStudents = childObject.getString("avg");
-                                    String loginStudents = childObject.getString("login");
-                                    String passwordStudents = childObject.getString("password");
-                                    String photoStudents = childObject.getString("photo");
-                                    String show_phoneStudents = childObject.getString("show_phone");
-                                    String prefersStudents = childObject.getString("prefers");
-                                    String current_paymentStudents = childObject.getString("current_payment");
-                                    String onlineStudents = childObject.getString("online");
-                                    String release_dateStudents = childObject.getString("release_date");
-                                    String artificial_rateStudents = childObject.getString("artificial_rate");
-                                    String lesson_rateStudents = childObject.getString("lesson_rate");
-                                    String code_levelStudents = childObject.getString("code_level");
-                                    String code_task_levelStudents = childObject.getString("code_task_level");
-                                    String level_nameStudents = childObject.getString("level_name");
-                                    String scoreStudents = childObject.getString("score");
-                                    String show_testsStudents = childObject.getString("show_tests");
-                                    String gameStudents = childObject.getString("game");
-                                    String examen_accessStudents = childObject.getString("examen_access");
-                                    String sexStudents = childObject.getString("sex");
-                                    String game_activityStudents = childObject.getString("game_activity");
-                                    String is_playing_gameStudents = childObject.getString("is_playing_game");
-
-                                }
-
+                                JSONObject mainObject = new JSONObject();
+                                mainObject.put("name", studentsItem.getName());
+                                mainObject.put("surname", studentsItem.getSurname());
+                                mainObject.put("id", studentsItem.getId());
+                                mainObject.put("photo", studentsItem.getPhoto());
+                                mainObject.put("phone_number", studentsItem.getPhoneNumber());
+                                mainObject.put("date", studentsItem.getDate());
+                                mainObject.put("reason", studentsItem.getReason());
+                                mainObject.put("status", studentsItem.getStatus());
+                                mainObject.put("game",studentsItem.getGame());
+                                mainObject.put("show_phone", studentsItem.getShowPhone());
+                                mainObject.put("examen_access", studentsItem.getExamenAccess());
+                                mainObject.put("description", studentsItem.getDescription());
+                                mainObject.put("type", studentsItem.getType());
+                                mainObject.put("login", studentsItem.getLogin());
+                                mainObject.put("is_playing_game",studentsItem.getIsPlayingGame());
+                                mainObject.put("score", studentsItem.getScore());
+                                mainObject.put("gumar", studentsItem.getGumar());
+                                mainObject.put("password", studentsItem.getPassword());
+                                mainObject.put("paymanagri_skizb", studentsItem.getPaymanagriSkizb());
+                                mainObject.put("avg", studentsItem.getAvg());
+                                mainObject.put("lesson_rate", studentsItem.getLessonRate());
+                                mainObject.put("kurs",  studentsItem.getKurs());
+                                mainObject.put("email", studentsItem.getEmail());
+                                mainObject.put("code_task_level", studentsItem.getCodeTaskLevel());
+                                mainObject.put("prefers", studentsItem.getPrefers());
+                                mainObject.put("current_payment", studentsItem.getCurrentPayment());
+                                mainObject.put("sex", studentsItem.getSex());
+                                mainObject.put("code_level", studentsItem.getCodeLevel());
+                                mainObject.put("artificial_rate", studentsItem.getArtificialRate());
+                                mainObject.put("game_activity", studentsItem.getGameActivity());
+                                mainObject.put("level_name", studentsItem.getLevelName());
+                                mainObject.put("zexch", studentsItem.getZexch());
+                                mainObject.put("group_id", studentsItem.getGroupId());
+                                mainObject.put("release_date", studentsItem.getReleaseDate());
+                                mainObject.put("online", studentsItem.getOnline());
+                                mainObject.put("paymanagri_avart", studentsItem.getOnline());
+                                mainObject.put("show_tests", studentsItem.getShowTests());
+                                System.out.println(mainObject);
+//
+//                                String id = mainObject.getString("id");
+//                                String name = mainObject.getString("name");
+//                                String surname = mainObject.getString("surname");
+//                                String paymanagriAvart = mainObject.getString("paymanagri_avart");
+//                                String groupId = mainObject.getString("group_id");
+//                                String zexch = mainObject.getString("zexch");
+//                                String gumar = mainObject.getString("gumar");
+//                                String status = mainObject.getString("status");
+//                                String email = mainObject.getString("email");
+//                                String phoneNumber = mainObject.getString("phone_number");
+//                                String date = mainObject.getString("date");
+//                                String description = mainObject.getString("description");
+//                                String paymanagriSkizb = mainObject.getString("paymanagri_skizb");
+//                                String reason = mainObject.getString("reason");
+//                                String kurs = mainObject.getString("kurs");
+//                                String type = mainObject.getString("type");
+//                                String avg = mainObject.getString("avg");
+//                                String login = mainObject.getString("login");
+//                                String password = mainObject.getString("password");
+//                                String photo = mainObject.getString("photo");
+//                                String showPhone = mainObject.getString("show_phone");
+//                                String prefers = mainObject.getString("prefers");
+//                                String currentPayment = mainObject.getString("current_payment");
+//                                String online = mainObject.getString("online");
+//                                String releaseDate = mainObject.getString("release_date");
+//                                String artificialRate = mainObject.getString("artificial_rate");
+//                                String lessonRate = mainObject.getString("lesson_rate");
+//                                String codeLevel = mainObject.getString("code_level");
+//                                String codeTaskLevel = mainObject.getString("code_task_level");
+//                                String levelName = mainObject.getString("level_name");
+//                                String score = mainObject.getString("score");
+//                                String showTests = mainObject.getString("show_tests");
+//                                String game = mainObject.getString("game");
+//                                String examenAccess = mainObject.getString("examen_access");
+//                                String sex = mainObject.getString("sex");
+//                                String gameActivity = mainObject.getString("game_activity");
+//                                String isPlayingGame = mainObject.getString("is_playing_game");
+////                                JSONObject jsonAPI = mainObject.getJSONObject("jsonapi");
+//
+//                                JSONArray notifications = (JSONArray) mainObject.get("notifications");
+//
+//                                for (int i = 0; i < notifications.length(); i++) {
+//
+//                                    JSONObject childObject = notifications.getJSONObject(i);
+//                                    String notId = childObject.getString("id");
+//                                    String notStudentId = childObject.getString("student_id");
+//                                    String notText = childObject.getString("text");
+//                                    String notStatus = childObject.getString("status");
+//                                    String notWhen = childObject.getString("when");
+//
+//                                }
+//
+//                                JSONArray grafik = (JSONArray) mainObject.get("grafik");
+//
+//                                for (int i = 0; i < grafik.length(); i++) {
+//
+//                                    JSONObject childObject = grafik.getJSONObject(i);
+//                                    String grId = childObject.getString("id");
+//                                    String grGroupId = childObject.getString("group_id");
+//                                    String grDayId = childObject.getString("day_id");
+//                                    String grStatus = childObject.getString("status");
+//                                    String grEnd = childObject.getString("end");
+//                                    String grTeacherId = childObject.getString("teacher_id");
+//                                    String grActive = childObject.getString("active");
+//                                    String grDay = childObject.getString("day");
+//
+//                                }
+//
+//                                JSONObject group = mainObject.getJSONObject("group");
+//                                String groupIdG = group.getString("id");
+//                                String groupName = group.getString("name");
+//                                String groupPartId = group.getString("part_id");
+//                                String groupTeacherId = group.getString("teacher_id");
+//                                String groupColor = group.getString("color");
+//                                String groupLsaran_id = group.getString("lsaran_id");
+//                                String groupLevel = group.getString("level");
+//                                String groupActive= group.getString("active");
+//                                String groupModuleId = group.getString("module_id");
+//
+//                                JSONArray students = (JSONArray) mainObject.get("students");
+//
+//                                for (int i = 0; i < students.length(); i++) {
+//
+//                                    JSONObject childObject = notifications.getJSONObject(i);
+//                                    String idStudents = childObject.getString("id");
+//                                    String nameStudents = childObject.getString("name");
+//                                    String surnameStudents = childObject.getString("surname");
+//                                    String paymanagriAvartStudents = childObject.getString("paymanagri_avart");
+//                                    String groupIdStudents = childObject.getString("group_id");
+//                                    String zexchStudents = childObject.getString("zexch");
+//                                    String gumarStudents = childObject.getString("gumar");
+//                                    String statusStudents = childObject.getString("status");
+//                                    String emailStudents = childObject.getString("email");
+//                                    String phoneNumberStudents = childObject.getString("phone_number");
+//                                    String dateStudents = childObject.getString("date");
+//                                    String descriptionStudents = childObject.getString("description");
+//                                    String paymanagriSkizbStudents = childObject.getString("paymanagri_skizb");
+//                                    String reasonStudents = childObject.getString("reason");
+//                                    String kursStudents = childObject.getString("kurs");
+//                                    String typeStudents = childObject.getString("type");
+//                                    String avgStudents = childObject.getString("avg");
+//                                    String loginStudents = childObject.getString("login");
+//                                    String passwordStudents = childObject.getString("password");
+//                                    String photoStudents = childObject.getString("photo");
+//                                    String showPhoneStudents = childObject.getString("show_phone");
+//                                    String prefersStudents = childObject.getString("prefers");
+//                                    String currentPaymentStudents = childObject.getString("current_payment");
+//                                    String onlineStudents = childObject.getString("online");
+//                                    String releaseDateStudents = childObject.getString("release_date");
+//                                    String artificialRateStudents = childObject.getString("artificial_rate");
+//                                    String lessonRateStudents = childObject.getString("lesson_rate");
+//                                    String codeLevelStudents = childObject.getString("code_level");
+//                                    String codeTaskLevelStudents = childObject.getString("code_task_level");
+//                                    String levelNameStudents = childObject.getString("level_name");
+//                                    String scoreStudents = childObject.getString("score");
+//                                    String showTestsStudents = childObject.getString("show_tests");
+//                                    String gameStudents = childObject.getString("game");
+//                                    String examenAccessStudents = childObject.getString("examen_access");
+//                                    String sexStudents = childObject.getString("sex");
+//                                    String gameActivityStudents = childObject.getString("game_activity");
+//                                    String isPlayingGameStudents = childObject.getString("is_playing_game");
+//
+//                                }
+//
+//                                JSONObject teacher = mainObject.getJSONObject("teacher");
+//                                String teacherId = group.getString("id");
+//                                String teacherName = group.getString("name");
+//                                String teacherSurname = group.getString("surname");
+//                                String teacherPhone = group.getString("phone");
+//                                String teacherPhoto = group.getString("photo");
+//                                String teacherAbout = group.getString("about");
+//                                String teacherRaiting = group.getString("raiting");
+//                                String teacherAvgStud= group.getString("avg_stud");
+//                                String teacherAvgListen= group.getString("avg_listen");
+//                                String teacherAvgProject= group.getString("avg_project");
+//                                String teacherAvgFlow= group.getString("avg_flow");
+//                                String teacherLevel = group.getString("level");
+//                                String teacherActive = group.getString("active");
+//
+//                                JSONArray modules = (JSONArray) mainObject.get("modules");
+//
+//                                for (int i = 0; i < modules.length(); i++) {
+//
+//                                    JSONObject childObject = notifications.getJSONObject(i);
+//                                    String modId = childObject.getString("id");
+//                                    String modName = childObject.getString("name");
+//                                    String modKurs = childObject.getString("kurs");
+//                                    String modLessonsCount = childObject.getString("lessons_count");
+//                                    String modAbout = childObject.getString("about");
+//
+//                                }
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
+
 
 
 //                            try {
