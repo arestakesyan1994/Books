@@ -8,6 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.example.infinity.prof.R;
 import com.example.infinity.prof.constants.NavigationDrawerConstants;
@@ -23,6 +28,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
+    RequestQueue requestQueue;
+
+    static final int INTERNET_REQ = 23;
+
+    static final String REQ_TAG = "VACTIVITY";
 
     ResponseHandler session;
     GrafikItemHandler grafikHandler;
@@ -83,8 +93,18 @@ public class HomeFragment extends Fragment {
 
         userImage = (ImageView) home.findViewById(R.id.userImage);
         Glide.with(this).load("http://app.profitdeco.com/img/students/" + image).into(userImage);
+
+
+
+
+
+
         return home;
+
+
     }
 
 
 }
+// https://www.androidhive.info/2012/01/android-json-parsing-tutorial/
+// https://github.com/codepath/android-rest-client-template/tree/master/app/src/main/java/com/codepath/apps/restclienttemplate
