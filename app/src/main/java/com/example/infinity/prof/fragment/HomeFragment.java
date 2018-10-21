@@ -8,16 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.example.infinity.prof.R;
 import com.example.infinity.prof.constants.NavigationDrawerConstants;
 import com.example.infinity.prof.handler.GrafikItemHandler;
-import com.example.infinity.prof.handler.GroupHandler;
 import com.example.infinity.prof.handler.ResponseHandler;
 import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.url.ApiService;
@@ -69,7 +64,6 @@ public class HomeFragment extends Fragment {
 
         List<GrafikItemHandler> grafikItemHandlerList = new ArrayList<>();
 
-
 //        grafikHandler = new GrafikItemHandler(getActivity().getApplicationContext());
 //        grafikHandler.checkLogin();
 //
@@ -93,17 +87,9 @@ public class HomeFragment extends Fragment {
 
         userImage = (ImageView) home.findViewById(R.id.userImage);
         Glide.with(this).load("http://app.profitdeco.com/img/students/" + image).into(userImage);
-
-
-
-
-
-
         return home;
 
-
     }
-
 
 }
 // https://www.androidhive.info/2012/01/android-json-parsing-tutorial/

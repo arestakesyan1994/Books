@@ -1,21 +1,21 @@
-package com.example.infinity.prof.url;
-
-import com.example.infinity.prof.model.GrafikItem;
-import com.example.infinity.prof.model.Group;
-import com.example.infinity.prof.model.StudentsItem;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-public class JsonUtil {
-    StudentsItem studentsItem =new StudentsItem();
-
-    public void toJSon() {
-
-        JSONObject json = new JSONObject();
-    }
-}
+//package com.example.infinity.prof.url;
+//
+//import com.example.infinity.prof.model.GrafikItem;
+//import com.example.infinity.prof.model.Group;
+//import com.example.infinity.prof.model.StudentsItem;
+//
+//import org.json.JSONArray;
+//import org.json.JSONException;
+//import org.json.JSONObject;
+//
+//public class JsonUtil {
+//    StudentsItem studentsItem =new StudentsItem();
+//
+//    public void toJSon() {
+//
+//        JSONObject json = new JSONObject();
+//    }
+//}
 //    String id = mainObject.getString("id");
 //                                String name = mainObject.getString("name");
 ////                                String surname = mainObject.getString("surname");
