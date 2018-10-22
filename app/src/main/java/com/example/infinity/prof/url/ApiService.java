@@ -1,6 +1,7 @@
 package com.example.infinity.prof.url;
 
 
+import com.example.infinity.prof.model.Response;
 import com.example.infinity.prof.model.StItem;
 import com.example.infinity.prof.model.StudentsItem;
 import retrofit2.Call;
@@ -11,8 +12,8 @@ import retrofit2.http.POST;
 public interface ApiService {
     @FormUrlEncoded
     @POST("get") //POJO
-    Call<StudentsItem> loginRequest(@Field("login") String login,
-                              @Field("password") String password);
+    Call<Response> loginRequest(@Field("login") String login,
+                                @Field("password") String password);
 
 //    @Headers({"Content-Type:text/html/charset=UTF-8"})
 //    @GET("get")

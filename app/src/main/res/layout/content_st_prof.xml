@@ -24,11 +24,11 @@
         <!--tools:ignore="MissingConstraints"-->
         <!--tools:layout_editor_absoluteX="16dp"-->
         <!--tools:layout_editor_absoluteY="256dp" />-->
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="505dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+    <!--<ListView-->
+        <!--android:id="@+id/list"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="505dp"-->
+        <!--tools:layout_editor_absoluteX="0dp"-->
+        <!--tools:layout_editor_absoluteY="0dp" />-->
 
 </android.support.constraint.ConstraintLayout>

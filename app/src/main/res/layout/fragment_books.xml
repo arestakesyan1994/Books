@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.BooksFragment">
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="368dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/myProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:indeterminateBehavior="cycle"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textView40"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/bottom_text_size"
+                    android:background="#973baa"
+                    android:padding="@dimen/activity_vertical_margin"
+                    android:text="JavaScript ծրագրավորման լեզվի տարրերը "
+                    android:textColor="@android:color/background_light"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/userImages"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/book2" />
+
+                    <TextView
+                        android:id="@+id/textView41"
+                        android:layout_width="223dp"
+                        android:layout_height="300dp"
+                        android:layout_weight="1"
+                        android:text="@string/_407_20_000"
+                        android:textColor="@android:color/background_dark" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/javascript"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/js_js_0" />
+
+                <TextView
+                    android:id="@+id/textView45"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="ՏԵՍԱԴԱՐԱՆ"
+                    android:textColor="#973baa"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:fontFamily="cursive" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/i"
+                        android:layout_width="186dp"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/nkarajin" />
+
+                    <ImageView
+                        android:id="@+id/i1"
+                        android:layout_width="182dp"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/nkerkrord" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/i3"
+                        android:layout_width="186dp"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/nkerrord" />
+
+                    <ImageView
+                        android:id="@+id/i13"
+                        android:layout_width="182dp"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/nkchorord" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/i4"
+                        android:layout_width="186dp"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/nkhingerrord" />
+
+                    <ImageView
+                        android:id="@+id/ij4"
+                        android:layout_width="182dp"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/nkvecerrord" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/i5"
+                        android:layout_width="186dp"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/nkjoterrord" />
+
+                    <ImageView
+                        android:id="@+id/i15"
+                        android:layout_width="182dp"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/nkuterrord" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/i9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="140dp"
+                        android:contentDescription="@string/nav_header_desc"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:srcCompat="@mipmap/nkinerrord" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="69dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="216dp"
+                        android:layout_height="48dp"
+                        android:text="ՊՐՈՖԱՅԹԻ ՈՒՍՈՒՄՆԱԿԱՆ ԿԵՆՏՐՈՆ\n       © ԱՐՄԵՆ ՄԱՐՋԻՆՅԱՆ"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="8sp"
+                        android:textStyle="italic"
+                        android:typeface="monospace" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>

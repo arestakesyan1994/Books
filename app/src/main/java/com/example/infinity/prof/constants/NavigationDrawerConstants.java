@@ -4,6 +4,7 @@ public class NavigationDrawerConstants {
 
     public final static String TAG_HOME = "Գլխավոր";
     public final static String TAG_CODE_BATTLE = "CodeBattle";
+    public final static String TAG_BOOKS = "Դասագրքեր";
     public final static String TAG_FILER = "Ֆայլեր";
     public final static String TAG_KARGAVORUMNER = "Կարգավորումներ";
     public final static String TAG_QNNUTYAN_ARDYUNQ = "Քննության արդյունքներ";

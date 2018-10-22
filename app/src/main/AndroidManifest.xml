@@ -31,7 +31,8 @@
         <activity
             android:name=".StProfActivity"
             android:label="@string/title_activity_st_prof"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".GrafikActivity"></activity>
     </application>
 
 </manifest>

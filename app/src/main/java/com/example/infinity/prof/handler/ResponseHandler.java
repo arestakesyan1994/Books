@@ -7,7 +7,12 @@ import android.content.SharedPreferences;
 import com.example.infinity.prof.LoginActivity;
 import com.example.infinity.prof.model.Response;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
+import java.util.Map;
 
 public class ResponseHandler {
     SharedPreferences pref;
@@ -23,55 +28,82 @@ public class ResponseHandler {
     private static final String RESPONSE_EMPTY = "";
     private static final String IS_LOGIN = "IsLoggedIn";
 
+    //    Response data
     public static final String RESPONSE_GROUP_ID = "groupId";
-    public static final String RESPONSE_ID= "id";
-    public static final String RESPONSE_DATE= "date";
-    public static final String RESPONSE_REASON= "reason";
-    public static final String RESPONSE_GAME= "game";
-    public static final String RESPONSE_GRAFIK= "grafik";
-    public static final String RESPONSE_SHOW_PHONE= "showPhone";
-    public static final String RESPONSE_EXAMEN_ACCESS= "examenAccess";
-    public static final String RESPONSE_DESCRIPTION= "description";
-    public static final String RESPONSE_TYPE= "type";
-    public static final String RESPONSE_LOGIN= "login";
-    public static final String RESPONSE_IS_PLAYING_GAME= "isPlayingGame";
-    public static final String RESPONSE_SCORE= "score";
-    public static final String RESPONSE_GUMAR= "gumar";
-    public static final String RESPONSE_PASSWORD= "password";
-    public static final String RESPONSE_PAYMANAGRI_SKIZB= "paymanagriSkizb";
-    public static final String RESPONSE_AVG= "avg";
-    public static final String RESPONSE_TEACHER= "teacher";
-    public static final String RESPONSE_LESSON_RATE= "lessonRate";
-    public static final String RESPONSE_SURNAME= "surname";
-    public static final String RESPONSE_KURS= "kurs";
-    public static final String RESPONSE_EMAIL= "email";
-    public static final String RESPONSE_GROUP= "group";
-    public static final String RESPONSE_CODE_TASK_LEVEL= "codeTaskLevel";
-    public static final String RESPONSE_PREFERS= "prefers";
-    public static final String RESPONSE_CURRENT_PAYMENT= "currentPayment";
-    public static final String RESPONSE_SEX= "sex";
-    public static final String RESPONSE_PHOTO= "photo";
-    public static final String RESPONSE_CODE_LEVEL= "codeLevel";
-    public static final String RESPONSE_ARTIFICIAL_RATE= "artificialRate";
-    public static final String RESPONSE_GAME_ACTIVITY= "gameActivity";
-    public static final String RESPONSE_MODULES= "modules";
-    public static final String RESPONSE_LEVEL_NAME= "levelName";
-    public static final String RESPONSE_ZEXCH= "zexch";
-    public static final String RESPONSE_RELEASE_DATE= "releaseDate";
-    public static final String RESPONSE_NAME= "name";
-    public static final String RESPONSE_ONLINE= "online";
-    public static final String RESPONSE_PHONE_NUMBER= "phoneNumber";
-    public static final String RESPONSE_PAYMANAGRI_AVART= "paymanagriAvart";
-    public static final String RESPONSE_SHOW_TESTS= "showTests";
-    public static final String RESPONSE_NOTIFICATIONS= "notifications";
-    public static final String RESPONSE_STATUS= "status";
+    public static final String RESPONSE_ID = "id";
+    public static final String RESPONSE_DATE = "date";
+    public static final String RESPONSE_REASON = "reason";
+    public static final String RESPONSE_GAME = "game";
+    public static final String RESPONSE_GRAFIK = "grafik";
+    public static final String RESPONSE_SHOW_PHONE = "showPhone";
+    public static final String RESPONSE_EXAMEN_ACCESS = "examenAccess";
+    public static final String RESPONSE_DESCRIPTION = "description";
+    public static final String RESPONSE_TYPE = "type";
+    public static final String RESPONSE_LOGIN = "login";
+    public static final String RESPONSE_IS_PLAYING_GAME = "isPlayingGame";
+    public static final String RESPONSE_SCORE = "score";
+    public static final String RESPONSE_GUMAR = "gumar";
+    public static final String RESPONSE_PASSWORD = "password";
+    public static final String RESPONSE_PAYMANAGRI_SKIZB = "paymanagriSkizb";
+    public static final String RESPONSE_AVG = "avg";
+    public static final String RESPONSE_TEACHER = "teacher";
+    public static final String RESPONSE_LESSON_RATE = "lessonRate";
+    public static final String RESPONSE_SURNAME = "surname";
+    public static final String RESPONSE_KURS = "kurs";
+    public static final String RESPONSE_EMAIL = "email";
+    public static final String RESPONSE_GROUP = "group";
+    public static final String RESPONSE_CODE_TASK_LEVEL = "codeTaskLevel";
+    public static final String RESPONSE_PREFERS = "prefers";
+    public static final String RESPONSE_CURRENT_PAYMENT = "currentPayment";
+    public static final String RESPONSE_SEX = "sex";
+    public static final String RESPONSE_PHOTO = "photo";
+    public static final String RESPONSE_CODE_LEVEL = "codeLevel";
+    public static final String RESPONSE_ARTIFICIAL_RATE = "artificialRate";
+    public static final String RESPONSE_GAME_ACTIVITY = "gameActivity";
+    public static final String RESPONSE_MODULES = "modules";
+    public static final String RESPONSE_LEVEL_NAME = "levelName";
+    public static final String RESPONSE_ZEXCH = "zexch";
+    public static final String RESPONSE_RELEASE_DATE = "releaseDate";
+    public static final String RESPONSE_NAME = "name";
+    public static final String RESPONSE_ONLINE = "online";
+    public static final String RESPONSE_PHONE_NUMBER = "phoneNumber";
+    public static final String RESPONSE_PAYMANAGRI_AVART = "paymanagriAvart";
+    public static final String RESPONSE_SHOW_TESTS = "showTests";
+    public static final String RESPONSE_NOTIFICATIONS = "notifications";
+    public static final String RESPONSE_STATUS = "status";
+
+    //  Grafik data
+    public static final String GRAFIK_GROUP_ID = "groupIdGrafik";
+    public static final String GRAFIK_TEACHER_ID = "teacherIdGrafik";
+    public static final String GRAFIK_START = "startGrafik";
+    public static final String GRAFIK_ACTIVE = "activeGrafik";
+    public static final String GRAFIK_END = "endGrafik";
+    public static final String GRAFIK_ID = "idGrafik";
+    public static final String GRAFIK_DAY_ID = "dayIdGrafik";
+    public static final String GRAFIK_DAY = "dayGrafik";
+
+    //  Teacher data
+    public static final String TEACHER_ID = "idTeacher";
+    public static final String TEACHER_RATING = "raitingTeacher";
+    public static final String TEACHER_AVG_FLOW = "avgFlowTeacher";
+    public static final String TEACHER_AVG_LISTEN = "avgListenTeacher";
+    public static final String TEACHER_LEVEL = "levelTeacher";
+    public static final String TEACHER_PROJECT = "avgProjectTeacher";
+    public static final String TEACHER_ABOUT = "aboutTeacher";
+    public static final String TEACHER_ACTIVE = "activeTeacher";
+    public static final String TEACHER_PHONE = "phoneTeacher";
+    public static final String TEACHER_AVG_STUD = "avgStudTeacher";
+    public static final String TEACHER_SURNAME = "surnameTeacher";
+    public static final String TEACHER_PHOTO = "photoTeacher";
+    public static final String TEACHER_NAME = "nameTeacher";
 
 
-    public ResponseHandler(Context context){
+    public ResponseHandler(Context context) {
         this._context = context;
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
     }
+
     public static synchronized ResponseHandler getInstance(Context context) {
         if (mInstance == null) {
             mInstance = new ResponseHandler(context);
@@ -79,14 +111,13 @@ public class ResponseHandler {
         return mInstance;
     }
 
-    public void createResponseHandler(Response response){
+    public void createResponseHandler(Response response) {
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(RESPONSE_ID, String.valueOf(response.getId()));
         editor.putString(RESPONSE_GROUP_ID, response.getGroupId());
         editor.putString(RESPONSE_DATE, response.getDate());
         editor.putString(RESPONSE_REASON, response.getReason());
         editor.putString(RESPONSE_GAME, response.getGame());
-        editor.putString(RESPONSE_GRAFIK, String.valueOf(response.getGrafik()));
         editor.putString(RESPONSE_SHOW_PHONE, response.getShowPhone());
         editor.putString(RESPONSE_EXAMEN_ACCESS, response.getExamenAccess());
         editor.putString(RESPONSE_DESCRIPTION, response.getDescription());
@@ -103,15 +134,15 @@ public class ResponseHandler {
         editor.putString(RESPONSE_SURNAME, response.getSurname());
         editor.putString(RESPONSE_KURS, String.valueOf(response.getKurs()));
         editor.putString(RESPONSE_EMAIL, response.getEmail());
-        editor.putString(RESPONSE_GROUP,String.valueOf(response.getGroup()));
-        editor.putString(RESPONSE_CODE_TASK_LEVEL,response.getCodeTaskLevel());
-        editor.putString(RESPONSE_PREFERS,response.getPrefers());
-        editor.putString(RESPONSE_CURRENT_PAYMENT,response.getCurrentPayment());
-        editor.putString(RESPONSE_SEX,response.getSex());
-        editor.putString(RESPONSE_PHOTO,response.getPhoto());
-        editor.putString(RESPONSE_CODE_LEVEL,response.getCodeLevel());
-        editor.putString(RESPONSE_ARTIFICIAL_RATE,response.getArtificialRate());
-        editor.putString(RESPONSE_GAME_ACTIVITY,response.getGameActivity());
+        editor.putString(RESPONSE_GROUP, String.valueOf(response.getGroup()));
+        editor.putString(RESPONSE_CODE_TASK_LEVEL, response.getCodeTaskLevel());
+        editor.putString(RESPONSE_PREFERS, response.getPrefers());
+        editor.putString(RESPONSE_CURRENT_PAYMENT, response.getCurrentPayment());
+        editor.putString(RESPONSE_SEX, response.getSex());
+        editor.putString(RESPONSE_PHOTO, response.getPhoto());
+        editor.putString(RESPONSE_CODE_LEVEL, response.getCodeLevel());
+        editor.putString(RESPONSE_ARTIFICIAL_RATE, response.getArtificialRate());
+        editor.putString(RESPONSE_GAME_ACTIVITY, response.getGameActivity());
         editor.putString(RESPONSE_MODULES, String.valueOf(response.getModules()));
         editor.putString(RESPONSE_LEVEL_NAME, response.getLevelName());
         editor.putString(RESPONSE_RELEASE_DATE, String.valueOf(response.getReleaseDate()));
@@ -123,11 +154,56 @@ public class ResponseHandler {
         editor.putString(RESPONSE_SHOW_TESTS, response.getShowTests());
         editor.putString(RESPONSE_NOTIFICATIONS, String.valueOf(response.getNotifications()));
         editor.putString(RESPONSE_STATUS, String.valueOf(response.getStatus()));
+        editor.putString(RESPONSE_GRAFIK, String.valueOf(response.getGrafik()));
 
+        // Teacher data
+        editor.putString(TEACHER_ID, String.valueOf(response.getTeacher().getId()));
+        editor.putString(TEACHER_NAME, response.getTeacher().getName());
+        editor.putString(TEACHER_SURNAME, response.getTeacher().getSurname());
+        editor.putString(TEACHER_PHOTO, response.getTeacher().getPhoto());
+        editor.putString(TEACHER_RATING, response.getTeacher().getRaiting());
+        editor.putString(TEACHER_AVG_FLOW, response.getTeacher().getAvgFlow());
+        editor.putString(TEACHER_AVG_LISTEN, response.getTeacher().getAvgListen());
+        editor.putString(TEACHER_LEVEL, response.getTeacher().getLevel());
+        editor.putString(TEACHER_PROJECT, response.getTeacher().getAvgProject());
+        editor.putString(TEACHER_ABOUT, response.getTeacher().getAbout());
+        editor.putString(TEACHER_ACTIVE, response.getTeacher().getActive());
+        editor.putString(TEACHER_PHONE, response.getTeacher().getPhone());
+        editor.putString(TEACHER_AVG_STUD, response.getTeacher().getAvgStud());
+
+        try {
+            JSONObject jsonObject = new JSONObject(String.valueOf(response));
+            JSONArray contacts = jsonObject.getJSONArray("grafik");
+            for (int i = 0; i < contacts.length(); i++) {
+                JSONObject c = contacts.getJSONObject(i);
+                String idGrafik = c.getString("id");
+                String groupIdGrafik = c.getString("group_id");
+                String dayIdGrafik = c.getString("day_id");
+                String startGrafik = c.getString("start");
+                String endGrafik = c.getString("end");
+                String teacherIdGrafik = c.getString("teacher_id");
+                String activeGrafik = c.getString("active");
+                String dayGrafik = c.getString("day");
+
+
+                editor.putString(GRAFIK_ID, idGrafik);
+                editor.putString(GRAFIK_GROUP_ID, groupIdGrafik);
+                editor.putString(GRAFIK_START, dayIdGrafik);
+                editor.putString(GRAFIK_END, startGrafik);
+                editor.putString(GRAFIK_DAY_ID, endGrafik);
+                editor.putString(GRAFIK_TEACHER_ID, teacherIdGrafik);
+                editor.putString(GRAFIK_DAY, dayGrafik);
+                editor.putString(GRAFIK_ACTIVE, activeGrafik);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         this.editor.commit();
     }
 
-    public HashMap<String, String> getGrafikDetails(){
+    // looping through All Contacts
+
+    public HashMap<String, String> getResponseDetails() {
         HashMap<String, String> user = new HashMap<>();
         user.put(RESPONSE_ID, pref.getString(RESPONSE_ID, null));
         user.put(RESPONSE_STATUS, pref.getString(RESPONSE_STATUS, null));
@@ -172,11 +248,36 @@ public class ResponseHandler {
         user.put(RESPONSE_TEACHER, pref.getString(RESPONSE_TEACHER, null));
         user.put(RESPONSE_LESSON_RATE, pref.getString(RESPONSE_LESSON_RATE, null));
 
+//      Teacher data
+        user.put(TEACHER_ID, pref.getString(TEACHER_ID, null));
+        user.put(TEACHER_NAME, pref.getString(TEACHER_NAME, null));
+        user.put(TEACHER_SURNAME, pref.getString(TEACHER_SURNAME, null));
+        user.put(TEACHER_PHOTO, pref.getString(TEACHER_PHOTO, null));
+        user.put(TEACHER_RATING, pref.getString(TEACHER_RATING, null));
+        user.put(TEACHER_AVG_FLOW, pref.getString(TEACHER_AVG_FLOW, null));
+        user.put(TEACHER_AVG_LISTEN, pref.getString(TEACHER_AVG_LISTEN, null));
+        user.put(TEACHER_LEVEL, pref.getString(TEACHER_LEVEL, null));
+        user.put(TEACHER_PROJECT, pref.getString(TEACHER_PROJECT, null));
+        user.put(TEACHER_ABOUT, pref.getString(TEACHER_ABOUT, null));
+        user.put(TEACHER_ACTIVE, pref.getString(TEACHER_ACTIVE, null));
+        user.put(TEACHER_PHONE, pref.getString(TEACHER_PHONE, null));
+        user.put(TEACHER_AVG_STUD, pref.getString(TEACHER_AVG_STUD, null));
+
+//      grafik data
+        user.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
+        user.put(GRAFIK_GROUP_ID, pref.getString(GRAFIK_GROUP_ID, null));
+        user.put(GRAFIK_START, pref.getString(GRAFIK_START, null));
+        user.put(GRAFIK_END, pref.getString(GRAFIK_END, null));
+        user.put(GRAFIK_DAY_ID, pref.getString(GRAFIK_DAY_ID, null));
+        user.put(GRAFIK_TEACHER_ID, pref.getString(GRAFIK_TEACHER_ID, null));
+        user.put(GRAFIK_DAY, pref.getString(GRAFIK_DAY, null));
+        user.put(GRAFIK_ACTIVE, pref.getString(GRAFIK_ACTIVE, null));
 
         return user;
     }
-    public void checkLogin(){
-        if(!this.isLoggedIn()){
+
+    public void checkLogin() {
+        if (!this.isLoggedIn()) {
             Intent i = new Intent(_context, LoginActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -184,7 +285,7 @@ public class ResponseHandler {
         }
     }
 
-    public void logoutUser(){
+    public void logoutUser() {
         editor.clear();
         editor.commit();
 
@@ -194,7 +295,7 @@ public class ResponseHandler {
         _context.startActivity(i);
     }
 
-    public boolean isLoggedIn(){
+    public boolean isLoggedIn() {
         return pref.getBoolean(IS_LOGIN, false);
     }
 }

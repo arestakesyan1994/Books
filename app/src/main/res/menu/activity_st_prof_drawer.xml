@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_dashboard_black_24dp"
             android:title="CodeBattle" />
         <item
+            android:id="@+id/dasagrqer"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Դասագրքեր" />
+        <item
             android:id="@+id/tnayin"
             android:icon="@drawable/ic_vertical"
             android:title="Տնային աշխատանք" />

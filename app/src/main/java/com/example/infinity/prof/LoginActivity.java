@@ -14,7 +14,9 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.infinity.prof.handler.ResponseHandler;
 import com.example.infinity.prof.handler.SessionHandler;
+import com.example.infinity.prof.model.Response;
 import com.example.infinity.prof.model.StItem;
 import com.example.infinity.prof.model.StudentsItem;
 import com.example.infinity.prof.url.ApiService;
@@ -35,7 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     Context mContext;
     ApiService mApiService;
-    SessionHandler session;
+    ResponseHandler session;
     StudentsItem studentsItem;
 
     @Override
@@ -44,7 +46,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         mQueue = Volley.newRequestQueue(this);
-        session = new SessionHandler(getApplicationContext());
+        session = new ResponseHandler(getApplicationContext());
         web = (Button) findViewById(R.id.web);
         web.setOnClickListener(this);
 
@@ -70,15 +72,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void requestLogin() {
         mApiService.loginRequest(mUserName.getText().toString(), mPasswordView.getText().toString())
-                .enqueue(new Callback<StudentsItem>() {
+                .enqueue(new Callback<Response>() {
                     @Override
-                    public void onResponse(Call<StudentsItem> call, retrofit2.Response<StudentsItem> response) {
+                    public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                         response.body();
 
                         System.out.println(mUserName.getText().toString());
                         System.out.println(mPasswordView.getText().toString());
                         if (response.body().getId() != 0) {
-                            session.createLoginSession(response.body());
+                            session.createResponseHandler(response.body());
                             System.out.println(response.body());
 
 
@@ -91,7 +93,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
 
                     @Override
-                    public void onFailure(Call<StudentsItem> call, Throwable t) {
+                    public void onFailure(Call<Response> call, Throwable t) {
                     }
                 });
     }

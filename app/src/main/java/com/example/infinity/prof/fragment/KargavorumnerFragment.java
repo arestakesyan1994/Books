@@ -45,7 +45,7 @@ public class KargavorumnerFragment extends Fragment {
     private ProgressBar uploadProgressBar;
     ApiService mApiService;
 
-    String[] OR_SKSAC = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+    String[] OR_SKSAC = {"img1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
             "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
             "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"};
     String[] OR_SKSAC2 = {};
@@ -203,7 +203,7 @@ public class KargavorumnerFragment extends Fragment {
         betterSpinner2.setAdapter(arrayAdapter2);
 
 //        int i  = Integer.parseInt(arrayAdapter.toString());
-//        String a1 = String.valueOf(i + 1);
+//        String a1 = String.valueOf(i + img1);
 //        String a2 = String.valueOf(i + 2);
 //        String a3 = String.valueOf(i + 3);
 //        String a4 = String.valueOf(i + 4);

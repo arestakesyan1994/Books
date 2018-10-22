@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.infinity.prof.fragment.BooksFragment;
 import com.example.infinity.prof.fragment.CodeBattleFragment;
 import com.example.infinity.prof.fragment.FilerFragment;
 import com.example.infinity.prof.fragment.HomeFragment;
@@ -293,6 +294,10 @@ public class StProfActivity extends AppCompatActivity
             fragment = new CodeBattleFragment();
             displaySelectedFragment(fragment);
             Toast.makeText(StProfActivity.this, "CodeBattle", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.dasagrqer) {
+            fragment = new BooksFragment();
+            displaySelectedFragment(fragment);
+            Toast.makeText(StProfActivity.this, "Դասագրքեր", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.tnayin) {
             fragment = new TnajinFragment();
             displaySelectedFragment(fragment);

@@ -23,19 +23,19 @@ public class TeacherHandler {
     private static final String TEACHER_EMPTY = "";
     private static final String IS_LOGIN = "IsLoggedIn";
 
-    public static final String TEACHER_ID = "id";
-    public static final String TEACHER_RATING = "raiting";
-    public static final String TEACHER_AVG_FLOW = "avgFlow";
-    public static final String TEACHER_AVG_LISTEN = "avgListen";
-    public static final String TEACHER_LEVEL = "level";
-    public static final String TEACHER_PROJECT= "avgProject";
-    public static final String TEACHER_ABOUT= "about";
-    public static final String TEACHER_ACTIVE= "active";
-    public static final String TEACHER_PHONE= "phone";
-    public static final String TEACHER_AVG_STUD= "avgStud";
-    public static final String TEACHER_SURNAME = "surname";
-    public static final String TEACHER_PHOTO = "photo";
-    public static final String TEACHER_NAME = "name";
+    public static final String TEACHER_ID = "idTeacher";
+    public static final String TEACHER_RATING = "raitingTeacher";
+    public static final String TEACHER_AVG_FLOW = "avgFlowTeacher";
+    public static final String TEACHER_AVG_LISTEN = "avgListenTeacher";
+    public static final String TEACHER_LEVEL = "levelTeacher";
+    public static final String TEACHER_PROJECT= "avgProjectTeacher";
+    public static final String TEACHER_ABOUT= "aboutTeacher";
+    public static final String TEACHER_ACTIVE= "activeTeacher";
+    public static final String TEACHER_PHONE= "phoneTeacher";
+    public static final String TEACHER_AVG_STUD= "avgStudTeacher";
+    public static final String TEACHER_SURNAME = "surnameTeacher";
+    public static final String TEACHER_PHOTO = "photoTeacher";
+    public static final String TEACHER_NAME = "nameTeacher";
 
 
     public TeacherHandler(Context context){
