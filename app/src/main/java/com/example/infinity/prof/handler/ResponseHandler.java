@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class ResponseHandler {
     SharedPreferences pref;
@@ -27,6 +27,7 @@ public class ResponseHandler {
     private static final String RESPONSE_EXPIRES = "expires";
     private static final String RESPONSE_EMPTY = "";
     private static final String IS_LOGIN = "IsLoggedIn";
+    private static final String IS_LOGIN_BODY = "body";
 
     //    Response data
     public static final String RESPONSE_GROUP_ID = "groupId";
@@ -73,6 +74,9 @@ public class ResponseHandler {
     public static final String RESPONSE_STATUS = "status";
 
     //  Grafik data
+
+//    private final GrafikItemHandler<String> myResponseHandlerTopTen = new ResponseHandler<String>();
+
     public static final String GRAFIK_GROUP_ID = "groupIdGrafik";
     public static final String GRAFIK_TEACHER_ID = "teacherIdGrafik";
     public static final String GRAFIK_START = "startGrafik";
@@ -83,19 +87,19 @@ public class ResponseHandler {
     public static final String GRAFIK_DAY = "dayGrafik";
 
     //  Teacher data
-    public static final String TEACHER_ID = "idTeacher";
-    public static final String TEACHER_RATING = "raitingTeacher";
-    public static final String TEACHER_AVG_FLOW = "avgFlowTeacher";
-    public static final String TEACHER_AVG_LISTEN = "avgListenTeacher";
-    public static final String TEACHER_LEVEL = "levelTeacher";
-    public static final String TEACHER_PROJECT = "avgProjectTeacher";
-    public static final String TEACHER_ABOUT = "aboutTeacher";
-    public static final String TEACHER_ACTIVE = "activeTeacher";
-    public static final String TEACHER_PHONE = "phoneTeacher";
-    public static final String TEACHER_AVG_STUD = "avgStudTeacher";
-    public static final String TEACHER_SURNAME = "surnameTeacher";
-    public static final String TEACHER_PHOTO = "photoTeacher";
-    public static final String TEACHER_NAME = "nameTeacher";
+    public static  String TEACHER_ID = "idTeacher";
+    public static  String TEACHER_RATING = "raitingTeacher";
+    public static  String TEACHER_AVG_FLOW = "avgFlowTeacher";
+    public static  String TEACHER_AVG_LISTEN = "avgListenTeacher";
+    public static  String TEACHER_LEVEL = "levelTeacher";
+    public static  String TEACHER_PROJECT = "avgProjectTeacher";
+    public static  String TEACHER_ABOUT = "aboutTeacher";
+    public static  String TEACHER_ACTIVE = "activeTeacher";
+    public static  String TEACHER_PHONE = "phoneTeacher";
+    public static  String TEACHER_AVG_STUD = "avgStudTeacher";
+    public static  String TEACHER_SURNAME = "surnameTeacher";
+    public static  String TEACHER_PHOTO = "photoTeacher";
+    public static  String TEACHER_NAME = "nameTeacher";
 
 
     public ResponseHandler(Context context) {
@@ -109,6 +113,10 @@ public class ResponseHandler {
             mInstance = new ResponseHandler(context);
         }
         return mInstance;
+    }
+
+    public String read(String response) {
+        return response;
     }
 
     public void createResponseHandler(Response response) {
@@ -155,6 +163,16 @@ public class ResponseHandler {
         editor.putString(RESPONSE_NOTIFICATIONS, String.valueOf(response.getNotifications()));
         editor.putString(RESPONSE_STATUS, String.valueOf(response.getStatus()));
         editor.putString(RESPONSE_GRAFIK, String.valueOf(response.getGrafik()));
+        for (int i = 0; i<response.getGrafik().size(); i++) {
+            editor.putString(GRAFIK_ID, String.valueOf(response.getGrafik().get(i).getId()));
+            editor.putString(GRAFIK_GROUP_ID, response.getGrafik().get(i).getGroupId());
+            editor.putString(GRAFIK_DAY_ID, response.getGrafik().get(i).getDayId());
+            editor.putString(GRAFIK_DAY, response.getGrafik().get(i).getDay());
+            editor.putString(GRAFIK_START, response.getGrafik().get(i).getStart());
+            editor.putString(GRAFIK_END, response.getGrafik().get(i).getEnd());
+            editor.putString(GRAFIK_TEACHER_ID, response.getGrafik().get(i).getTeacherId());
+            editor.putString(GRAFIK_ACTIVE, (String) response.getGrafik().get(i).getActive());
+        }
 
         // Teacher data
         editor.putString(TEACHER_ID, String.valueOf(response.getTeacher().getId()));
@@ -171,37 +189,75 @@ public class ResponseHandler {
         editor.putString(TEACHER_PHONE, response.getTeacher().getPhone());
         editor.putString(TEACHER_AVG_STUD, response.getTeacher().getAvgStud());
 
-        try {
-            JSONObject jsonObject = new JSONObject(String.valueOf(response));
-            JSONArray contacts = jsonObject.getJSONArray("grafik");
-            for (int i = 0; i < contacts.length(); i++) {
-                JSONObject c = contacts.getJSONObject(i);
-                String idGrafik = c.getString("id");
-                String groupIdGrafik = c.getString("group_id");
-                String dayIdGrafik = c.getString("day_id");
-                String startGrafik = c.getString("start");
-                String endGrafik = c.getString("end");
-                String teacherIdGrafik = c.getString("teacher_id");
-                String activeGrafik = c.getString("active");
-                String dayGrafik = c.getString("day");
-
-
-                editor.putString(GRAFIK_ID, idGrafik);
-                editor.putString(GRAFIK_GROUP_ID, groupIdGrafik);
-                editor.putString(GRAFIK_START, dayIdGrafik);
-                editor.putString(GRAFIK_END, startGrafik);
-                editor.putString(GRAFIK_DAY_ID, endGrafik);
-                editor.putString(GRAFIK_TEACHER_ID, teacherIdGrafik);
-                editor.putString(GRAFIK_DAY, dayGrafik);
-                editor.putString(GRAFIK_ACTIVE, activeGrafik);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            JSONObject responseJson = new JSONObject(response.toString());
+//            if (responseJson.has("grafik")) {
+//                JSONArray resultJsonArr = responseJson.getJSONArray("grafik");
+//                for (int i = 0; i < resultJsonArr.length(); i++) {
+//                    JSONObject resultInstanceJson = resultJsonArr.getJSONObject(i);
+//                    String idGrafik = resultInstanceJson.getString("id");
+//                    String groupIdGrafik = resultInstanceJson.getString("group_id");
+//                    String dayIdGrafik = resultInstanceJson.getString("day_id");
+//                    String startGrafik = resultInstanceJson.getString("start");
+//                    String endGrafik = resultInstanceJson.getString("end");
+//                    String teacherIdGrafik = resultInstanceJson.getString("teacher_id");
+//                    String activeGrafik = resultInstanceJson.getString("active");
+//                    String dayGrafik = resultInstanceJson.getString("day");
+//
+//                    editor.putString(GRAFIK_ID, idGrafik);
+//                    editor.putString(GRAFIK_GROUP_ID, groupIdGrafik);
+//                    editor.putString(GRAFIK_START, dayIdGrafik);
+//                    editor.putString(GRAFIK_END, startGrafik);
+//                    editor.putString(GRAFIK_DAY_ID, endGrafik);
+//                    editor.putString(GRAFIK_TEACHER_ID, teacherIdGrafik);
+//                    editor.putString(GRAFIK_DAY, dayGrafik);
+//                    editor.putString(GRAFIK_ACTIVE, activeGrafik);
+//
+////                    String imageUrl = "", videoUrl = "";
+//                    //image url
+////                    if (resultInstanceJson.has("ImageUrl")) {
+////                        imageUrl = resultInstanceJson.getString("ImageUrl");}
+//                    //video url
+////                    if (resultInstanceJson.has("VideoUrl")) {
+////                        videoUrl = resultInstanceJson.getString("VideoUrl");}
+//                }
+//            }
+////            jsonObject = new JSONObject(String.valueOf(response));
+////            JSONArray contacts = jsonObject.getJSONArray("grafik");
+////            for (int i = 0; i < contacts.length(); i++) {
+////                JSONObject c = contacts.getJSONObject(i);
+////                String idGrafik = c.getString("id");
+////                String groupIdGrafik = c.getString("group_id");
+////                String dayIdGrafik = c.getString("day_id");
+////                String startGrafik = c.getString("start");
+////                String endGrafik = c.getString("end");
+////                String teacherIdGrafik = c.getString("teacher_id");
+////                String activeGrafik = c.getString("active");
+////                String dayGrafik = c.getString("day");
+////
+////                editor.putString(GRAFIK_ID, idGrafik);
+////                editor.putString(GRAFIK_GROUP_ID, groupIdGrafik);
+////                editor.putString(GRAFIK_START, dayIdGrafik);
+////                editor.putString(GRAFIK_END, startGrafik);
+////                editor.putString(GRAFIK_DAY_ID, endGrafik);
+////                editor.putString(GRAFIK_TEACHER_ID, teacherIdGrafik);
+////                editor.putString(GRAFIK_DAY, dayGrafik);
+////                editor.putString(GRAFIK_ACTIVE, activeGrafik);
+////            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
         this.editor.commit();
     }
 
-    // looping through All Contacts
+//        List<JSONObject> jsonObj = new ArrayList<JSONObject>();
+//        for(HashMap<String, String> data : dataMap) {
+//            JSONObject obj = new JSONObject(data);
+//            jsonObj.add(obj);
+//        }
+//        JSONArray test = new JSONArray(jsonObj);
+//        System.out.println(test.toString());
+// looping through All Contacts
 
     public HashMap<String, String> getResponseDetails() {
         HashMap<String, String> user = new HashMap<>();
@@ -263,7 +319,7 @@ public class ResponseHandler {
         user.put(TEACHER_PHONE, pref.getString(TEACHER_PHONE, null));
         user.put(TEACHER_AVG_STUD, pref.getString(TEACHER_AVG_STUD, null));
 
-//      grafik data
+////      grafik data
         user.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
         user.put(GRAFIK_GROUP_ID, pref.getString(GRAFIK_GROUP_ID, null));
         user.put(GRAFIK_START, pref.getString(GRAFIK_START, null));
@@ -273,8 +329,27 @@ public class ResponseHandler {
         user.put(GRAFIK_DAY, pref.getString(GRAFIK_DAY, null));
         user.put(GRAFIK_ACTIVE, pref.getString(GRAFIK_ACTIVE, null));
 
+
         return user;
     }
+
+    public ArrayList<String> getListDetails() {
+        ArrayList<String> lists = new ArrayList<>();
+
+        for (int i = 0;i<lists.size();i++){
+            HashMap<String, String> data1 = new HashMap<String, String>(i);
+            data1.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
+            data1.put(GRAFIK_GROUP_ID, pref.getString(GRAFIK_GROUP_ID, null));
+            data1.put(GRAFIK_START, pref.getString(GRAFIK_START, null));
+            data1.put(GRAFIK_END, pref.getString(GRAFIK_END, null));
+            data1.put(GRAFIK_DAY_ID, pref.getString(GRAFIK_DAY_ID, null));
+            data1.put(GRAFIK_TEACHER_ID, pref.getString(GRAFIK_TEACHER_ID, null));
+            data1.put(GRAFIK_DAY, pref.getString(GRAFIK_DAY, null));
+            data1.put(GRAFIK_ACTIVE, pref.getString(GRAFIK_ACTIVE, null));
+        }
+        return lists;
+    }
+
 
     public void checkLogin() {
         if (!this.isLoggedIn()) {

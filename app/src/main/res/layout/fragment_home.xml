@@ -24,6 +24,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
         android:fillViewport="true"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
@@ -35,33 +38,167 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <ProgressBar
-                    android:id="@+id/myProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:indeterminate="true"
-                    android:indeterminateBehavior="cycle"
-                    android:visibility="gone" />
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        android:id="@+id/myProgressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:indeterminate="true"
+                        android:indeterminateBehavior="cycle"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.joooonho.SelectableRoundedImageView
+                            android:id="@+id/userImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:layout_gravity="left"
+                            android:layout_margin="10dp"
+                            android:scaleType="centerCrop"
+                            app:sriv_border_color="#8bc34a"
+                            app:sriv_border_width="2dp"
+                            app:sriv_oval="true" />
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/xumb"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="@dimen/bottom_ellipsis_height"-->
+                        <!--android:layout_marginTop="@dimen/activity_vertical_margin"-->
+                        <!--android:textColor="@color/colorAccent" />-->
+
+                        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:id="@+id/orer"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginLeft="@dimen/bottom_ellipsis_height"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="@dimen/default_padding_top"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:text="or" />&ndash;&gt;-->
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/xumbAnd"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="@dimen/bottom_ellipsis_height"-->
+                        <!--android:layout_marginTop="@dimen/default_padding_top"-->
+                        <!--android:text="ցուցակ" />-->
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/textView29"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="@dimen/bottom_ellipsis_height"-->
+                        <!--android:layout_marginTop="@dimen/activity_vertical_margin"-->
+                        <!--android:text="Դասացուցակ"-->
+                        <!--android:textColor="@android:color/background_dark"-->
+                        <!--android:textStyle="bold" />-->
+
+                        <!--<ListView-->
+                        <!--android:id="@+id/lists"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="138dp" />-->
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/textView32"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="@dimen/bottom_ellipsis_height"-->
+                        <!--android:layout_marginTop="@dimen/activity_vertical_margin"-->
+                        <!--android:text="Դասավանդող"-->
+                        <!--android:textColor="@android:color/background_dark"-->
+                        <!--android:textStyle="bold" />-->
+
+                        <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:id="@+id/teacherImage"-->
+                        <!--android:layout_width="47dp"-->
+                        <!--android:layout_height="47dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:layout_marginLeft="-20dp"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--app:sriv_border_color="#8bc34a"-->
+                        <!--app:sriv_border_width="2dp"-->
+                        <!--app:sriv_oval="true" />-->
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/teacherNandS"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="@dimen/bottom_ellipsis_height"-->
+                        <!--android:layout_marginTop="@dimen/inner_components_spacing" />-->
+
+                        <!--</LinearLayout>-->
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/nAnds"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/background_dark"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/uRating"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/modul"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Վճարման հաշվեհամարը - 2052222074041001"
+                            android:textColor="@android:color/holo_red_dark"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/mrcuyt"
+                            android:layout_width="256dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:textColor="@android:color/background_dark" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
-                    <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/userImage"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_gravity="left"
-                        android:scaleType="centerCrop"
-                        app:sriv_border_color="#8bc34a"
-                        app:sriv_border_width="2dp"
-                        app:sriv_oval="true" />
-
                     <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
@@ -74,21 +211,17 @@
                             android:layout_marginTop="@dimen/activity_vertical_margin"
                             android:textColor="@color/colorAccent" />
 
-                        <ListView
-                            android:id="@+id/lists"
-                            android:layout_width="match_parent"
-                            android:layout_height="79dp" />
                         <!--<TextView-->
-                            <!--android:id="@+id/orer"-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginLeft="@dimen/bottom_ellipsis_height"-->
-                            <!--android:layout_marginTop="@dimen/default_padding_top"-->
-                            <!--android:text="or" />-->
+                        <!--android:id="@+id/orer"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="@dimen/bottom_ellipsis_height"-->
+                        <!--android:layout_marginTop="@dimen/default_padding_top"-->
+                        <!--android:text="or" />-->
 
                         <TextView
                             android:id="@+id/xumbAnd"
-                            android:layout_width="match_parent"
+                            android:layout_width="347dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/bottom_ellipsis_height"
                             android:layout_marginTop="@dimen/default_padding_top"
@@ -104,6 +237,11 @@
                             android:textColor="@android:color/background_dark"
                             android:textStyle="bold" />
 
+                            <ListView
+                                android:id="@+id/lists"
+                                android:layout_width="match_parent"
+                                android:layout_height="158dp" />
+
                         <TextView
                             android:id="@+id/textView32"
                             android:layout_width="match_parent"
@@ -114,72 +252,28 @@
                             android:textColor="@android:color/background_dark"
                             android:textStyle="bold" />
 
-                        <com.joooonho.SelectableRoundedImageView
-                            android:id="@+id/teacherImage"
-                            android:layout_width="47dp"
-                            android:layout_height="47dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="-20dp"
-                            android:scaleType="centerCrop"
-                            app:sriv_border_color="#8bc34a"
-                            app:sriv_border_width="2dp"
-                            app:sriv_oval="true" />
+                            <com.joooonho.SelectableRoundedImageView
+                                android:id="@+id/teacherImage"
+                                android:layout_width="47dp"
+                                android:layout_height="47dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="-60dp"
+                                android:scaleType="centerCrop"
+                                app:sriv_border_color="#8bc34a"
+                                app:sriv_border_width="2dp"
+                                app:sriv_oval="true" />
+
                         <TextView
                             android:id="@+id/teacherNandS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/bottom_ellipsis_height"
-                            android:layout_marginTop="@dimen/inner_components_spacing"
-                            android:text="teacher" />
+                            android:layout_marginTop="@dimen/inner_components_spacing" />
 
                     </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/nAnds"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/uRating"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/modul"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Վճարման հաշվեհամարը - 2052222074041001"
-                        android:textColor="@android:color/holo_red_dark"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/mrcuyt"
-                        android:layout_width="256dp"
-                        android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
-                        android:textColor="@android:color/background_dark" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
         </ScrollView>
 
     </android.support.v4.widget.NestedScrollView>

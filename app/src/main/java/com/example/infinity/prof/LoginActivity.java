@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.infinity.prof.fragment.HomeFragment;
 import com.example.infinity.prof.handler.ResponseHandler;
 import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.model.Response;
@@ -38,7 +39,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Context mContext;
     ApiService mApiService;
     ResponseHandler session;
-    StudentsItem studentsItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +79,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         System.out.println(mUserName.getText().toString());
                         System.out.println(mPasswordView.getText().toString());
+
                         if (response.body().getId() != 0) {
                             session.createResponseHandler(response.body());
-                            System.out.println(response.body());
-
+                            System.out.println(session);
 
                             Intent intent = new Intent(getApplicationContext(), StProfActivity.class);
                             startActivity(intent);
