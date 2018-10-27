@@ -116,6 +116,10 @@ public class HomeFragment extends Fragment {
         String endGrafik = user.get(ResponseHandler.GRAFIK_END);
         String teacherIdGrafik = user.get(ResponseHandler.GRAFIK_TEACHER_ID);
         String activeGrafik = user.get(ResponseHandler.GRAFIK_ACTIVE);
+//        System.out.println(grafikId);
+//        System.out.println(groupIdGrafik);
+//        System.out.println(dayGrafik);
+//        System.out.println(dayIdGrafik);
 //        for(int i = 0;i<grafikId.length(); i++) {
 //        //    String c= grafikId[i];
 ////            System.out.println(grafikId);
@@ -128,12 +132,16 @@ public class HomeFragment extends Fragment {
             System.out.println(graf);
 //            System.out.println(parts[1]);
             String[] list = graf.split("'");
-            System.out.println(list);
-//            for (int j = 0; j < list.length; ++j) {
-//                String group_id = list[j];
-//                System.out.println(group_id);
-//                System.out.println(list[1]);
-//            }
+//            System.out.println(list);
+            for (int j = 0; j < list.length; ++j) {
+                String group_id = list[j];
+                System.out.println(group_id);
+
+                ArrayAdapter<CharSequence> adapter =  new ArrayAdapter<CharSequence>(home.getContext()
+                        ,android.R.layout.simple_list_item_1,list);
+                lv = (ListView) home.findViewById(R.id.lists);
+                lv.setAdapter(adapter);
+            }
         }
         // group data
         String groupId = user.get(GroupHandler.GROUP_ID);
@@ -157,7 +165,7 @@ public class HomeFragment extends Fragment {
 
         contactList = new ArrayList<>();
 
-        lv = (ListView) home.findViewById(R.id.lists);
+
 //        new GetContacts().execute();
 
         userImage = (ImageView) home.findViewById(R.id.userImage);

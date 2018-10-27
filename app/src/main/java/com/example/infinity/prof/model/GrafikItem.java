@@ -123,13 +123,13 @@ public class GrafikItem{
  	public String toString(){
 		return 
 			"GrafikItem{" + 
-			"group_id = '" + groupId + '\'' + 
-			",teacher_id = '" + teacherId + '\'' + 
+			"group_id = '" + groupId + '\'' +
+			",teacher_id = '" + teacherId + '\'' +
 			",start = '" + start + '\'' + 
-			",active = '" + active + '\'' + 
+			",active = '" + active + '\'' +
 			",end = '" + end + '\'' + 
-			",id = '" + id + '\'' + 
-			",day_id = '" + dayId + '\'' + 
+			",id = '" + id + '\'' +
+			",day_id = '" + dayId + '\'' +
 			",day = '" + day + '\'' + 
 			"}";
 		}

@@ -65,7 +65,7 @@ public class GrafikItemHandler {
         editor.putString(GRAFIK_ACTIVE, (String) grafikItem.getActive());
         this.editor.commit();
     }
-    
+
 //
 
 
