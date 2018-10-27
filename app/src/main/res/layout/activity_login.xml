@@ -29,7 +29,7 @@
         android:gravity="center"
         android:lineSpacingExtra="18sp"
         android:paddingBottom="10dp"
-        android:text="ԲԱՐԻ ԳԱԼՈՒՍՏ"
+        android:text="@string/bari"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
@@ -40,7 +40,7 @@
         android:id="@+id/textView22"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Մուտք դեպի համակարգ"
+        android:text="@string/mutq"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold" />

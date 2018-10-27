@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.example.infinity.prof.LoginActivity;
+import com.example.infinity.prof.model.GrafikItem;
 import com.example.infinity.prof.model.Response;
 
 import org.json.JSONArray;
@@ -13,6 +14,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import retrofit2.http.GET;
 
 public class ResponseHandler {
     SharedPreferences pref;
@@ -115,10 +119,6 @@ public class ResponseHandler {
         return mInstance;
     }
 
-    public String read(String response) {
-        return response;
-    }
-
     public void createResponseHandler(Response response) {
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(RESPONSE_ID, String.valueOf(response.getId()));
@@ -172,6 +172,8 @@ public class ResponseHandler {
             editor.putString(GRAFIK_END, response.getGrafik().get(i).getEnd());
             editor.putString(GRAFIK_TEACHER_ID, response.getGrafik().get(i).getTeacherId());
             editor.putString(GRAFIK_ACTIVE, (String) response.getGrafik().get(i).getActive());
+
+            String[] arra = {GRAFIK_ID,GRAFIK_GROUP_ID,GRAFIK_DAY_ID,GRAFIK_DAY,GRAFIK_START,GRAFIK_END,GRAFIK_TEACHER_ID,GRAFIK_ACTIVE};
         }
 
         // Teacher data
@@ -319,6 +321,14 @@ public class ResponseHandler {
         user.put(TEACHER_PHONE, pref.getString(TEACHER_PHONE, null));
         user.put(TEACHER_AVG_STUD, pref.getString(TEACHER_AVG_STUD, null));
 
+//        List<GrafikItem> grafikItems = new ArrayList<>();
+//        for (int i = 0; i<grafikItems.size();i++){
+////            GRAFIK_ID = grafikItems.get(i).getId();
+////            editor.putString(GRAFIK_ID, String.valueOf(response.getGrafik().get(i).getId()));
+//
+//            user.put(GRAFIK_ID,pref.getString(GRAFIK_ID, String.valueOf(grafikItems.get(i).getId())));
+//        }
+
 ////      grafik data
         user.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
         user.put(GRAFIK_GROUP_ID, pref.getString(GRAFIK_GROUP_ID, null));
@@ -329,13 +339,11 @@ public class ResponseHandler {
         user.put(GRAFIK_DAY, pref.getString(GRAFIK_DAY, null));
         user.put(GRAFIK_ACTIVE, pref.getString(GRAFIK_ACTIVE, null));
 
-
         return user;
     }
 
     public ArrayList<String> getListDetails() {
         ArrayList<String> lists = new ArrayList<>();
-
         for (int i = 0;i<lists.size();i++){
             HashMap<String, String> data1 = new HashMap<String, String>(i);
             data1.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
