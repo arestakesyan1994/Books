@@ -45,7 +45,9 @@ public class HomeFragment extends Fragment {
     private String TAG = HomeFragment.class.getSimpleName();
 
     private ProgressDialog pDialog;
-    private ListView lv;
+    private ListView gday;
+    private ListView gstart;
+    private ListView gend;
 
     private static String urls = "http://app.profitdeco.com/mobile/get?login=raffi-minasyan@profit.com&password=c6159c32";
 
@@ -106,16 +108,6 @@ public class HomeFragment extends Fragment {
         String teacherPhone = user.get(ResponseHandler.TEACHER_PHONE);
         String teacherImage = user.get(ResponseHandler.TEACHER_PHOTO);
 
-
-        // grafik data
-        String grafikId = user.get(ResponseHandler.GRAFIK_ID);
-        String groupIdGrafik = user.get(ResponseHandler.GRAFIK_GROUP_ID);
-        String dayIdGrafik = user.get(ResponseHandler.GRAFIK_DAY_ID);
-        String dayGrafik = user.get(ResponseHandler.GRAFIK_DAY);
-        String startGrafik = user.get(ResponseHandler.GRAFIK_START);
-        String endGrafik = user.get(ResponseHandler.GRAFIK_END);
-        String teacherIdGrafik = user.get(ResponseHandler.GRAFIK_TEACHER_ID);
-        String activeGrafik = user.get(ResponseHandler.GRAFIK_ACTIVE);
 //        System.out.println(grafikId);
 //        System.out.println(groupIdGrafik);
 //        System.out.println(dayGrafik);
@@ -125,24 +117,47 @@ public class HomeFragment extends Fragment {
 ////            System.out.println(grafikId);
 //        }
 
-        String grafik = user.get(ResponseHandler.RESPONSE_GRAFIK);
-        String[] parts = grafik.split("group_id");
-        for (int i = 0; i < parts.length; i++) {
-            String graf = parts[i];
-            System.out.println(graf);
-//            System.out.println(parts[1]);
-            String[] list = graf.split("'");
-//            System.out.println(list);
-            for (int j = 0; j < list.length; ++j) {
-                String group_id = list[j];
-                System.out.println(group_id);
+//        String grafik = user.get(ResponseHandler.RESPONSE_GRAFIK);
+//        String[] parts = grafik.split("group_id");
+//        for (int i = 0; i < parts.length; i++) {
+//            String graf = parts[i];
+//            System.out.println(graf);
+////            System.out.println(parts[1]);
+//            String[] list = graf.split("'");
+////            System.out.println(list);
+//            for (int j = 0; j < list.length; ++j) {
+//                String group_id = list[j];
+//                System.out.println(group_id);
+//
+//                ArrayAdapter<CharSequence> adapter =  new ArrayAdapter<CharSequence>(home.getContext()
+//                        ,android.R.layout.simple_list_item_1,list);
+//                lv = (ListView) home.findViewById(R.id.lists);
+//                lv.setAdapter(adapter);
+//            }
+//        }
+        String grafikDay = user.get(ResponseHandler.GRAFIK_DAY);
+        String[] gDay = grafikDay.split(",");
+        ArrayAdapter<CharSequence> day = new ArrayAdapter<CharSequence>(home.getContext()
+                , R.layout.list_item, gDay);
+        gday = (ListView) home.findViewById(R.id.listDay);
+        gday.setAdapter(day);
 
-                ArrayAdapter<CharSequence> adapter =  new ArrayAdapter<CharSequence>(home.getContext()
-                        ,android.R.layout.simple_list_item_1,list);
-                lv = (ListView) home.findViewById(R.id.lists);
-                lv.setAdapter(adapter);
-            }
-        }
+        String grafikStart = user.get(ResponseHandler.GRAFIK_START);
+        String[] gStart = grafikStart.split(",");
+        ArrayAdapter<CharSequence> start = new ArrayAdapter<CharSequence>(home.getContext()
+                , R.layout.list_item, gStart);
+        gstart = (ListView) home.findViewById(R.id.listStart);
+        gstart.setAdapter(start);
+
+        String grafikEnd = user.get(ResponseHandler.GRAFIK_END);
+        String[] gEnd = grafikEnd.split(",");
+        ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(home.getContext()
+                , R.layout.list_item, gEnd);
+//                , android.R.layout.simple_list_item_1, gEnd);
+        gend = (ListView) home.findViewById(R.id.listEnd);
+        gend.setAdapter(end);
+
+
         // group data
         String groupId = user.get(GroupHandler.GROUP_ID);
         String groupPart = user.get(GroupHandler.GROUP_PART_ID);
@@ -208,84 +223,5 @@ public class HomeFragment extends Fragment {
         return home;
 
     }
-
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
-
-            mApiService = UtilsApi.getAPIService();
-            session = new ResponseHandler(getActivity().getApplicationContext());
-            session.checkLogin();
-
-            HashMap<String, String> user = session.getResponseDetails();
-            String grafik = user.get(ResponseHandler.RESPONSE_GRAFIK);
-            String[] parts = grafik.split("group_id");
-            for (int i = 0; i < parts.length; i++) {
-                String graf = parts[i];
-                System.out.println(graf);
-                String[] list = graf.split("'");
-                for (int j = 0; j < list.length; ++j) {
-                    String graf_id = list[j];
-                    System.out.println(graf_id);
-                    System.out.println(list[1]);
-
-                    String day = list[30];
-                }
-            }
-            JSONObject jsonStr = new JSONObject();
-//
-//            JSONArray array= root.getJSONArray("array");
-
-            if (jsonStr != null) {
-                try {
-                    JSONObject jsonObj = jsonStr.getJSONObject("grafik");
-
-                    JSONArray contacts = jsonObj.getJSONArray("grafik");
-
-                    for (int i = 0; i < contacts.length(); i++) {
-                        JSONObject c = contacts.getJSONObject(i);
-
-                        String id = c.getString("id");
-                        String groupIdGrafik = c.getString("group_id");
-                        String dayIdGrafik = c.getString("day_id");
-                        String startGrafik = c.getString("start");
-                        String dayGrafik = c.getString("day");
-                        String teachergrafik = c.getString("teacher_id");
-                        String endGrafik = c.getString("end");
-                        String activeGrafik = c.getString("active");
-
-                        HashMap<String, String> contact = new HashMap<>();
-
-                        contact.put("day", dayGrafik);
-                        contact.put("start", startGrafik);
-                        contact.put("end", endGrafik);
-
-                        // adding contact to contact list
-                        contactList.add(contact);
-                    }
-                } catch (final JSONException e) {
-                    System.out.println(e);
-                }
-            } else {
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-            ListAdapter adapter = new SimpleAdapter(
-                    HomeFragment.super.getContext(), contactList,
-                    R.layout.list_item, new String[]{"day", "start",
-                    "end"}, new int[]{R.id.day,
-                    R.id.start, R.id.end});
-
-            lv.setAdapter(adapter);
-        }
-
-    }
-//
 }
 // https://www.androidhive.info/2012/01/android-json-parsing-tutorial/

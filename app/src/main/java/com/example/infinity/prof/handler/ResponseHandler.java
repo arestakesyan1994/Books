@@ -95,6 +95,7 @@ public class ResponseHandler {
 
 
     ArrayList<String> arrayList = new ArrayList<>();
+
     public ResponseHandler(Context context) {
         this._context = context;
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
@@ -152,28 +153,44 @@ public class ResponseHandler {
         editor.putString(RESPONSE_NOTIFICATIONS, String.valueOf(response.getNotifications()));
         editor.putString(RESPONSE_STATUS, String.valueOf(response.getStatus()));
         editor.putString(RESPONSE_GRAFIK, String.valueOf(response.getGrafik()));
-        for (int i = 0; i<response.getGrafik().size(); i++) {
-//            String grafikId = String.valueOf(response.getGrafik().get(i).getId());
-//            String grafikGroupId = response.getGrafik().get(i).getGroupId();
-//            String grafikDayId = response.getGrafik().get(i).getDayId();
+
+        String gId = "";
+        String gGroupId="";
+        String gDayId ="";
+        String gDay = "";
+        String gStart="";
+        String gEnd = "";
+        String gTeacherId ="";
+        String gActive="";
+        for (int i = 0; i < response.getGrafik().size(); i++) {
+            String grafikId = String.valueOf(response.getGrafik().get(i).getId());
+            String grafikGroupId = response.getGrafik().get(i).getGroupId();
+            String grafikDayId = response.getGrafik().get(i).getDayId();
             String grafikDay = response.getGrafik().get(i).getDay();
             String grafikStart = response.getGrafik().get(i).getStart();
             String grafikEnd = response.getGrafik().get(i).getEnd();
-//            String grafikTeacherId = response.getGrafik().get(i).getTeacherId();
-//            String grafikActive = response.getGrafik().get(i).getTeacherId();
+            String grafikTeacherId = response.getGrafik().get(i).getTeacherId();
+            String grafikActive = response.getGrafik().get(i).getTeacherId();
 
-            String gId ="";
-            String gid = gId.concat(grafikDay);
-
-            editor.putString(GRAFIK_ID, gid);
+            gId = gId.concat(grafikId);
+            gGroupId = gGroupId.concat(grafikGroupId);
+            gDayId = gDayId.concat(grafikDayId);
+            gDay = gDay.concat(grafikDay + ",");
+            gStart = gStart.concat(grafikStart + "  - ,");
+            gEnd = gEnd.concat(grafikEnd + ",");
+            gTeacherId = gTeacherId.concat(grafikTeacherId);
+            gActive = gActive.concat(grafikActive);
 //            editor.putString(GRAFIK_GROUP_ID, response.getGrafik().get(i).getGroupId());
 //            editor.putString(GRAFIK_DAY_ID, response.getGrafik().get(i).getDayId());
-            editor.putString(GRAFIK_DAY, response.getGrafik().get(i).getDay());
-            editor.putString(GRAFIK_START, response.getGrafik().get(i).getStart());
-            editor.putString(GRAFIK_END, response.getGrafik().get(i).getEnd());
+//            editor.putString(GRAFIK_DAY, response.getGrafik().get(i).getDay());
+//            editor.putString(GRAFIK_START, response.getGrafik().get(i).getStart());
+//            editor.putString(GRAFIK_END, response.getGrafik().get(i).getEnd());
 //            editor.putString(GRAFIK_TEACHER_ID, response.getGrafik().get(i).getTeacherId());
 //            editor.putString(GRAFIK_ACTIVE, (String) response.getGrafik().get(i).getActive());
         }
+        editor.putString(GRAFIK_DAY, gDay);
+        editor.putString(GRAFIK_START,gStart);
+        editor.putString(GRAFIK_END,gEnd);
 
         // Teacher data
         editor.putString(TEACHER_ID, String.valueOf(response.getTeacher().getId()));
@@ -319,44 +336,17 @@ public class ResponseHandler {
         user.put(TEACHER_ACTIVE, pref.getString(TEACHER_ACTIVE, null));
         user.put(TEACHER_PHONE, pref.getString(TEACHER_PHONE, null));
         user.put(TEACHER_AVG_STUD, pref.getString(TEACHER_AVG_STUD, null));
-
-        ArrayList<String> array = new ArrayList<>();
-        array.add(user.put(GRAFIK_ID,pref.getString(GRAFIK_ID,null)));
-        array.add(user.put(GRAFIK_GROUP_ID,pref.getString(GRAFIK_GROUP_ID,null)));
-        array.add(user.put(GRAFIK_START,pref.getString(GRAFIK_START,null)));
-        array.add(user.put(GRAFIK_END,pref.getString(GRAFIK_END,null)));
-        array.add(user.put(GRAFIK_DAY_ID,pref.getString(GRAFIK_DAY_ID,null)));
-        array.add(user.put(GRAFIK_TEACHER_ID,pref.getString(GRAFIK_TEACHER_ID,null)));
-        array.add(user.put(GRAFIK_DAY,pref.getString(GRAFIK_DAY,null)));
-        array.add(user.put(GRAFIK_ACTIVE,pref.getString(GRAFIK_ACTIVE,null)));
-
-//            user.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
-//            user.put(GRAFIK_GROUP_ID, pref.getString(GRAFIK_GROUP_ID, null));
-//            user.put(GRAFIK_START, pref.getString(GRAFIK_START, null));
-//            user.put(GRAFIK_END, pref.getString(GRAFIK_END, null));
-//            user.put(GRAFIK_DAY_ID, pref.getString(GRAFIK_DAY_ID, null));
-//            user.put(GRAFIK_TEACHER_ID, pref.getString(GRAFIK_TEACHER_ID, null));
-//            user.put(GRAFIK_DAY, pref.getString(GRAFIK_DAY, null));
-//            user.put(GRAFIK_ACTIVE, pref.getString(GRAFIK_ACTIVE, null));
+//      Grafik data
+        user.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
+        user.put(GRAFIK_GROUP_ID, pref.getString(GRAFIK_GROUP_ID, null));
+        user.put(GRAFIK_START, pref.getString(GRAFIK_START, null));
+        user.put(GRAFIK_END, pref.getString(GRAFIK_END, null));
+        user.put(GRAFIK_DAY_ID, pref.getString(GRAFIK_DAY_ID, null));
+        user.put(GRAFIK_TEACHER_ID, pref.getString(GRAFIK_TEACHER_ID, null));
+        user.put(GRAFIK_DAY, pref.getString(GRAFIK_DAY, null));
+        user.put(GRAFIK_ACTIVE, pref.getString(GRAFIK_ACTIVE, null));
         return user;
     }
-
-    public ArrayList<String> getListDetails() {
-        ArrayList<String> lists = new ArrayList<>();
-        for (int i = 0;i<lists.size();i++){
-            HashMap<String, String> data1 = new HashMap<String, String>(i);
-            data1.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
-            data1.put(GRAFIK_GROUP_ID, pref.getString(GRAFIK_GROUP_ID, null));
-            data1.put(GRAFIK_START, pref.getString(GRAFIK_START, null));
-            data1.put(GRAFIK_END, pref.getString(GRAFIK_END, null));
-            data1.put(GRAFIK_DAY_ID, pref.getString(GRAFIK_DAY_ID, null));
-            data1.put(GRAFIK_TEACHER_ID, pref.getString(GRAFIK_TEACHER_ID, null));
-            data1.put(GRAFIK_DAY, pref.getString(GRAFIK_DAY, null));
-            data1.put(GRAFIK_ACTIVE, pref.getString(GRAFIK_ACTIVE, null));
-        }
-        return lists;
-    }
-
 
     public void checkLogin() {
         if (!this.isLoggedIn()) {
