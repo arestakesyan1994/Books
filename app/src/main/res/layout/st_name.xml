@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <com.joooonho.SelectableRoundedImageView
+            android:id="@+id/stImage"
+            android:layout_width="64dp"
+            android:layout_height="56dp"
+            android:layout_gravity="left"
+            android:layout_margin="10dp"
+            android:scaleType="centerCrop"
+            app:sriv_border_color="#8bc34a"
+            app:sriv_border_width="2dp"
+            app:sriv_oval="true" />
+
+        <TextView
+            android:id="@+id/stName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="TextView"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/stSurame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="TextView"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/stRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="TextView"
+            android:textSize="20sp"/>
+
+        <!--<FrameLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tvText"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_vertical|center_horizontal"-->
+                <!--android:text="TextView"-->
+                <!--android:textSize="20sp"></TextView>-->
+        <!--</FrameLayout>-->
+    </LinearLayout>
+</LinearLayout>

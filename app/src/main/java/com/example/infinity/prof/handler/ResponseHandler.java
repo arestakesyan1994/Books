@@ -93,8 +93,31 @@ public class ResponseHandler {
     public static final String TEACHER_PHOTO = "photoTeacher";
     public static final String TEACHER_NAME = "nameTeacher";
 
+    // Group data
+    public static final String GROUP_ID = "idGroup";
+    public static final String GROUP_LSAEAN_ID = "lsaranId";
+    public static final String GROUP_MODULE_ID = "moduleId";
+    public static final String GROUP_COLOR = "color";
+    public static final String GROUP_LEVEL = "level";
+    public static final String GROUP_TEACHER_ID= "teacherId";
+    public static final String GROUP_GNAME= "gname";
+    public static final String GROUP_ACTIVE= "active";
+    public static final String GROUP_PART_ID= "partId";
 
-    ArrayList<String> arrayList = new ArrayList<>();
+    // Group student data
+    public static final String GROUP_STUDENTS= "students";
+    public static final String GROUP_STUDENTS_NAME= "studentsName";
+    public static final String GROUP_STUDENTS_SURNAME= "studentSurname";
+    public static final String GROUP_STUDENTS_RATING= "studentsRating";
+    public static final String GROUP_STUDENTS_IMG= "studentsImg";
+
+    //Notification data
+
+    public static final String NOTIFICATION_ID = "idNot";
+    public static final String NOTIFICATION_STUDENT_ID = "studentIdNot";
+    public static final String NOTIFICATION_TEXT= "textNot";
+    public static final String NOTIFICATION_WHEN = "whenNot";
+    public static final String NOTIFICATION_STATUS = "statusNot";
 
     public ResponseHandler(Context context) {
         this._context = context;
@@ -152,6 +175,8 @@ public class ResponseHandler {
         editor.putString(RESPONSE_SHOW_TESTS, response.getShowTests());
         editor.putString(RESPONSE_NOTIFICATIONS, String.valueOf(response.getNotifications()));
         editor.putString(RESPONSE_STATUS, String.valueOf(response.getStatus()));
+
+        // Group data
         editor.putString(RESPONSE_GRAFIK, String.valueOf(response.getGrafik()));
 
         String gId = "";
@@ -180,13 +205,6 @@ public class ResponseHandler {
             gEnd = gEnd.concat(grafikEnd + ",");
             gTeacherId = gTeacherId.concat(grafikTeacherId);
             gActive = gActive.concat(grafikActive);
-//            editor.putString(GRAFIK_GROUP_ID, response.getGrafik().get(i).getGroupId());
-//            editor.putString(GRAFIK_DAY_ID, response.getGrafik().get(i).getDayId());
-//            editor.putString(GRAFIK_DAY, response.getGrafik().get(i).getDay());
-//            editor.putString(GRAFIK_START, response.getGrafik().get(i).getStart());
-//            editor.putString(GRAFIK_END, response.getGrafik().get(i).getEnd());
-//            editor.putString(GRAFIK_TEACHER_ID, response.getGrafik().get(i).getTeacherId());
-//            editor.putString(GRAFIK_ACTIVE, (String) response.getGrafik().get(i).getActive());
         }
         editor.putString(GRAFIK_DAY, gDay);
         editor.putString(GRAFIK_START,gStart);
@@ -207,64 +225,65 @@ public class ResponseHandler {
         editor.putString(TEACHER_PHONE, response.getTeacher().getPhone());
         editor.putString(TEACHER_AVG_STUD, response.getTeacher().getAvgStud());
 
-//        try {
-//            JSONObject responseJson = new JSONObject(response.toString());
-//            if (responseJson.has("grafik")) {
-//                JSONArray resultJsonArr = responseJson.getJSONArray("grafik");
-//                for (int i = 0; i < resultJsonArr.length(); i++) {
-//                    JSONObject resultInstanceJson = resultJsonArr.getJSONObject(i);
-//                    String idGrafik = resultInstanceJson.getString("id");
-//                    String groupIdGrafik = resultInstanceJson.getString("group_id");
-//                    String dayIdGrafik = resultInstanceJson.getString("day_id");
-//                    String startGrafik = resultInstanceJson.getString("start");
-//                    String endGrafik = resultInstanceJson.getString("end");
-//                    String teacherIdGrafik = resultInstanceJson.getString("teacher_id");
-//                    String activeGrafik = resultInstanceJson.getString("active");
-//                    String dayGrafik = resultInstanceJson.getString("day");
-//
-//                    editor.putString(GRAFIK_ID, idGrafik);
-//                    editor.putString(GRAFIK_GROUP_ID, groupIdGrafik);
-//                    editor.putString(GRAFIK_START, dayIdGrafik);
-//                    editor.putString(GRAFIK_END, startGrafik);
-//                    editor.putString(GRAFIK_DAY_ID, endGrafik);
-//                    editor.putString(GRAFIK_TEACHER_ID, teacherIdGrafik);
-//                    editor.putString(GRAFIK_DAY, dayGrafik);
-//                    editor.putString(GRAFIK_ACTIVE, activeGrafik);
-//
-////                    String imageUrl = "", videoUrl = "";
-//                    //image url
-////                    if (resultInstanceJson.has("ImageUrl")) {
-////                        imageUrl = resultInstanceJson.getString("ImageUrl");}
-//                    //video url
-////                    if (resultInstanceJson.has("VideoUrl")) {
-////                        videoUrl = resultInstanceJson.getString("VideoUrl");}
-//                }
-//            }
-////            jsonObject = new JSONObject(String.valueOf(response));
-////            JSONArray contacts = jsonObject.getJSONArray("grafik");
-////            for (int i = 0; i < contacts.length(); i++) {
-////                JSONObject c = contacts.getJSONObject(i);
-////                String idGrafik = c.getString("id");
-////                String groupIdGrafik = c.getString("group_id");
-////                String dayIdGrafik = c.getString("day_id");
-////                String startGrafik = c.getString("start");
-////                String endGrafik = c.getString("end");
-////                String teacherIdGrafik = c.getString("teacher_id");
-////                String activeGrafik = c.getString("active");
-////                String dayGrafik = c.getString("day");
-////
-////                editor.putString(GRAFIK_ID, idGrafik);
-////                editor.putString(GRAFIK_GROUP_ID, groupIdGrafik);
-////                editor.putString(GRAFIK_START, dayIdGrafik);
-////                editor.putString(GRAFIK_END, startGrafik);
-////                editor.putString(GRAFIK_DAY_ID, endGrafik);
-////                editor.putString(GRAFIK_TEACHER_ID, teacherIdGrafik);
-////                editor.putString(GRAFIK_DAY, dayGrafik);
-////                editor.putString(GRAFIK_ACTIVE, activeGrafik);
-////            }
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
+        // Group data
+        editor.putString(GROUP_ID, String.valueOf(response.getGroup().getId()));
+        editor.putString(GROUP_GNAME, response.getGroup().getName());
+        editor.putString(GROUP_PART_ID, response.getGroup().getPartId());
+        editor.putString(GROUP_COLOR,   response.getGroup().getColor());
+        editor.putString(GROUP_LSAEAN_ID, (String) response.getGroup().getLsaranId());
+        editor.putString(GROUP_LEVEL, (String) response.getGroup().getLevel());
+        editor.putString(GROUP_ACTIVE,  response.getGroup().getActive());
+        editor.putString(GROUP_MODULE_ID, response.getGroup().getModuleId());
+        editor.putString(GROUP_TEACHER_ID, response.getGroup().getTeacherId());
+
+        // Group student data
+        editor.putString(GROUP_STUDENTS, String.valueOf(response.getGroup().getStudents()));
+
+        String gStName = "";
+        String gStSurname = "";
+        String gStRating = "";
+        String gStImg = "";
+        for (int i = 0; i<response.getGroup().getStudents().size();i++){
+            String gName = response.getGroup().getStudents().get(i).getName();
+            String gSurname = response.getGroup().getStudents().get(i).getSurname();
+            String gRating = response.getGroup().getStudents().get(i).getAvg();
+            String gImg = response.getGroup().getStudents().get(i).getPhoto();
+
+            gStName = gStName.concat(gName + ",");
+            gStSurname = gStSurname.concat(gSurname + ",");
+            gStRating = gStRating.concat(gRating + ",");
+            gStImg = gStImg.concat(gImg + ",");
+        }
+        editor.putString(GROUP_STUDENTS_NAME,gStName);
+        editor.putString(GROUP_STUDENTS_SURNAME,gStSurname);
+        editor.putString(GROUP_STUDENTS_IMG,gStImg);
+        editor.putString(GROUP_STUDENTS_RATING,gStRating);
+
+        //Notification data
+        String notId = "";
+        String notStId ="";
+        String notText ="";
+        String notStatus ="";
+        String notWhen ="";
+        for (int i = 0;i<response.getNotifications().size();i++){
+            String nId = String.valueOf(response.getNotifications().get(i).getId());
+            String nStId =response.getNotifications().get(i).getStudentId();
+            String nText =response.getNotifications().get(i).getText();
+            String  nStatus =response.getNotifications().get(i).getStatus();
+            String nWhen =response.getNotifications().get(i).getWhen();
+
+            notId = notId.concat(nId + ",");
+            notStId = notStId.concat(nStId + ",");
+            notText=notText.concat(nText + ",");
+            notStatus =notStatus.concat(nStatus + ",");
+            notWhen= notWhen.concat(nWhen + ",");
+        }
+        editor.putString(NOTIFICATION_ID,notId);
+        editor.putString(NOTIFICATION_STUDENT_ID,notStId);
+        editor.putString(NOTIFICATION_TEXT,notText);
+        editor.putString(NOTIFICATION_STATUS,notStatus);
+        editor.putString(NOTIFICATION_WHEN,notWhen);
+
         this.editor.commit();
     }
 
@@ -336,6 +355,7 @@ public class ResponseHandler {
         user.put(TEACHER_ACTIVE, pref.getString(TEACHER_ACTIVE, null));
         user.put(TEACHER_PHONE, pref.getString(TEACHER_PHONE, null));
         user.put(TEACHER_AVG_STUD, pref.getString(TEACHER_AVG_STUD, null));
+
 //      Grafik data
         user.put(GRAFIK_ID, pref.getString(GRAFIK_ID, null));
         user.put(GRAFIK_GROUP_ID, pref.getString(GRAFIK_GROUP_ID, null));
@@ -345,6 +365,32 @@ public class ResponseHandler {
         user.put(GRAFIK_TEACHER_ID, pref.getString(GRAFIK_TEACHER_ID, null));
         user.put(GRAFIK_DAY, pref.getString(GRAFIK_DAY, null));
         user.put(GRAFIK_ACTIVE, pref.getString(GRAFIK_ACTIVE, null));
+
+//      Group data
+        user.put(GROUP_ID, pref.getString(GROUP_ID, null));
+        user.put(GROUP_LSAEAN_ID, pref.getString(GROUP_LSAEAN_ID, null));
+        user.put(GROUP_MODULE_ID, pref.getString(GROUP_MODULE_ID, null));
+        user.put(GROUP_COLOR, pref.getString(GROUP_COLOR, null));
+        user.put(GROUP_LEVEL, pref.getString(GROUP_LEVEL, null));
+        user.put(GROUP_TEACHER_ID, pref.getString(GROUP_TEACHER_ID, null));
+        user.put(GROUP_GNAME, pref.getString(GROUP_GNAME, null));
+        user.put(GROUP_ACTIVE, pref.getString(GROUP_ACTIVE, null));
+        user.put(GROUP_STUDENTS, pref.getString(GROUP_STUDENTS, null));
+        user.put(GROUP_PART_ID, pref.getString(GROUP_PART_ID, null));
+
+//      Group Student data
+        user.put(GROUP_STUDENTS_NAME, pref.getString(GROUP_STUDENTS_NAME, null));
+        user.put(GROUP_STUDENTS_SURNAME, pref.getString(GROUP_STUDENTS_SURNAME, null));
+        user.put(GROUP_STUDENTS_IMG, pref.getString(GROUP_STUDENTS_IMG, null));
+        user.put(GROUP_STUDENTS_RATING, pref.getString(GROUP_STUDENTS_RATING, null));
+
+//      Notification data
+        user.put(NOTIFICATION_ID, pref.getString(NOTIFICATION_ID, null));
+        user.put(NOTIFICATION_WHEN, pref.getString(NOTIFICATION_WHEN, null));
+        user.put(NOTIFICATION_STUDENT_ID, pref.getString(NOTIFICATION_STUDENT_ID, null));
+        user.put(NOTIFICATION_TEXT, pref.getString(NOTIFICATION_TEXT, null));
+        user.put(NOTIFICATION_STATUS, pref.getString(NOTIFICATION_STATUS, null));
+
         return user;
     }
 

@@ -32,7 +32,12 @@
             android:name=".StProfActivity"
             android:label="@string/title_activity_st_prof"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".GrafikActivity"></activity>
+        <service
+            android:name=".fragment.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

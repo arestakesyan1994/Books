@@ -42,14 +42,13 @@ import java.util.Scanner;
 
 public class HomeFragment extends Fragment {
 
-    private String TAG = HomeFragment.class.getSimpleName();
-
-    private ProgressDialog pDialog;
     private ListView gday;
     private ListView gstart;
     private ListView gend;
-
-    private static String urls = "http://app.profitdeco.com/mobile/get?login=raffi-minasyan@profit.com&password=c6159c32";
+    private ListView xumbStName;
+    private ListView xumbStSurame;
+    private ListView xumbStImg;
+    private ListView xumbStRating;
 
     ArrayList<HashMap<String, String>> contactList;
 
@@ -82,59 +81,20 @@ public class HomeFragment extends Fragment {
 
         HashMap<String, String> user = session.getResponseDetails();
         System.out.println("start");
-//        ArrayList<HashMap<String, String>> users =session.getListDetails();
-//        for (HashMap<String,String> grafik:users){
-//            System.out.println(grafik.keySet());
-//            for (String key:grafik.keySet()){
-//                System.out.println(grafik.get(key));
-//            }
-//        }
-//        System.out.println("end");
 
-//        System.out.println(users.get(ResponseHandler.GRAFIK_DAY));
-
-        // student data
         String name = user.get(ResponseHandler.RESPONSE_NAME);
         String surname = user.get(ResponseHandler.RESPONSE_SURNAME);
         String image = user.get(ResponseHandler.RESPONSE_PHOTO);
         String rating = user.get(ResponseHandler.RESPONSE_AVG);
         String xumbs = user.get(ResponseHandler.RESPONSE_GROUP_ID);
-//        String grafik = user.get(ResponseHandler.GRAFIK_ID);
-//        System.out.println(grafik);
 
-        // teacher data
+        //Teacher data
         String teacherName = user.get(ResponseHandler.TEACHER_NAME);
         String teacherSurname = user.get(ResponseHandler.TEACHER_SURNAME);
         String teacherPhone = user.get(ResponseHandler.TEACHER_PHONE);
         String teacherImage = user.get(ResponseHandler.TEACHER_PHOTO);
 
-//        System.out.println(grafikId);
-//        System.out.println(groupIdGrafik);
-//        System.out.println(dayGrafik);
-//        System.out.println(dayIdGrafik);
-//        for(int i = 0;i<grafikId.length(); i++) {
-//        //    String c= grafikId[i];
-////            System.out.println(grafikId);
-//        }
-
-//        String grafik = user.get(ResponseHandler.RESPONSE_GRAFIK);
-//        String[] parts = grafik.split("group_id");
-//        for (int i = 0; i < parts.length; i++) {
-//            String graf = parts[i];
-//            System.out.println(graf);
-////            System.out.println(parts[1]);
-//            String[] list = graf.split("'");
-////            System.out.println(list);
-//            for (int j = 0; j < list.length; ++j) {
-//                String group_id = list[j];
-//                System.out.println(group_id);
-//
-//                ArrayAdapter<CharSequence> adapter =  new ArrayAdapter<CharSequence>(home.getContext()
-//                        ,android.R.layout.simple_list_item_1,list);
-//                lv = (ListView) home.findViewById(R.id.lists);
-//                lv.setAdapter(adapter);
-//            }
-//        }
+        //Grafik data
         String grafikDay = user.get(ResponseHandler.GRAFIK_DAY);
         String[] gDay = grafikDay.split(",");
         ArrayAdapter<CharSequence> day = new ArrayAdapter<CharSequence>(home.getContext()
@@ -157,10 +117,46 @@ public class HomeFragment extends Fragment {
         gend = (ListView) home.findViewById(R.id.listEnd);
         gend.setAdapter(end);
 
-
         // group data
-        String groupId = user.get(GroupHandler.GROUP_ID);
-        String groupPart = user.get(GroupHandler.GROUP_PART_ID);
+        String groupId = user.get(ResponseHandler.GROUP_ID);
+        String groupName = user.get(ResponseHandler.GROUP_GNAME);
+        String groupPartId = user.get(ResponseHandler.GROUP_PART_ID);
+        String groupTeacherId = user.get(ResponseHandler.GROUP_TEACHER_ID);
+        String groupColor = user.get(ResponseHandler.GROUP_COLOR);
+        String groupLsaranId = user.get(ResponseHandler.GROUP_LSAEAN_ID);
+        String groupLevel = user.get(ResponseHandler.GROUP_LEVEL);
+        String groupActive = user.get(ResponseHandler.GROUP_ACTIVE);
+        String groupModuleId = user.get(ResponseHandler.GROUP_MODULE_ID);
+
+        String groupStName = user.get(ResponseHandler.GROUP_STUDENTS_NAME);
+        String[] gStName = groupStName.split(",");
+        ArrayAdapter<CharSequence> stName = new ArrayAdapter<CharSequence>(home.getContext()
+                , R.layout.list_item, gStName);
+        xumbStName = (ListView) home.findViewById(R.id.xumbStName);
+        xumbStName.setAdapter(stName);
+
+        String groupStSurname = user.get(ResponseHandler.GROUP_STUDENTS_SURNAME);
+        String[] gStSurname = groupStSurname.split(",");
+        ArrayAdapter<CharSequence> stSurname = new ArrayAdapter<CharSequence>(home.getContext()
+                , R.layout.list_item, gStSurname);
+        xumbStSurame = (ListView) home.findViewById(R.id.xumbStSurname);
+        xumbStSurame.setAdapter(stSurname);
+//
+//        String groupStImg = user.get(ResponseHandler.GROUP_STUDENTS_IMG);
+//        String[] gStImg = groupStImg.split(",");
+//        ArrayAdapter<CharSequence> stImg = new ArrayAdapter<CharSequence>(home.getContext()
+//                , R.layout.list_item, gStImg);
+//        xumbStImg = (ListView) home.findViewById(R.id.xumbStImg);
+//        xumbStImg.setAdapter(stImg);
+
+        String groupStRating = user.get(ResponseHandler.GROUP_STUDENTS_RATING);
+        String[] gStRating = groupStRating.split(",");
+        ArrayAdapter<CharSequence> stRating = new ArrayAdapter<CharSequence>(home.getContext()
+                , R.layout.list_item, gStRating);
+        xumbStRating = (ListView) home.findViewById(R.id.xumbStRating);
+        xumbStRating.setAdapter(stRating);
+
+
 
         nAnds = (TextView) home.findViewById(R.id.nAnds);
         nAnds.setText(name + " " + surname);
@@ -172,16 +168,12 @@ public class HomeFragment extends Fragment {
         mrcuyt.setText("Մրցույթ");
 
         xumb = (TextView) home.findViewById(R.id.xumb);
-        xumb.setText("Իմ խումբը - " + xumbs);
+        xumb.setText("Իմ խումբը - " + groupName);
 
         teacherNandS = (TextView) home.findViewById(R.id.teacherNandS);
         teacherNandS.setText(teacherName + "  " + teacherSurname + "\n" + teacherPhone);
 
-
         contactList = new ArrayList<>();
-
-
-//        new GetContacts().execute();
 
         userImage = (ImageView) home.findViewById(R.id.userImage);
         Glide.with(this).load("http://app.profitdeco.com/img/students/" + image).into(userImage);
@@ -189,39 +181,7 @@ public class HomeFragment extends Fragment {
         teacherImages = (ImageView) home.findViewById(R.id.teacherImage);
         Glide.with(this).load("http://app.profitdeco.com/img/teachers/" + teacherImage).into(teacherImages);
 
-//        https://www.journaldev.com/10642/android-jsonobject-json-parsing
-
-//        try {
-//
-//            List<String> items = new ArrayList<>();
-//            JSONObject root = new JSONObject(grafik);
-//
-//            JSONArray array= root.getJSONArray("array");
-//
-//            this.setTitle(root.getString("title"));
-//
-//            for(int i=0;i<array.length();i++)
-//            {
-//                JSONObject object= array.getJSONObject(i);
-//                items.add(object.getString("company"));
-//            }
-//
-//            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//                    android.R.layout.simple_list_item_1, items);
-//
-//            if (lv != null) {
-//                lv.setAdapter(adapter);
-//            }
-//
-//            JSONObject nested= root.getJSONObject("nested");
-//            Log.d("TAG","flag value "+nested.getBoolean("flag"));
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-
         return home;
 
     }
 }
-// https://www.androidhive.info/2012/01/android-json-parsing-tutorial/
