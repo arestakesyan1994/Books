@@ -22,7 +22,7 @@
 //
 //    }
 //    private void sendNotification(String messageBody) {
-//        Intent intent = new Intent(this, StProfActivity.class);
+//        Intent intent = new Intent(this, HomeFragment.class);
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //
 //        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);

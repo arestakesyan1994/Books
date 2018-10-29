@@ -112,12 +112,18 @@ public class ResponseHandler {
     public static final String GROUP_STUDENTS_IMG= "studentsImg";
 
     //Notification data
-
     public static final String NOTIFICATION_ID = "idNot";
     public static final String NOTIFICATION_STUDENT_ID = "studentIdNot";
     public static final String NOTIFICATION_TEXT= "textNot";
     public static final String NOTIFICATION_WHEN = "whenNot";
     public static final String NOTIFICATION_STATUS = "statusNot";
+
+    //Modules data
+    public static final String MODULES_ID = "idModules";
+    public static final String MODULES_KURS = "kursModules";
+    public static final String MODULES_ABOUT= "aboutModules";
+    public static final String MODULES_LESSON_COUNT= "lessonCountModules";
+    public static final String MODULES_NAME = "nameModules";
 
     public ResponseHandler(Context context) {
         this._context = context;
@@ -164,7 +170,6 @@ public class ResponseHandler {
         editor.putString(RESPONSE_CODE_LEVEL, response.getCodeLevel());
         editor.putString(RESPONSE_ARTIFICIAL_RATE, response.getArtificialRate());
         editor.putString(RESPONSE_GAME_ACTIVITY, response.getGameActivity());
-        editor.putString(RESPONSE_MODULES, String.valueOf(response.getModules()));
         editor.putString(RESPONSE_LEVEL_NAME, response.getLevelName());
         editor.putString(RESPONSE_RELEASE_DATE, String.valueOf(response.getReleaseDate()));
         editor.putString(RESPONSE_ZEXCH, String.valueOf(response.getZexch()));
@@ -173,7 +178,6 @@ public class ResponseHandler {
         editor.putString(RESPONSE_PHONE_NUMBER, response.getPhoneNumber());
         editor.putString(RESPONSE_PAYMANAGRI_AVART, response.getPaymanagriAvart());
         editor.putString(RESPONSE_SHOW_TESTS, response.getShowTests());
-        editor.putString(RESPONSE_NOTIFICATIONS, String.valueOf(response.getNotifications()));
         editor.putString(RESPONSE_STATUS, String.valueOf(response.getStatus()));
 
         // Group data
@@ -260,6 +264,8 @@ public class ResponseHandler {
         editor.putString(GROUP_STUDENTS_RATING,gStRating);
 
         //Notification data
+        editor.putString(RESPONSE_NOTIFICATIONS, String.valueOf(response.getNotifications()));
+
         String notId = "";
         String notStId ="";
         String notText ="";
@@ -284,17 +290,36 @@ public class ResponseHandler {
         editor.putString(NOTIFICATION_STATUS,notStatus);
         editor.putString(NOTIFICATION_WHEN,notWhen);
 
+        //Modules data
+        editor.putString(RESPONSE_MODULES, String.valueOf(response.getModules()));
+
+        String modId = "";
+        String modName = "";
+        String modKurs = "";
+        String modLessonsCount= "";
+        String modAbout = "";
+        for (int i =0;i< response.getModules().size();i++){
+            String mId = String.valueOf(response.getModules().get(i).getId());
+            String mName = response.getModules().get(i).getName();
+            String mKurs = response.getModules().get(i).getKurs();
+            String mLessonCount = response.getModules().get(i).getLessonsCount();
+            String mAbout =response.getModules().get(i).getAbout();
+
+            modId = modId.concat(mId+ ",");
+            modName= modName.concat(mName + ",");
+            modKurs= modKurs.concat(mKurs + ",");
+            modLessonsCount = modLessonsCount.concat(mLessonCount + ",");
+            modAbout=modAbout.concat(mAbout + ",");
+        }
+
+        editor.putString(MODULES_ID,modId);
+        editor.putString(MODULES_NAME,modName);
+        editor.putString(MODULES_KURS,modKurs);
+        editor.putString(MODULES_LESSON_COUNT,modLessonsCount);
+        editor.putString(MODULES_ABOUT,modAbout);
+
         this.editor.commit();
     }
-
-//        List<JSONObject> jsonObj = new ArrayList<JSONObject>();
-//        for(HashMap<String, String> data : dataMap) {
-//            JSONObject obj = new JSONObject(data);
-//            jsonObj.add(obj);
-//        }
-//        JSONArray test = new JSONArray(jsonObj);
-//        System.out.println(test.toString());
-// looping through All Contacts
 
     public HashMap<String, String> getResponseDetails() {
         HashMap<String, String> user = new HashMap<>();
@@ -390,6 +415,13 @@ public class ResponseHandler {
         user.put(NOTIFICATION_STUDENT_ID, pref.getString(NOTIFICATION_STUDENT_ID, null));
         user.put(NOTIFICATION_TEXT, pref.getString(NOTIFICATION_TEXT, null));
         user.put(NOTIFICATION_STATUS, pref.getString(NOTIFICATION_STATUS, null));
+
+//      Modules data
+        user.put(MODULES_ID, pref.getString(MODULES_ID, null));
+        user.put(MODULES_NAME, pref.getString(MODULES_NAME, null));
+        user.put(MODULES_KURS, pref.getString(MODULES_KURS, null));
+        user.put(MODULES_ABOUT, pref.getString(MODULES_ABOUT, null));
+        user.put(MODULES_LESSON_COUNT, pref.getString(MODULES_LESSON_COUNT, null));
 
         return user;
     }

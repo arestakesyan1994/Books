@@ -2,8 +2,7 @@ package com.example.infinity.prof.url;
 
 
 import com.example.infinity.prof.model.Response;
-import com.example.infinity.prof.model.StItem;
-import com.example.infinity.prof.model.StudentsItem;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

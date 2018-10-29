@@ -141,13 +141,13 @@ public class HomeFragment extends Fragment {
                 , R.layout.list_item, gStSurname);
         xumbStSurame = (ListView) home.findViewById(R.id.xumbStSurname);
         xumbStSurame.setAdapter(stSurname);
-//
-//        String groupStImg = user.get(ResponseHandler.GROUP_STUDENTS_IMG);
-//        String[] gStImg = groupStImg.split(",");
-//        ArrayAdapter<CharSequence> stImg = new ArrayAdapter<CharSequence>(home.getContext()
-//                , R.layout.list_item, gStImg);
-//        xumbStImg = (ListView) home.findViewById(R.id.xumbStImg);
-//        xumbStImg.setAdapter(stImg);
+
+        String groupStImg = user.get(ResponseHandler.GROUP_STUDENTS_IMG);
+        String[] gStImg = groupStImg.split(",");
+        ArrayAdapter<CharSequence> stImg = new ArrayAdapter<CharSequence>(home.getContext()
+                , R.layout.list_item, gStImg);
+        xumbStImg = (ListView) home.findViewById(R.id.xumbStImg);
+        xumbStImg.setAdapter(stImg);
 
         String groupStRating = user.get(ResponseHandler.GROUP_STUDENTS_RATING);
         String[] gStRating = groupStRating.split(",");

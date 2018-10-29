@@ -47,11 +47,17 @@ import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StProfActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private NotificationManager myNotificationManager;
+
     SessionHandler session;
     TextView uRating, nAnds, mrcuyt, modul, xumb, nAndsA, uRatingA;
     ImageView userImage, userImageA;
@@ -59,12 +65,19 @@ public class StProfActivity extends AppCompatActivity
     private NavigationView navigationView;
     private View navHeader;
 
+    private int notificationIdOne = 111;
+    private int notificationIdTwo = 112;
+    private int numMessagesOne = 0;
+
+    ArrayList<HashMap<String, String>> contactList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_st_prof);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         mApiService = UtilsApi.getAPIService();
 
@@ -104,6 +117,47 @@ public class StProfActivity extends AppCompatActivity
         displaySelectedFragment(fragment);
 
         ArrayList<HashMap<String, String>> contactList;
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    protected void displayNotificationOne() {
+
+        // Invoking the default notification service
+        NotificationCompat.Builder  mBuilder = new NotificationCompat.Builder(this);
+
+        mBuilder.setContentTitle("New Message with explicit intent");
+        mBuilder.setContentText("New message from javacodegeeks received");
+        mBuilder.setTicker("Explicit: New Message Received!");
+        mBuilder.setSmallIcon(R.drawable.ic_launcher_background);
+
+        // Increase notification number every time a new notification arrives
+        mBuilder.setNumber(++numMessagesOne);
+
+        // Creates an explicit intent for an Activity in your app
+        Intent resultIntent = new Intent(this, NotificationOne.class);
+        resultIntent.putExtra("notificationId", notificationIdOne);
+
+        //This ensures that navigating backward from the Activity leads out of the app to Home page
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+
+        // Adds the back stack for the Intent
+        stackBuilder.addParentStack(NotificationOne.class);
+
+        // Adds the Intent that starts the Activity to the top of the stack
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(
+                        0,
+                        PendingIntent.FLAG_ONE_SHOT //can only be used once
+                );
+        // start the activity when the user clicks the notification text
+        mBuilder.setContentIntent(resultPendingIntent);
+
+        myNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // pass the Notification object to the system
+        myNotificationManager.notify(notificationIdOne, mBuilder.build());
     }
 
     @Override

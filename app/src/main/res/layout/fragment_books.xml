@@ -112,119 +112,170 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/nkmek"
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:layout_margin="10dp"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/nkmek" />
 
+
                     <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/nkerku"
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:layout_margin="10dp"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/nkerku" />
 
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-
                     <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/nkereq"
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:layout_margin="10dp"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/nkereq" />
 
-                    <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/nkchors"
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_weight="1"
-                        android:layout_margin="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/nkchors" />
 
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:layout_width="200dp"-->
+                        <!--android:layout_height="200dp"-->
+                        <!--android:layout_marginLeft="80dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkhing" />-->
+
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:layout_width="200dp"-->
+                        <!--android:layout_height="200dp"-->
+                        <!--android:layout_marginLeft="80dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkvec" />-->
+
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:layout_width="200dp"-->
+                        <!--android:layout_height="200dp"-->
+                        <!--android:layout_marginLeft="80dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkyot" />-->
+
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:layout_width="200dp"-->
+                        <!--android:layout_height="200dp"-->
+                        <!--android:layout_marginLeft="80dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkut" />-->
+
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:layout_width="200dp"-->
+                        <!--android:layout_height="200dp"-->
+                        <!--android:layout_marginLeft="80dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkin" />-->
+<!---->
+<!---->
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/nkhing"
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_weight="1"
-                        android:layout_margin="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/nkhing" />
-
-                    <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/nkvec"
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_weight="1"
-                        android:layout_margin="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/nkvec" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/nkyot"
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_weight="1"
-                        android:layout_margin="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/nkyot" />
-
-                    <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/nkut"
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_weight="1"
-                        android:layout_margin="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/nkut" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-
-                    <com.joooonho.SelectableRoundedImageView
-                        android:id="@+id/nkin"
-                        android:layout_width="120dp"
-                        android:layout_height="140dp"
-                        android:layout_marginLeft="100dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="100dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_weight="1"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/nkin" />
-
-                </LinearLayout>
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="horizontal">-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:id="@+id/nkereq"-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="140dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkereq" />-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:id="@+id/nkchors"-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="140dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkchors" />-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                <!--</LinearLayout>-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="horizontal">-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:id="@+id/nkhing"-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="140dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkhing" />-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:id="@+id/nkvec"-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="140dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkvec" />-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                <!--</LinearLayout>-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="horizontal">-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:id="@+id/nkyot"-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="140dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkyot" />-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:id="@+id/nkut"-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="140dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkut" />-->
+                <!--</LinearLayout>-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="horizontal">-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                    <!--<com.joooonho.SelectableRoundedImageView-->
+                        <!--android:id="@+id/nkin"-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="140dp"-->
+                        <!--android:layout_marginLeft="100dp"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_marginRight="100dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:scaleType="centerCrop"-->
+                        <!--android:src="@mipmap/nkin" />-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+                <!--</LinearLayout>-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
