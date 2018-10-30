@@ -2,14 +2,13 @@ package com.example.infinity.prof;
 
 import android.animation.LayoutTransition;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationCompat;
@@ -23,6 +22,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,29 +34,22 @@ import com.example.infinity.prof.fragment.FilerFragment;
 import com.example.infinity.prof.fragment.HomeFragment;
 import com.example.infinity.prof.fragment.KargavorumnerFragment;
 import com.example.infinity.prof.fragment.ModuliGnahatumFragment;
-import com.example.infinity.prof.fragment.NotificationOne;
+import com.example.infinity.prof.fragment.NotificationView;
 import com.example.infinity.prof.fragment.QnnArdFragment;
 import com.example.infinity.prof.fragment.QnnFragment;
 import com.example.infinity.prof.fragment.TesakanFragment;
 import com.example.infinity.prof.fragment.TesterFragment;
 import com.example.infinity.prof.fragment.TnajinFragment;
 import com.example.infinity.prof.fragment.VideoFragment;
-import com.example.infinity.prof.handler.GroupHandler;
-import com.example.infinity.prof.handler.HttpHandler;
 import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StProfActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private NotificationManager myNotificationManager;
 
     SessionHandler session;
     TextView uRating, nAnds, mrcuyt, modul, xumb, nAndsA, uRatingA;
@@ -65,10 +58,7 @@ public class StProfActivity extends AppCompatActivity
     private NavigationView navigationView;
     private View navHeader;
 
-    private int notificationIdOne = 111;
-    private int notificationIdTwo = 112;
-    private int numMessagesOne = 0;
-
+    Button button;
     ArrayList<HashMap<String, String>> contactList;
 
     @Override
@@ -77,7 +67,6 @@ public class StProfActivity extends AppCompatActivity
         setContentView(R.layout.activity_st_prof);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         mApiService = UtilsApi.getAPIService();
 
@@ -117,48 +106,45 @@ public class StProfActivity extends AppCompatActivity
         displaySelectedFragment(fragment);
 
         ArrayList<HashMap<String, String>> contactList;
+
+//        String tittle="hello";
+//        String subject="notification";
+//        String body="How are you";
+//        Intent intent = new Intent(getApplicationContext(), StProfActivity.class);
+//        PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), (int)System.currentTimeMillis(), intent, 0);
+//
+//
+//        Notification myNotification  = new Notification.Builder(getApplicationContext())
+//                .setContentTitle("Title")
+//                .setContentText("Some text....")
+//                .setSmallIcon(R.drawable.ic_launcher_background)
+//                .setContentIntent(pIntent)
+//                .setAutoCancel(true).build();
+//
+//
+//        NotificationManager notificationManager =
+//                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//
+//        notificationManager.notify(0, myNotification);
+
+//        NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+//        Notification notify=new Notification.Builder
+//                (getApplicationContext()).setContentTitle(tittle).setContentText(body).
+//                setContentTitle(subject).setSmallIcon(R.drawable.ic_launcher_background).build();
+//
+//        notify.flags |= Notification.FLAG_AUTO_CANCEL;
+//        notif.notify(0, notify);
+
+
+//        button = findViewById(R.id.button);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                addNotification();
+//            }
+//        });
     }
 
-
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    protected void displayNotificationOne() {
-
-        // Invoking the default notification service
-        NotificationCompat.Builder  mBuilder = new NotificationCompat.Builder(this);
-
-        mBuilder.setContentTitle("New Message with explicit intent");
-        mBuilder.setContentText("New message from javacodegeeks received");
-        mBuilder.setTicker("Explicit: New Message Received!");
-        mBuilder.setSmallIcon(R.drawable.ic_launcher_background);
-
-        // Increase notification number every time a new notification arrives
-        mBuilder.setNumber(++numMessagesOne);
-
-        // Creates an explicit intent for an Activity in your app
-        Intent resultIntent = new Intent(this, NotificationOne.class);
-        resultIntent.putExtra("notificationId", notificationIdOne);
-
-        //This ensures that navigating backward from the Activity leads out of the app to Home page
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-
-        // Adds the back stack for the Intent
-        stackBuilder.addParentStack(NotificationOne.class);
-
-        // Adds the Intent that starts the Activity to the top of the stack
-        stackBuilder.addNextIntent(resultIntent);
-        PendingIntent resultPendingIntent =
-                stackBuilder.getPendingIntent(
-                        0,
-                        PendingIntent.FLAG_ONE_SHOT //can only be used once
-                );
-        // start the activity when the user clicks the notification text
-        mBuilder.setContentIntent(resultPendingIntent);
-
-        myNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        // pass the Notification object to the system
-        myNotificationManager.notify(notificationIdOne, mBuilder.build());
-    }
 
     @Override
     public void onBackPressed() {
@@ -258,4 +244,48 @@ public class StProfActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
     }
+
+//    private void addNotification() {
+//        NotificationCompat.Builder builder =
+//                new NotificationCompat.Builder(this)
+//                        .setSmallIcon(R.drawable.ic_launcher_background) //set icon for notification
+//                        .setContentTitle("Notifications Example") //set title of notification
+//                        .setContentText("This is a notification message")//this is notification message
+//                        .setStyle(new NotificationCompat.BigTextStyle()
+//                                .bigText("Much longer text that cannot fit one line..."))
+//                        .setAutoCancel(true) // makes auto cancel of notification
+//                        .setPriority(NotificationCompat.PRIORITY_DEFAULT); //set priority of notification
+//
+//
+//        Intent notificationIntent = new Intent(this, NotificationView.class);
+//        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        //notification message will get at NotificationView
+//        notificationIntent.putExtra("message", "This is a notification message");
+//
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+//                PendingIntent.FLAG_UPDATE_CURRENT);
+//        builder.setContentIntent(pendingIntent);
+//
+//        // Add as notification
+//        NotificationManager manager =
+//                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//        manager.notify(0, builder.build());
+//    }
+
+//    private void createNotificationChannel() {
+//        // Create the NotificationChannel, but only on API 26+ because
+//        // the NotificationChannel class is new and not in the support library
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            CharSequence name = getString(R.string.action_settings);
+//            String description = getString(R.string.title_home);
+//            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+//            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+//            channel.setDescription(description);
+//            // Register the channel with the system; you can't change the importance
+//            // or other notification behaviors after this
+//            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+//            notificationManager.createNotificationChannel(channel);
+//        }
+//    }
+
 }
