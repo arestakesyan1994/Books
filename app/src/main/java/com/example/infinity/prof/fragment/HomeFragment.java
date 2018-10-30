@@ -103,6 +103,7 @@ public class HomeFragment extends Fragment {
         String teacherPhone = user.get(ResponseHandler.TEACHER_PHONE);
         String teacherImage = user.get(ResponseHandler.TEACHER_PHOTO);
 
+
         //Grafik data
         String grafikDay = user.get(ResponseHandler.GRAFIK_DAY);
         String[] gDay = grafikDay.split(",");
