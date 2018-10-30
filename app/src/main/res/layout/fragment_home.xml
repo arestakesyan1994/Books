@@ -295,6 +295,11 @@
                         android:layout_weight="1" />
                 </LinearLayout>
 
+                <!--<Button-->
+                    <!--android:id="@+id/notificationOne"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="start notification one" />-->
             </LinearLayout>
 
         </ScrollView>

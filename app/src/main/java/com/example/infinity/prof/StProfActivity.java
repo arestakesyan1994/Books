@@ -107,42 +107,6 @@ public class StProfActivity extends AppCompatActivity
 
         ArrayList<HashMap<String, String>> contactList;
 
-//        String tittle="hello";
-//        String subject="notification";
-//        String body="How are you";
-//        Intent intent = new Intent(getApplicationContext(), StProfActivity.class);
-//        PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), (int)System.currentTimeMillis(), intent, 0);
-//
-//
-//        Notification myNotification  = new Notification.Builder(getApplicationContext())
-//                .setContentTitle("Title")
-//                .setContentText("Some text....")
-//                .setSmallIcon(R.drawable.ic_launcher_background)
-//                .setContentIntent(pIntent)
-//                .setAutoCancel(true).build();
-//
-//
-//        NotificationManager notificationManager =
-//                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//
-//        notificationManager.notify(0, myNotification);
-
-//        NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-//        Notification notify=new Notification.Builder
-//                (getApplicationContext()).setContentTitle(tittle).setContentText(body).
-//                setContentTitle(subject).setSmallIcon(R.drawable.ic_launcher_background).build();
-//
-//        notify.flags |= Notification.FLAG_AUTO_CANCEL;
-//        notif.notify(0, notify);
-
-
-//        button = findViewById(R.id.button);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                addNotification();
-//            }
-//        });
     }
 
 

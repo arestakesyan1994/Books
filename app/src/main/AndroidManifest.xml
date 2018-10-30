@@ -32,6 +32,20 @@
             android:name=".StProfActivity"
             android:label="@string/title_activity_st_prof"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".fragment.NotificationOne"
+
+            android:label="Details of Notification One"
+
+            android:parentActivityName=".LoginActivity">
+
+            <meta-data
+
+                android:name="android.support.PARENT_ACTIVITY"
+
+                android:value=".LoginActivity"/>
+
+        </activity>
+
         <!--<activity android:name=".fragment.NotificationView"-->
             <!--android:label="@string/notification_activity"-->
             <!--android:parentActivityName=".StProfActivity">-->

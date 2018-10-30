@@ -3,10 +3,13 @@ package com.example.infinity.prof.fragment;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -67,6 +70,7 @@ public class HomeFragment extends Fragment {
     TextView teacherNandS;
     ImageView userImage;
     ImageView teacherImages;
+
     public HomeFragment() {
     }
 
@@ -184,8 +188,55 @@ public class HomeFragment extends Fragment {
 
         teacherImages = (ImageView) home.findViewById(R.id.teacherImage);
         Glide.with(this).load("http://app.profitdeco.com/img/teachers/" + teacherImage).into(teacherImages);
+//        Button notOneBtn = (Button) home.findViewById(R.id.notificationOne);
+//        notOneBtn.setOnClickListener(new View.OnClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+//            public void onClick(View view) {
+//                displayNotificationOne();
+//            }
+//        });
 
         return home;
 
     }
 }
+//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+//    protected void displayNotificationOne() {
+//
+//        // Invoking the default notification service
+//        NotificationCompat.Builder  mBuilder = new NotificationCompat.Builder(getActivity());
+//
+//        mBuilder.setContentTitle("New Message with explicit intent");
+//        mBuilder.setContentText("New message from javacodegeeks received");
+//        mBuilder.setTicker("Explicit: New Message Received!");
+//        mBuilder.setSmallIcon(R.drawable.ic_launcher_background);
+//
+//        // Increase notification number every time a new notification arrives
+//        mBuilder.setNumber(++numMessagesOne);
+//
+//        // Creates an explicit intent for an Activity in your app
+//        Intent resultIntent = new Intent(getActivity(), NotificationOne.class);
+//        resultIntent.putExtra("notificationId", notificationIdOne);
+//
+//        //This ensures that navigating backward from the Activity leads out of the app to Home page
+//        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getActivity());
+//
+//        // Adds the back stack for the Intent
+//        stackBuilder.addParentStack(NotificationOne.class);
+//
+//        // Adds the Intent that starts the Activity to the top of the stack
+//        stackBuilder.addNextIntent(resultIntent);
+//        PendingIntent resultPendingIntent =
+//                stackBuilder.getPendingIntent(
+//                        0,
+//                        PendingIntent.FLAG_ONE_SHOT //can only be used once
+//                );
+//        // start the activity when the user clicks the notification text
+//        mBuilder.setContentIntent(resultPendingIntent);
+//
+//        myNotificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//        // pass the Notification object to the system
+//        myNotificationManager.notify(0, mBuilder.build());
+//    }
+//}
