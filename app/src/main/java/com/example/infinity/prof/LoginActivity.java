@@ -22,9 +22,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.infinity.prof.fragment.NotificationOne;
 import com.example.infinity.prof.handler.ResponseHandler;
+import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.model.Response;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
+import com.github.arturogutierrez.Badges;
+import com.github.arturogutierrez.BadgesNotSupportedException;
+
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -131,6 +136,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 myNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 myNotificationManager.notify(i, mBuilder.build());
                             }
+
                         } else {
                             Toast.makeText(LoginActivity.this, "Sorry, User Name or Password wrong.\n try again...", Toast.LENGTH_SHORT).show();
                         }
@@ -140,6 +146,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     public void onFailure(Call<Response> call, Throwable t) {
                     }
                 });
+    }
+    public void notCount(View view){
+        try{
+
+            mApiService = UtilsApi.getAPIService();
+
+            session = new ResponseHandler(getApplicationContext());
+            session.checkLogin();
+
+            HashMap<String, String> user = session.getResponseDetails();
+
+            String notCount = user.get(ResponseHandler.NOTIFICATION_TEXT);
+            String[] nCount = notCount.split(";");
+            int sun = 0;
+            for (int i =0;i< nCount.length;i++){
+                sun ++;
+            }
+            Badges.setBadge(LoginActivity.this,10);
+        }catch (BadgesNotSupportedException error){
+
+        }
     }
 
     @Override

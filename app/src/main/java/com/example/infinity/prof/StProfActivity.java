@@ -44,6 +44,8 @@ import com.example.infinity.prof.fragment.VideoFragment;
 import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
+import com.github.arturogutierrez.Badges;
+import com.github.arturogutierrez.BadgesNotSupportedException;
 
 import java.util.ArrayList;
 import java.util.HashMap;

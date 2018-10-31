@@ -280,7 +280,7 @@ public class ResponseHandler {
 
             notId = notId.concat(nId + ",");
             notStId = notStId.concat(nStId + ",");
-            notText=notText.concat(nText + ",");
+            notText=notText.concat(nText + ";");
             notStatus =notStatus.concat(nStatus + ",");
             notWhen= notWhen.concat(nWhen + ",");
         }
