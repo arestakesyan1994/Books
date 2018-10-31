@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 mBuilder.setContentTitle("New Message profit");
                                 mBuilder.setContentText(nText);
                                 mBuilder.setTicker("Explicit: New Message Received!");
-                                mBuilder.setSmallIcon(R.drawable.ic_android_black_24dp);
+                                mBuilder.setSmallIcon(android.R.drawable.ic_dialog_email);
 
                                 mBuilder.setNumber(++numMessagesOne);
 

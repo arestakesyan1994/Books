@@ -275,7 +275,7 @@ public class ResponseHandler {
             String nId = String.valueOf(response.getNotifications().get(i).getId());
             String nStId =response.getNotifications().get(i).getStudentId();
             String nText =response.getNotifications().get(i).getText();
-            String  nStatus =response.getNotifications().get(i).getStatus();
+            String nStatus =response.getNotifications().get(i).getStatus();
             String nWhen =response.getNotifications().get(i).getWhen();
 
             notId = notId.concat(nId + ",");
@@ -284,7 +284,9 @@ public class ResponseHandler {
             notStatus =notStatus.concat(nStatus + ",");
             notWhen= notWhen.concat(nWhen + ",");
         }
-        editor.putString(NOTIFICATION_ID,notId);
+        int c = response.getNotifications().size();
+        System.out.println(String.valueOf(c));
+        editor.putString(NOTIFICATION_ID, String.valueOf(c));
         editor.putString(NOTIFICATION_STUDENT_ID,notStId);
         editor.putString(NOTIFICATION_TEXT,notText);
         editor.putString(NOTIFICATION_STATUS,notStatus);

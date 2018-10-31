@@ -7,11 +7,15 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.view.MenuItemCompat;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -41,6 +45,7 @@ import com.example.infinity.prof.fragment.TesakanFragment;
 import com.example.infinity.prof.fragment.TesterFragment;
 import com.example.infinity.prof.fragment.TnajinFragment;
 import com.example.infinity.prof.fragment.VideoFragment;
+import com.example.infinity.prof.handler.ResponseHandler;
 import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
@@ -53,8 +58,9 @@ import java.util.HashMap;
 public class StProfActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    SessionHandler session;
+    ResponseHandler session;
     TextView uRating, nAnds, mrcuyt, modul, xumb, nAndsA, uRatingA;
+    TextView notification;
     ImageView userImage, userImageA;
     ApiService mApiService;
     private NavigationView navigationView;
@@ -72,14 +78,14 @@ public class StProfActivity extends AppCompatActivity
 
         mApiService = UtilsApi.getAPIService();
 
-        session = new SessionHandler(getApplicationContext());
+        session = new ResponseHandler(getApplicationContext());
         session.checkLogin();
 
-        HashMap<String, String> user = session.getUserDetails();
-        String name = user.get(SessionHandler.KEY_NAME);
-        String surname = user.get(SessionHandler.KEY_SURNAME);
-        String image = user.get(SessionHandler.KEY_PHOTO);
-        String rating = user.get(SessionHandler.KEY_AVG);
+        HashMap<String, String> user = session.getResponseDetails();
+        String name = user.get(ResponseHandler.RESPONSE_NAME);
+        String surname = user.get(ResponseHandler.RESPONSE_SURNAME);
+        String image = user.get(ResponseHandler.RESPONSE_PHOTO);
+        String rating = user.get(ResponseHandler.RESPONSE_AVG);
 
         ViewGroup contentView = (ViewGroup) findViewById(R.id.drawer_layout);
         contentView.setLayoutTransition(new LayoutTransition());
@@ -124,10 +130,34 @@ public class StProfActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.st_prof, menu);
+
+        MenuItem not = menu.findItem(R.id.action_settings);
+        notification= (TextView) MenuItemCompat.getActionView(not);
+        initializaCountDrawer();
+
         return true;
     }
+    private void initializaCountDrawer() {
+        notification.setGravity(Gravity.LEFT);
+        notification.setTypeface(null, Typeface.BOLD);
+        mApiService = UtilsApi.getAPIService();
+
+        session = new ResponseHandler(getApplicationContext());
+        session.checkLogin();
+
+        HashMap<String, String> user = session.getResponseDetails();
+        String count = user.get(ResponseHandler.NOTIFICATION_ID);
+        System.out.println(count);
+
+        notification.setTextColor(getResources().getColor(R.color.colornot));
+        notification.setText("+"+count);
+    }
+
+//    private void setMenuCounter(@IdRes int itemId, int count) {
+//        TextView view = (TextView) navigationView.getMenu().findItem(itemId).getActionView();
+//        view.setText(count > 0 ? String.valueOf(count) : null);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -135,6 +165,7 @@ public class StProfActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+//            setMenuCounter();
             return true;
         }
 

@@ -20,7 +20,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Notification</string>
     <string name="codebattle">CodeBattle խաղը կօգնի Ձեզ զարգացնել Ձեր տրամաբանությունը, կոդ գրելու կարողությունը
         և ալգորիթմական մտածելակերպը տարբեր բարդության խնդիրներ լուծելու միջոցով</string>
     <string name="yntrum_enq">  * Ընտրում ենք ակտիվ խնդիրը, որը պատկերված է կանաչ գույնով\n * Գրում ենք խնդիրը լուծող
