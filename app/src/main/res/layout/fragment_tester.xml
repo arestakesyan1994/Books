@@ -55,6 +55,7 @@
                         android:id="@+id/textView21"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:text="    ԱՌԿԱ ԹԵՍՏԵՐԸ"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp"
@@ -74,7 +75,8 @@
 
                     <TableLayout
                         android:layout_width="match_parent"
-                        android:layout_height="330dp">
+                        android:layout_height="330dp"
+                        android:layout_marginLeft="10dp">
 
                         <TableRow
                             android:layout_width="match_parent"

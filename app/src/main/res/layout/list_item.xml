@@ -26,3 +26,4 @@
     android:paddingRight="?android:attr/listPreferredItemPaddingRight"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:textSize="12sp" />
+

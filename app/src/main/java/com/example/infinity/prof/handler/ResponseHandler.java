@@ -8,6 +8,7 @@ import com.example.infinity.prof.LoginActivity;
 import com.example.infinity.prof.model.Response;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class ResponseHandler {
@@ -278,11 +279,26 @@ public class ResponseHandler {
             String nStatus =response.getNotifications().get(i).getStatus();
             String nWhen =response.getNotifications().get(i).getWhen();
 
+//            Date date = new Date();
+//            date.setTime(Long.parseLong(nWhen));
+
+            long timeSec= Long.parseLong(nWhen);// Json output
+            int day = (int) timeSec/86400;
+            int hoursTemp = (int) timeSec - day*86400;
+            int hours = hoursTemp/ 3600;
+            int temp = (int) hoursTemp- hours * 3600;
+            int mins = temp / 60;
+            temp = temp - mins * 60;
+            int secs = temp;
+
+            String requiredFormat = day + " օր " +hours+ "ժամ"+mins+"րոպե առաջ";
+
+
             notId = notId.concat(nId + ",");
             notStId = notStId.concat(nStId + ",");
-            notText=notText.concat(nText + ";");
+            notText=notText.concat(nText + "%");
             notStatus =notStatus.concat(nStatus + ",");
-            notWhen= notWhen.concat(nWhen + ",");
+            notWhen= notWhen.concat(requiredFormat + "%");
         }
         int c = response.getNotifications().size();
         System.out.println(String.valueOf(c));
@@ -308,7 +324,7 @@ public class ResponseHandler {
             String mAbout =response.getModules().get(i).getAbout();
 
             modId = modId.concat(mId+ ",");
-            modName= modName.concat(mName + ",");
+            modName= modName.concat(mName + ";");
             modKurs= modKurs.concat(mKurs + ",");
             modLessonsCount = modLessonsCount.concat(mLessonCount + ",");
             modAbout=modAbout.concat(mAbout + ",");

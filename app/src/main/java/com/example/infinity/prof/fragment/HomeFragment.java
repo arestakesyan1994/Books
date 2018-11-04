@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -152,19 +153,37 @@ public class HomeFragment extends Fragment {
         xumbStSurame = (ListView) home.findViewById(R.id.xumbStSurname);
         xumbStSurame.setAdapter(stSurname);
 
-        String groupStImg = user.get(ResponseHandler.GROUP_STUDENTS_IMG);
-        String[] gStImg = groupStImg.split(",");
-        ArrayAdapter<CharSequence> stImg = new ArrayAdapter<CharSequence>(home.getContext()
-                , R.layout.list_item, gStImg);
-        xumbStImg = (ListView) home.findViewById(R.id.xumbStImg);
-        xumbStImg.setAdapter(stImg);
-
         String groupStRating = user.get(ResponseHandler.GROUP_STUDENTS_RATING);
         String[] gStRating = groupStRating.split(",");
         ArrayAdapter<CharSequence> stRating = new ArrayAdapter<CharSequence>(home.getContext()
                 , R.layout.list_item, gStRating);
         xumbStRating = (ListView) home.findViewById(R.id.xumbStRating);
         xumbStRating.setAdapter(stRating);
+
+//
+//        String groupStImg = user.get(ResponseHandler.GROUP_STUDENTS_IMG);
+//        String[] gStImg = groupStImg.split(",");
+//        ArrayAdapter<CharSequence> stImg = new ArrayAdapter<CharSequence>(home.getContext()
+//                , R.layout.list_item, gStImg);
+//        xumbStImg = (ListView) home.findViewById(R.id.xumbStImg);
+//        xumbStImg.setAdapter(stImg);
+
+//        String groupImage = user.get(ResponseHandler.GROUP_STUDENTS_IMG);
+//        String[] gImage = groupStRating.split(",");
+//        System.out.println(groupImage);
+//        ArrayAdapter<CharSequence> gImg = new ArrayAdapter<CharSequence>(home.getContext()
+//                , R.layout.list_item, gImage);
+//        xumbStImg.setAdapter(
+//                new ImageListAdapter(
+//                        home.getContext(),
+//                        gImg
+//                )
+//        );
+
+//        ArrayAdapter<CharSequence> stImage = new ArrayAdapter<CharSequence>(home.getContext()
+//                , R.layout.list_item_img, gImage);
+//        xumbStImg = (ListView) home.findViewById(R.id.xumbStImg);
+//        xumbStImg.setAdapter(stImage);
 
 
         nAnds = (TextView) home.findViewById(R.id.nAnds);
@@ -189,55 +208,160 @@ public class HomeFragment extends Fragment {
 
         teacherImages = (ImageView) home.findViewById(R.id.teacherImage);
         Glide.with(this).load("http://app.profitdeco.com/img/teachers/" + teacherImage).into(teacherImages);
-//        Button notOneBtn = (Button) home.findViewById(R.id.notificationOne);
-//        notOneBtn.setOnClickListener(new View.OnClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-//            public void onClick(View view) {
-//                displayNotificationOne();
-//            }
-//        });
 
         return home;
 
     }
-}
-//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-//    protected void displayNotificationOne() {
+
+//    private class ImageListAdapter implements ListAdapter {
+//        public ImageListAdapter(Context context, ArrayAdapter<CharSequence> gImg) {
 //
-//        // Invoking the default notification service
-//        NotificationCompat.Builder  mBuilder = new NotificationCompat.Builder(getActivity());
+//            Glide.with(context).load("http://app.profitdeco.com/img/students/" + gImg).into(userImage);
 //
-//        mBuilder.setContentTitle("New Message with explicit intent");
-//        mBuilder.setContentText("New message from javacodegeeks received");
-//        mBuilder.setTicker("Explicit: New Message Received!");
-//        mBuilder.setSmallIcon(R.drawable.ic_launcher_background);
+//        }
 //
-//        // Increase notification number every time a new notification arrives
-//        mBuilder.setNumber(++numMessagesOne);
+//        @Override
+//        public boolean areAllItemsEnabled() {
+//            return false;
+//        }
 //
-//        // Creates an explicit intent for an Activity in your app
-//        Intent resultIntent = new Intent(getActivity(), NotificationOne.class);
-//        resultIntent.putExtra("notificationId", notificationIdOne);
+//        @Override
+//        public boolean isEnabled(int position) {
+//            return false;
+//        }
 //
-//        //This ensures that navigating backward from the Activity leads out of the app to Home page
-//        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getActivity());
+//        @Override
+//        public void registerDataSetObserver(DataSetObserver observer) {
 //
-//        // Adds the back stack for the Intent
-//        stackBuilder.addParentStack(NotificationOne.class);
+//        }
 //
-//        // Adds the Intent that starts the Activity to the top of the stack
-//        stackBuilder.addNextIntent(resultIntent);
-//        PendingIntent resultPendingIntent =
-//                stackBuilder.getPendingIntent(
-//                        0,
-//                        PendingIntent.FLAG_ONE_SHOT //can only be used once
-//                );
-//        // start the activity when the user clicks the notification text
-//        mBuilder.setContentIntent(resultPendingIntent);
+//        @Override
+//        public void unregisterDataSetObserver(DataSetObserver observer) {
 //
-//        myNotificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+//        }
 //
-//        // pass the Notification object to the system
-//        myNotificationManager.notify(0, mBuilder.build());
+//        @Override
+//        public int getCount() {
+//            return 0;
+//        }
+//
+//        @Override
+//        public Object getItem(int position) {
+//            return null;
+//        }
+//
+//        @Override
+//        public long getItemId(int position) {
+//            return 0;
+//        }
+//
+//        @Override
+//        public boolean hasStableIds() {
+//            return false;
+//        }
+//
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent) {
+//            return null;
+//        }
+//
+//        @Override
+//        public int getItemViewType(int position) {
+//            return 0;
+//        }
+//
+//        @Override
+//        public int getViewTypeCount() {
+//            return 0;
+//        }
+//
+//        @Override
+//        public boolean isEmpty() {
+//            return false;
+//        }
 //    }
-//}
+
+
+//    private class ImageListAdapter implements ListAdapter {
+//        private Context context;
+//        private LayoutInflater inflater;
+//
+//        private String[] imageUrls;
+//
+//        public ImageListAdapter(Context context, String[] imageUrls) {
+//
+//            this.context = context;
+//            this.imageUrls = imageUrls;
+//
+//            inflater = LayoutInflater.from(context);
+//        }
+//
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent) {
+//            if (null == convertView) {
+//                convertView = inflater.inflate(R.layout.list_item_img, parent, false);
+//            }
+//
+//            Glide.with(context)
+//                    .load("http://app.profitdeco.com/img/students/" +imageUrls[position])
+//                    .into((ImageView) convertView);
+//
+//            return convertView;
+//        }
+//
+//        @Override
+//        public boolean areAllItemsEnabled() {
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean isEnabled(int position) {
+//            return false;
+//        }
+//
+//        @Override
+//        public void registerDataSetObserver(DataSetObserver observer) {
+//
+//        }
+//
+//        @Override
+//        public void unregisterDataSetObserver(DataSetObserver observer) {
+//
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return 0;
+//        }
+//
+//        @Override
+//        public Object getItem(int position) {
+//            return null;
+//        }
+//
+//        @Override
+//        public long getItemId(int position) {
+//            return 0;
+//        }
+//
+//        @Override
+//        public boolean hasStableIds() {
+//            return false;
+//        }
+//
+//        @Override
+//        public int getItemViewType(int position) {
+//            return 0;
+//        }
+//
+//        @Override
+//        public int getViewTypeCount() {
+//            return 0;
+//        }
+//
+//        @Override
+//        public boolean isEmpty() {
+//            return false;
+//        }
+//    }
+}

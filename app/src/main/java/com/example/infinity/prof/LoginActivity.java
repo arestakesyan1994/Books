@@ -116,9 +116,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 mBuilder.setTicker("Explicit: New Message Received!");
                                 mBuilder.setSmallIcon(android.R.drawable.ic_dialog_email);
 
-                                mBuilder.setNumber(++numMessagesOne);
+                                mBuilder.setNumber(i);
 
-                                Intent resultIntent = new Intent(LoginActivity.this, StProfActivity.class);
+                                Intent resultIntent = new Intent(LoginActivity.this, NotificationOne.class);
                                 resultIntent.putExtra("notificationId", nText);
 
                                 TaskStackBuilder stackBuilder = TaskStackBuilder.create(LoginActivity.this);
@@ -136,6 +136,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 myNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 myNotificationManager.notify(i, mBuilder.build());
                             }
+
 
                         } else {
                             Toast.makeText(LoginActivity.this, "Sorry, User Name or Password wrong.\n try again...", Toast.LENGTH_SHORT).show();

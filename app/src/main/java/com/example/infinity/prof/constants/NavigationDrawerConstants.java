@@ -9,6 +9,7 @@ public class NavigationDrawerConstants {
     public final static String TAG_KARGAVORUMNER = "Կարգավորումներ";
     public final static String TAG_QNNUTYAN_ARDYUNQ = "Քննության արդյունքներ";
     public final static String TAG_QNNUTYUN = "Քննություն";
+    public final static String TAG_NOTIFICATION = "Notification";
     public final static String TAG_TESAKAN = "Տեսական նյութ";
     public final static String TAG_TNAYIN = "Տնային աշխատանք";
     public final static String TAG_TESTER = "Թեստեր";

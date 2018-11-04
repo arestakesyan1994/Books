@@ -3,11 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="horizontal" >
 
-    <TextView
-        android:id="@+id/notOne"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+    <ListView
+        android:id="@+id/notification"
+        android:layout_width="307dp"
+        android:layout_height="match_parent" />
+
+    <ListView
+        android:id="@+id/notificationTime"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

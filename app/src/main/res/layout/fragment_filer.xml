@@ -46,8 +46,178 @@
                     android:indeterminateBehavior="cycle"
                     android:visibility="gone" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/textView43"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:text="ԻՄ ՖԱՅԼԵՐԸ "
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:id="@+id/textView48"
+                        android:layout_width="321dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorAccent"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Հարգելի ուսանող, Դուք կարող եք օգտագործել այս էջը լսարանում կատարված աշխատանքի ֆայլերը ինքներդ Ձեզ ուղարկելու, այն վերբեռնելու (upload) և ներբեռնելու (download) նպատակներով: Ներբեռնելուց հետո, հորդորում ենք ջնջել ֆայլը սերվերից:"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="normal|bold" />
+
+                    <LinearLayout
+                        android:layout_width="320dp"
+                        android:layout_height="180dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView49"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:text="Ուղարկել ֆայլը "
+                            android:textColor="@android:color/background_dark"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView50"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="10dp"
+                            android:text="@string/aa"
+                            android:textColor="@color/colorPink"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/textView51"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Upload -ի առավելագույն ծավալը 8MB"
+                            android:textColor="@color/colorPink"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/button4"
+                            android:layout_width="145dp"
+                            android:layout_height="35dp"
+                            android:layout_margin="15dp"
+                            android:background="@color/colorPink"
+                            android:text="@string/ww"
+                            android:textColor="@android:color/background_light"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textView52"
+                        android:layout_width="288dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="30dp"
+                        android:text="Ֆայլերը "
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/textView53"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="ՖԱՅԼԻ ԱՆՈՒՆԸ	"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/textView54"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="ՆԵՐԲԵՌՆԵԼ	"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/textView55"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="ՋՆՋԵԼ"
+                                android:textSize="12sp" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </TableLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="69dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="216dp"
+                        android:layout_height="48dp"
+                        android:text="ՊՐՈՖԱՅԹԻ ՈՒՍՈՒՄՆԱԿԱՆ ԿԵՆՏՐՈՆ\n       © ԱՐՄԵՆ ՄԱՐՋԻՆՅԱՆ"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="8sp"
+                        android:textStyle="italic"
+                        android:typeface="monospace" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
     </android.support.v4.widget.NestedScrollView>

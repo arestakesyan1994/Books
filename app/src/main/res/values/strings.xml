@@ -76,5 +76,18 @@
     <string name="bari"><b>ԲԱՐԻ ԳԱԼՈՒՍՏ</b></string>
     <string name="mutq">Մուտք դեպի համակարգ</string>
     <string name="javascripts"><b>JavaScript ծրագրավորման լեզվի տարրերը</b></string>
+    <string name="harcMek">Մոդուլի ընթացքում մատուցված նյութը տեղեկատվությամբ հարուստ էր, բովանդակային և հետաքրքիր</string>
+    <string name="harcErku">Դասախոսի կողմից նյութը մատուցվել է հասկանալի և պարզ</string>
+    <string name="harcEreq">Ժամանակը լսարանում օգտագործվել է արդյունավետ</string>
+    <string name="harcChors">Դուք ստացել եք Ձեր հարցերի պատասխանները</string>
+    <string name="harcHing">Դասախոսը բարյացակամ է և հարգալից ուսանողների հանդեպ</string>
+    <string name="harcVec">Ձեր նկատմամբ կիրառվել է անհատական մոտեցում</string>
+    <string name="harcYot">Դասախոսն ընդգծում է մատուցվող նյութի հետագա մասնագիտական կիրառությունները</string>
+    <string name="harcUt">Դասախոսն օբյեկտիվ է և գնահատում է ուսանողներին անկողմնակալ</string>
+    <string name="harcVerjnakan">Կցանկանայի՞ք արդյոք, որպեսզի տվյալ դասախոսը շարունակեր դասավանդել Ձեր խմբում</string>
+    <string name="textyAreEreq">Ձեր կարծիքով ուսումնական կենտրոնն ի՞նչ առավելություններ ունի</string>
+    <string name="textAreErku">Ի՞նչ դժգոհություններ ունեք</string>
+    <string name="textAreMek">Ի՞նչ առաջարկություններ ունեք</string>
+    <string name="aa">Հարգելի՛ ուսանող, առաջադրանքն անհրաժեշտ է ուղարկել միայն zip կամ rar ֆորմատներով, ինչը հնարավոր է ստանալ WinRar ծրագրի օգնությամբ:</string>
 
 </resources>

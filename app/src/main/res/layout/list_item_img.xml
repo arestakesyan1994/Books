@@ -14,17 +14,9 @@
      limitations under the License.
 -->
 
-<com.joooonho.SelectableRoundedImageView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/text1"
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="30dp"
-    android:gravity="center_vertical"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-    android:paddingRight="?android:attr/listPreferredItemPaddingRight" />
+    android:layout_height="200dp"/>
 
 <!--<com.joooonho.SelectableRoundedImageView-->
 <!--android:id="@+id/userImage"-->

@@ -1,19 +1,11 @@
 package com.example.infinity.prof;
 
 import android.animation.LayoutTransition;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.view.Gravity;
 import android.view.View;
@@ -38,7 +30,8 @@ import com.example.infinity.prof.fragment.FilerFragment;
 import com.example.infinity.prof.fragment.HomeFragment;
 import com.example.infinity.prof.fragment.KargavorumnerFragment;
 import com.example.infinity.prof.fragment.ModuliGnahatumFragment;
-import com.example.infinity.prof.fragment.NotificationView;
+import com.example.infinity.prof.fragment.NotificationFragment;
+import com.example.infinity.prof.fragment.NotificationOne;
 import com.example.infinity.prof.fragment.QnnArdFragment;
 import com.example.infinity.prof.fragment.QnnFragment;
 import com.example.infinity.prof.fragment.TesakanFragment;
@@ -59,9 +52,17 @@ public class StProfActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ResponseHandler session;
-    TextView uRating, nAnds, mrcuyt, modul, xumb, nAndsA, uRatingA;
+    TextView uRating;
+    TextView nAnds;
+    TextView mrcuyt;
+    TextView modul;
+    TextView xumb;
+    TextView nAndsA;
+    TextView uRatingA;
     TextView notification;
-    ImageView userImage, userImageA;
+    TextView notifications;
+    ImageView userImageA;
+    ImageView userImage;
     ApiService mApiService;
     private NavigationView navigationView;
     private View navHeader;
@@ -133,11 +134,12 @@ public class StProfActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.st_prof, menu);
 
         MenuItem not = menu.findItem(R.id.action_settings);
-        notification= (TextView) MenuItemCompat.getActionView(not);
+        notification = (TextView) MenuItemCompat.getActionView(not);
         initializaCountDrawer();
 
         return true;
     }
+
     private void initializaCountDrawer() {
         notification.setGravity(Gravity.LEFT);
         notification.setTypeface(null, Typeface.BOLD);
@@ -149,24 +151,25 @@ public class StProfActivity extends AppCompatActivity
         HashMap<String, String> user = session.getResponseDetails();
         String count = user.get(ResponseHandler.NOTIFICATION_ID);
         System.out.println(count);
-
-        notification.setTextColor(getResources().getColor(R.color.colornot));
-        notification.setText("+"+count);
+        if (Integer.parseInt(count)==0) {
+            notification.setTextColor(getResources().getColor(R.color.colornot));
+            notification.setText("");
+        }else {
+            notification.setTextColor(getResources().getColor(R.color.colornot));
+            notification.setText("+" + count);
+        }
     }
-
-//    private void setMenuCounter(@IdRes int itemId, int count) {
-//        TextView view = (TextView) navigationView.getMenu().findItem(itemId).getActionView();
-//        view.setText(count > 0 ? String.valueOf(count) : null);
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-//            setMenuCounter();
-            return true;
+        switch (id){
+            case R.id.action_setting:
+                intent = new Intent(this,NotificationOne.class);
+                startActivity(intent);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
