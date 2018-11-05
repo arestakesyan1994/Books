@@ -73,10 +73,18 @@ public class ModuliGnahatumFragment extends Fragment {
                 R.layout.list_item, harcMek);
         MaterialBetterSpinner hMek = (MaterialBetterSpinner) modul.findViewById(R.id.harcMek);
         hMek.setAdapter(HarcMek);
+        hMek.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         hMek.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int i = position;
+                System.out.println(i);
             }
 
             @Override
@@ -89,6 +97,13 @@ public class ModuliGnahatumFragment extends Fragment {
                 R.layout.list_item, harcErku);
         MaterialBetterSpinner hErku = (MaterialBetterSpinner) modul.findViewById(R.id.harcErku);
         hErku.setAdapter(HarcErku);
+        hErku.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         hErku.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -105,6 +120,13 @@ public class ModuliGnahatumFragment extends Fragment {
                 R.layout.list_item, harcEreq);
         MaterialBetterSpinner hEreq = (MaterialBetterSpinner) modul.findViewById(R.id.harcEreq);
         hEreq.setAdapter(HarcEreq);
+        hEreq.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         hEreq.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -121,6 +143,13 @@ public class ModuliGnahatumFragment extends Fragment {
                 R.layout.list_item, harcChors);
         MaterialBetterSpinner hChors = (MaterialBetterSpinner) modul.findViewById(R.id.harcChors);
         hChors.setAdapter(HarcChors);
+        hChors.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         hChors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -137,6 +166,13 @@ public class ModuliGnahatumFragment extends Fragment {
                 R.layout.list_item, harcHing);
         MaterialBetterSpinner hHing = (MaterialBetterSpinner) modul.findViewById(R.id.harcHing);
         hHing.setAdapter(HarcHing);
+        hHing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         hHing.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -153,6 +189,13 @@ public class ModuliGnahatumFragment extends Fragment {
                 R.layout.list_item, harcVec);
         MaterialBetterSpinner hVec = (MaterialBetterSpinner) modul.findViewById(R.id.harcVec);
         hVec.setAdapter(HarcVec);
+        hVec.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         hVec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -169,6 +212,13 @@ public class ModuliGnahatumFragment extends Fragment {
                 R.layout.list_item, harcYot);
         MaterialBetterSpinner hYot = (MaterialBetterSpinner) modul.findViewById(R.id.harcYot);
         hYot.setAdapter(HarcYot);
+        hYot.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         hYot.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -185,6 +235,13 @@ public class ModuliGnahatumFragment extends Fragment {
                 R.layout.list_item, harcUt);
         MaterialBetterSpinner hUt = (MaterialBetterSpinner) modul.findViewById(R.id.harcUt);
         hUt.setAdapter(HarcUt);
+        hUt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         hUt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -201,6 +258,13 @@ public class ModuliGnahatumFragment extends Fragment {
                 R.layout.list_item, harcVerjnakan);
         MaterialBetterSpinner hVerjnakan = (MaterialBetterSpinner) modul.findViewById(R.id.harcVerjin);
         hVerjnakan.setAdapter(HarcVerjnakan);
+        hVerjnakan.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         hVerjnakan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

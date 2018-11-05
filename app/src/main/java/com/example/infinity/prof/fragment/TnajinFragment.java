@@ -54,6 +54,13 @@ public class TnajinFragment extends Fragment {
                 android.R.layout.simple_dropdown_item_1line, mName);
         MaterialBetterSpinner betterSpinner = (MaterialBetterSpinner) tn.findViewById(R.id.or_sksvac3);
         betterSpinner.setAdapter(arrayAdapter);
+        betterSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+            }
+        });
         betterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

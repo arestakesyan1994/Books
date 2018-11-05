@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -16,18 +14,17 @@ import com.example.infinity.prof.R;
 import com.example.infinity.prof.handler.ResponseHandler;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
-
-import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 
 public class NotificationOne extends Activity implements View.OnClickListener {
-
 
 	ApiService mApiService;
 	ResponseHandler session;
 	private ListView notifications;
 	private ListView notificationTime;
+	TextView not;
+	TextView timss;
+
 	@Override
 	   public void onCreate(Bundle savedInstanceState)
 	   {
@@ -58,17 +55,20 @@ public class NotificationOne extends Activity implements View.OnClickListener {
 
 		   String text = user.get(ResponseHandler.NOTIFICATION_TEXT);
 		   String[] notText = text.split("%");
+
+		   String count = user.get(ResponseHandler.NOTIFICATION_WHEN);
+		   String[] time = count.split("%");
+
 		   ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(this, R.layout.list_item, notText);
 		   notifications = (ListView) findViewById(R.id.notification);
 		   notifications.setAdapter(end);
 
-		   String count = user.get(ResponseHandler.NOTIFICATION_WHEN);
-		   String[] time = count.split("%");
            System.out.println(time);
 		   ArrayAdapter<CharSequence> when = new ArrayAdapter<CharSequence>(this, R.layout.list_item, time);
            notificationTime = (ListView) findViewById(R.id.notificationTime);
            notificationTime.setAdapter(when);
-           System.out.println(count);
+
+
 	   }
 
 	@Override

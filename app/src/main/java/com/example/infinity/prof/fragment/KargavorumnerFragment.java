@@ -33,6 +33,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -48,7 +49,8 @@ public class KargavorumnerFragment extends Fragment {
     String[] OR_SKSAC = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
             "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
             "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"};
-    String[] OR_SKSAC2 = {};
+    ArrayList<String> OR_SKSAC2 = new ArrayList<String>();
+
 
     public class MyUploader {
 
@@ -185,10 +187,67 @@ public class KargavorumnerFragment extends Fragment {
                 android.R.layout.simple_dropdown_item_1line, OR_SKSAC);
         MaterialBetterSpinner betterSpinner = (MaterialBetterSpinner) karg.findViewById(R.id.or_sksvac);
         betterSpinner.setAdapter(arrayAdapter);
+        betterSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String i = parent.getItemAtPosition(position).toString();
+                System.out.println(i);
+
+                int i1 = Integer.parseInt(i);
+                String a1 = String.valueOf(i1);
+                int i2 = i1 + 1;
+                String a2 = String.valueOf(i2);
+                int i3 = i1 + 2;
+                String a3 = String.valueOf(i3);
+                int i4 = i1 + 3;
+                String a4 = String.valueOf(i4);
+                int i5 = i1 + 4;
+                String a5 = String.valueOf(i5);
+                int i6 = i1 + 5;
+                String a6 = String.valueOf(i6);
+                int i7 = i1 + 6;
+                String a7 = String.valueOf(i7);
+                if (a1.equals("30")){
+                    OR_SKSAC2.add(a1);
+                    OR_SKSAC2.add(a2);
+                }else if (a1.equals("29")){
+                    OR_SKSAC2.add(a1);
+                    OR_SKSAC2.add(a2);
+                    OR_SKSAC2.add(a3);
+                }else if (a1.equals("28")){
+                    OR_SKSAC2.add(a1);
+                    OR_SKSAC2.add(a2);
+                    OR_SKSAC2.add(a3);
+                    OR_SKSAC2.add(a4);
+                }else if (a1.equals("27")){
+                    OR_SKSAC2.add(a1);
+                    OR_SKSAC2.add(a2);
+                    OR_SKSAC2.add(a3);
+                    OR_SKSAC2.add(a4);
+                    OR_SKSAC2.add(a5);
+                }else if (a1.equals("26")){
+                    OR_SKSAC2.add(a1);
+                    OR_SKSAC2.add(a2);
+                    OR_SKSAC2.add(a3);
+                    OR_SKSAC2.add(a4);
+                    OR_SKSAC2.add(a5);
+                    OR_SKSAC2.add(a6);
+                }else {
+                    OR_SKSAC2.add(a1);
+                    OR_SKSAC2.add(a2);
+                    OR_SKSAC2.add(a3);
+                    OR_SKSAC2.add(a4);
+                    OR_SKSAC2.add(a5);
+                    OR_SKSAC2.add(a6);
+                    OR_SKSAC2.add(a7);
+                }
+            }
+        });
         betterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int i = position;
+
             }
 
             @Override
@@ -198,22 +257,10 @@ public class KargavorumnerFragment extends Fragment {
         });
 
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(karg.getContext(),
-                android.R.layout.simple_dropdown_item_1line, OR_SKSAC2);
+                android.R.layout.simple_dropdown_item_1line,OR_SKSAC2);
         MaterialBetterSpinner betterSpinner2 = (MaterialBetterSpinner) karg.findViewById(R.id.or_sksvac2);
         betterSpinner2.setAdapter(arrayAdapter2);
 
-//        int i  = Integer.parseInt(arrayAdapter.toString());
-//        String a1 = String.valueOf(i + img1);
-//        String a2 = String.valueOf(i + 2);
-//        String a3 = String.valueOf(i + 3);
-//        String a4 = String.valueOf(i + 4);
-//        String a5 = String.valueOf(i + 5);
-//
-//        String[] OR_SKSAC2 = {a1,a2,a3,a4,a5};
-//        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_dropdown_item_1line,OR_SKSAC2);
-//        MaterialBetterSpinner betterSpinner2 = (MaterialBetterSpinner) findViewById(R.id.or_sksvac2);
-//        betterSpinner2.setAdapter(arrayAdapter2);
 
 
         showChooserBtn.setOnClickListener(new View.OnClickListener() {

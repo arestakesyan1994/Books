@@ -22,7 +22,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.infinity.prof.fragment.NotificationOne;
 import com.example.infinity.prof.handler.ResponseHandler;
-import com.example.infinity.prof.handler.SessionHandler;
 import com.example.infinity.prof.model.Response;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
@@ -37,8 +36,6 @@ import retrofit2.Callback;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private NotificationManager myNotificationManager;
-    private int notificationIdOne = 111;
-    private int numMessagesOne = 0;
 
     Button web;
     private EditText mUserName;
@@ -66,14 +63,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mPasswordView = (EditText) findViewById(R.id.textPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new OnClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
                 requestLogin();
-//                displayNotificationOne();
             }
-
-
         });
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
@@ -82,8 +75,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mApiService = UtilsApi.getAPIService();
     }
 
-    //raffi-minasyan@profit.com
-    //c6159c32
+    //emil-ekoyan1@profit.com
+    //m-2v7m0**a5
 
     private void requestLogin() {
         NotificationCompat.Builder  mBuilder = new NotificationCompat.Builder(this);
@@ -180,45 +173,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
-//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-//    protected void displayNotificationOne() {
-//
-//        // Invoking the default notification service
-//        NotificationCompat.Builder  mBuilder = new NotificationCompat.Builder(this);
-//
-//
-//        mBuilder.setContentTitle("New Message profit");
-//        mBuilder.setContentText("New message from javacodegeeks received");
-//        mBuilder.setTicker("Explicit: New Message Received!");
-//        mBuilder.setSmallIcon(R.drawable.ic_launcher_background);
-//
-//        // Increase notification number every time a new notification arrives
-//        mBuilder.setNumber(++numMessagesOne);
-//
-//        // Creates an explicit intent for an Activity in your app
-//        Intent resultIntent = new Intent(this, NotificationOne.class);
-//        resultIntent.putExtra("notificationId", notificationIdOne);
-//
-//        //This ensures that navigating backward from the Activity leads out of the app to Home page
-//        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-//
-//        // Adds the back stack for the Intent
-//        stackBuilder.addParentStack(NotificationOne.class);
-//
-//        // Adds the Intent that starts the Activity to the top of the stack
-//        stackBuilder.addNextIntent(resultIntent);
-//        PendingIntent resultPendingIntent =
-//                stackBuilder.getPendingIntent(
-//                        0,
-//                        PendingIntent.FLAG_ONE_SHOT //can only be used once
-//                );
-//        // start the activity when the user clicks the notification text
-//        mBuilder.setContentIntent(resultPendingIntent);
-//
-//        myNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//
-//        // pass the Notification object to the system
-//        myNotificationManager.notify(notificationIdOne, mBuilder.build());
-//    }
 }
 
