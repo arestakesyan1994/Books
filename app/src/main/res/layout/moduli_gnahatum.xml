@@ -54,14 +54,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="   Հարգելի՛ ուսանող, խնդրում ենք պատասխանել ուսուցման որակի բարելավմանը միտված ստորև բերված հարցերին:" />
+                    android:text="@string/hargeli" />
 
                 <TextView
                     android:id="@+id/textView47"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Հարցերը և պատասխանները, առանց ուսանողի տվյալների, ուղարկվում են Պրոֆայթի ուսումնական կենտրոնի ուսուցման որակի վերահսկողության բաժին"
+                    android:text="@string/harcer"
                     android:textColor="@android:color/background_dark" />
 
                 <TextView
@@ -92,6 +92,7 @@
                         android:layout_marginRight="70dp"
                         android:layout_marginBottom="10dp"
                         android:accessibilityHeading="false"
+                        android:background="@color/white"
                         android:textColorLink="@android:color/background_dark"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -115,12 +116,13 @@
                         android:id="@+id/harcErku"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:textSize="14sp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="70dp"
                         android:layout_marginBottom="10dp"
                         android:accessibilityHeading="false"
-                        android:textColorLink="@android:color/background_dark" />
+                        android:background="@color/white"
+                        android:textColorLink="@android:color/background_dark"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -146,6 +148,7 @@
                         android:layout_marginRight="70dp"
                         android:layout_marginBottom="10dp"
                         android:accessibilityHeading="false"
+                        android:background="@color/white"
                         android:textColorLink="@android:color/background_dark" />
                 </LinearLayout>
 
@@ -172,6 +175,7 @@
                         android:layout_marginRight="70dp"
                         android:layout_marginBottom="10dp"
                         android:accessibilityHeading="false"
+                        android:background="@color/white"
                         android:textColorLink="@android:color/background_dark" />
                 </LinearLayout>
 
@@ -198,6 +202,7 @@
                         android:layout_marginRight="70dp"
                         android:layout_marginBottom="10dp"
                         android:accessibilityHeading="false"
+                        android:background="@color/white"
                         android:textColorLink="@android:color/background_dark" />
                 </LinearLayout>
 
@@ -224,6 +229,7 @@
                         android:layout_marginRight="70dp"
                         android:layout_marginBottom="10dp"
                         android:accessibilityHeading="false"
+                        android:background="@color/white"
                         android:textColorLink="@android:color/background_dark" />
                 </LinearLayout>
 
@@ -250,6 +256,7 @@
                         android:layout_marginBottom="10dp"
                         android:textSize="14sp"
                         android:accessibilityHeading="false"
+                        android:background="@color/white"
                         android:textColorLink="@android:color/background_dark" />
                 </LinearLayout>
 
@@ -276,6 +283,7 @@
                         android:layout_marginRight="70dp"
                         android:layout_marginBottom="10dp"
                         android:accessibilityHeading="false"
+                        android:background="@color/white"
                         android:textColorLink="@android:color/background_dark" />
                 </LinearLayout>
 
@@ -386,6 +394,7 @@
                         android:layout_marginRight="80dp"
                         android:layout_marginBottom="10dp"
                         android:accessibilityHeading="false"
+                        android:background="@color/white"
                         android:textColorLink="@android:color/background_dark" />
                 </LinearLayout>
 
@@ -409,7 +418,7 @@
                         android:id="@+id/textView15"
                         android:layout_width="216dp"
                         android:layout_height="48dp"
-                        android:text="ՊՐՈՖԱՅԹԻ ՈՒՍՈՒՄՆԱԿԱՆ ԿԵՆՏՐՈՆ\n       © ԱՐՄԵՆ ՄԱՐՋԻՆՅԱՆ"
+                        android:text="@string/arm"
                         android:textAllCaps="false"
                         android:textColor="@android:color/background_dark"
                         android:textSize="8sp"

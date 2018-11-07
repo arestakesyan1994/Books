@@ -113,7 +113,7 @@
                             android:id="@+id/textView15"
                             android:layout_width="216dp"
                             android:layout_height="48dp"
-                            android:text="ՊՐՈՖԱՅԹԻ ՈՒՍՈՒՄՆԱԿԱՆ ԿԵՆՏՐՈՆ\n       © ԱՐՄԵՆ ՄԱՐՋԻՆՅԱՆ"
+                            android:text="@string/arm"
                             android:textAllCaps="false"
                             android:textColor="@android:color/background_dark"
                             android:textSize="8sp"
