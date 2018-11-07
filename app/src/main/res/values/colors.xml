@@ -7,4 +7,9 @@
     <color name="colornot">#ff0004</color>
     <color name="colornots">#360289</color>
     <color name="colorPink">#ea1e63</color>
+    <color name="colorPrimaryss">#3c6111</color>
+    <color name="colorLogo">#85211e20</color>
+    <color name="white">#ffffff</color>
+    <color name="signupColor">#066e8a</color>
+
 </resources>

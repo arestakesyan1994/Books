@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.net.Uri;
 
@@ -33,16 +34,18 @@ import java.util.HashMap;
 import retrofit2.Call;
 import retrofit2.Callback;
 
+import static android.app.Notification.EXTRA_NOTIFICATION_ID;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private NotificationManager myNotificationManager;
-
-    Button web;
-    private EditText mUserName;
-    private EditText mPasswordView;
+    private static final String ACTION_SNOOZE = "action";
+    private static final String CHANNEL_ID = "channel";
+//    Button web;
+    private EditText mUserName, mPasswordView;
     private Button btnLogin;
-    private View mProgressView;
-    private View mLoginFormView;
+//    private View mProgressView;
+//    private View mLoginFormView;
     private RequestQueue mQueue;
 
     Context mContext;
@@ -56,8 +59,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mQueue = Volley.newRequestQueue(this);
         session = new ResponseHandler(getApplicationContext());
-        web = (Button) findViewById(R.id.web);
-        web.setOnClickListener(this);
+//        web = (Button) findViewById(R.id.web);
+//        web.setOnClickListener(this);
 
         mUserName = (EditText) findViewById(R.id.textUserName);
         mPasswordView = (EditText) findViewById(R.id.textPassword);
@@ -68,8 +71,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 requestLogin();
             }
         });
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
+//        mLoginFormView = findViewById(R.id.login_form);
+//        mProgressView = findViewById(R.id.login_progress);
 
         mContext = this;
         mApiService = UtilsApi.getAPIService();
@@ -79,7 +82,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     //m-2v7m0**a5
 
     private void requestLogin() {
-        NotificationCompat.Builder  mBuilder = new NotificationCompat.Builder(this);
         mApiService.loginRequest(mUserName.getText().toString(), mPasswordView.getText().toString())
                 .enqueue(new Callback<Response>() {
                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -96,38 +98,72 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             Intent intent = new Intent(getApplicationContext(), StProfActivity.class);
                             startActivity(intent);
-                            Toast.makeText(LoginActivity.this, "Բարի գլուստ " + response.body().getName() + " " + response.body().getSurname(), Toast.LENGTH_SHORT).show();
-                            for (int i = 0;i<response.body().getNotifications().size();i++) {
+                            Toast.makeText(LoginActivity.this, "Բարի գլուստ " + response.body().getName() + " "
+                                    + response.body().getSurname(), Toast.LENGTH_SHORT).show();
+
+                            //Notification
+                            for (int i = 0; i < response.body().getNotifications().size(); i++) {
                                 String nId = String.valueOf(response.body().getNotifications().get(i).getId());
                                 String nStId = response.body().getNotifications().get(i).getStudentId();
                                 String nText = response.body().getNotifications().get(i).getText();
                                 String nStatus = response.body().getNotifications().get(i).getStatus();
                                 String nWhen = response.body().getNotifications().get(i).getWhen();
 
-                                mBuilder.setContentTitle("New Message profit");
-                                mBuilder.setContentText(nText);
-                                mBuilder.setTicker("Explicit: New Message Received!");
-                                mBuilder.setSmallIcon(android.R.drawable.ic_dialog_email);
 
-                                mBuilder.setNumber(i);
+                                Intent intents = new Intent(LoginActivity.this, StProfActivity.class);
+                                intents.setAction(ACTION_SNOOZE);
+                                intents.putExtra(EXTRA_NOTIFICATION_ID, 0);
+                                PendingIntent snoozePendingIntent =
+                                        PendingIntent.getBroadcast(LoginActivity.this, 0, intents, 0);
+                                intents.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                PendingIntent pendingIntent = PendingIntent.getActivity(LoginActivity.this, 0, intents, 0);
 
-                                Intent resultIntent = new Intent(LoginActivity.this, NotificationOne.class);
-                                resultIntent.putExtra("notificationId", nText);
+                                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(LoginActivity.this, CHANNEL_ID)
+                                        .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                        .setContentTitle("New Message profit")
+                                        .setContentText(nText)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(nText))
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                        .setContentIntent(pendingIntent)
+                                        .setOnlyAlertOnce(true)
+                                        .setAutoCancel(true)
+                                        .addAction(R.drawable.alarmw, getString(R.string.snooze),
+                                                snoozePendingIntent);
 
-                                TaskStackBuilder stackBuilder = TaskStackBuilder.create(LoginActivity.this);
+                                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(LoginActivity.this);
 
-                                stackBuilder.addParentStack(NotificationOne.class);
+// notificationId is a unique int for each notification that you must define
+                                notificationManager.notify(i, mBuilder.build());
 
-                                stackBuilder.addNextIntent(resultIntent);
-                                PendingIntent resultPendingIntent =
-                                        stackBuilder.getPendingIntent(
-                                                0,
-                                                PendingIntent.FLAG_ONE_SHOT //can only be used once
-                                        );
-                                mBuilder.setContentIntent(resultPendingIntent);
 
-                                myNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                myNotificationManager.notify(i, mBuilder.build());
+
+//                                mBuilder.setContentTitle("New Message profit");
+//                                mBuilder.setContentText(nText);
+//                                mBuilder.setTicker("Explicit: New Message Received!");
+//                                mBuilder.setSmallIcon(android.R.drawable.ic_dialog_email);
+//
+//                                mBuilder.setNumber(i);
+//
+//                                Intent resultIntent = new Intent(LoginActivity.this, NotificationOne.class);
+//                                resultIntent.putExtra("notificationId", nText);
+//
+//                                TaskStackBuilder stackBuilder = TaskStackBuilder.create(LoginActivity.this);
+//
+//                                stackBuilder.addParentStack(NotificationOne.class);
+//
+//                                stackBuilder.addNextIntent(resultIntent);
+//                                PendingIntent resultPendingIntent =
+//                                        stackBuilder.getPendingIntent(
+//                                                0,
+//                                                PendingIntent.FLAG_ONE_SHOT //can only be used once
+//                                        );
+//                                mBuilder.setContentIntent(resultPendingIntent);
+//
+//                                myNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//                                myNotificationManager.notify(i, mBuilder.build());
+
                             }
 
 
@@ -141,8 +177,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                 });
     }
-    public void notCount(View view){
-        try{
+
+    public void notCount(View view) {
+        try {
 
             mApiService = UtilsApi.getAPIService();
 
@@ -154,11 +191,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String notCount = user.get(ResponseHandler.NOTIFICATION_TEXT);
             String[] nCount = notCount.split(";");
             int sun = 0;
-            for (int i =0;i< nCount.length;i++){
-                sun ++;
+            for (int i = 0; i < nCount.length; i++) {
+                sun++;
             }
-            Badges.setBadge(LoginActivity.this,10);
-        }catch (BadgesNotSupportedException error){
+            Badges.setBadge(LoginActivity.this, 10);
+        } catch (BadgesNotSupportedException error) {
 
         }
     }
@@ -166,12 +203,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         Intent intent;
-        switch (v.getId()) {
-            case R.id.web:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.profitdeco.com"));
-                startActivity(intent);
-                break;
-        }
+//        switch (v.getId()) {
+//            case R.id.web:
+//                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://trainings.profitdeco.com"));
+//                startActivity(intent);
+//                break;
+//            case R.id.webs:
+//                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.profitdeco.com"));
+//                startActivity(intent);
+//                break;
+//        }
     }
 }
 

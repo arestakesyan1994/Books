@@ -48,17 +48,9 @@ public class StProfActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ResponseHandler session;
-    TextView uRating;
-    TextView nAnds;
-    TextView mrcuyt;
-    TextView modul;
-    TextView xumb;
-    TextView nAndsA;
-    TextView uRatingA;
-    TextView notification;
-    TextView notifications;
-    ImageView userImageA;
-    ImageView userImage;
+    TextView uRating,nAnds, mrcuyt, modul, xumb,nAndsA;
+    TextView uRatingA,notification, notifications;
+    ImageView userImageA, userImage;
     ApiService mApiService;
     private NavigationView navigationView;
     private View navHeader;
@@ -225,6 +217,8 @@ public class StProfActivity extends AppCompatActivity
             displaySelectedFragment(fragment);
             Toast.makeText(StProfActivity.this, "Տեսական նյութ", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.logout) {
+            session.logoutUser();
+//            shwoNotification();
             startActivity(new Intent(StProfActivity.this, LoginActivity.class));
             Toast.makeText(StProfActivity.this, "LogOut ", Toast.LENGTH_SHORT).show();
             finish();
@@ -233,6 +227,12 @@ public class StProfActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void shwoNotification() {
+        if (session.isLoggedIn()){
+            return;
+        }
     }
 
     private void displaySelectedFragment(Fragment fragment) {

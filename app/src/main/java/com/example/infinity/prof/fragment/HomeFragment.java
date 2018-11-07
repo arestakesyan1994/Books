@@ -22,13 +22,8 @@ import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
 
-    private ListView gday;
-    private ListView gstart;
-    private ListView gend;
-    private ListView xumbStName;
-    private ListView xumbStSurame;
-    private ListView xumbStImg;
-    private ListView xumbStRating;
+    private ListView gday,gstart, gend,xumbStName;
+    private ListView xumbStSurame, xumbStRating;
 
     ArrayList<HashMap<String, String>> contactList;
 
