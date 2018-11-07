@@ -56,7 +56,8 @@ public class NotificationOne extends Activity implements View.OnClickListener {
 		   String text = user.get(ResponseHandler.NOTIFICATION_TEXT);
 		   String[] notText = text.split("%");
 
-		   ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(this, R.layout.row_item, R.id.textNot, notText);
+		   ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(this, R.layout.row_item,
+				   R.id.textNot, notText);
 		   notifications = (ListView) findViewById(R.id.notification);
 		   notifications.setAdapter(end);
 

@@ -20,7 +20,6 @@ import java.util.HashMap;
 
 public class TnajinFragment extends Fragment {
 
-    String[] OR_SKSAC = {"HTML,CSS", "JavaScript", "jQuery", "Java"};
     String[] OR_SKSAC2 = {"1_HTML,CSS", "2_JavaScript", "3_jQuery", "4_Java"};
     ApiService mApiService;
     ResponseHandler session;
