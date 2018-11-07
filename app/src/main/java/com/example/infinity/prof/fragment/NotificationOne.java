@@ -56,17 +56,10 @@ public class NotificationOne extends Activity implements View.OnClickListener {
 		   String text = user.get(ResponseHandler.NOTIFICATION_TEXT);
 		   String[] notText = text.split("%");
 
-		   String count = user.get(ResponseHandler.NOTIFICATION_WHEN);
-		   String[] time = count.split("%");
-
 		   ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(this, R.layout.row_item, R.id.textNot, notText);
-		   ArrayAdapter<CharSequence> tims = new ArrayAdapter<CharSequence>(this, R.layout.row_item, R.id.times, time);
 		   notifications = (ListView) findViewById(R.id.notification);
-//		   not = (TextView) findViewById(R.id.textNot);
 		   notifications.setAdapter(end);
-//		   notifications.setAdapter(tims);
 
-           System.out.println(time);
 //		   ArrayAdapter<CharSequence> when = new ArrayAdapter<CharSequence>(this, R.layout.list_item, time);
 //           notificationTime = (ListView) findViewById(R.id.notificationTime);
 //           notificationTime.setAdapter(when);

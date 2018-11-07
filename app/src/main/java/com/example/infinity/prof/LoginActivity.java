@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
@@ -108,7 +109,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 String nText = response.body().getNotifications().get(i).getText();
                                 String nStatus = response.body().getNotifications().get(i).getStatus();
                                 String nWhen = response.body().getNotifications().get(i).getWhen();
+                                String a =nText.replace("<b>"," ");
+                                System.out.println(a);
+                                String a1 =a.replaceAll("<b>","");
+                                System.out.println(a1);
+                                String a2 = a1.replaceAll("</b>","");
+                                System.out.println(a2);
+                                String a3 = a2.replaceAll("</small>","");
+                                System.out.println(a3);
 
+
+                                long timeSec= Long.parseLong(nWhen);// Json output
+                                int time = (int) (timeSec/10000);
+                                int day = (int) time/86400;
+                                int hoursTemp = (int) time - day*86400;
+                                int hours = hoursTemp/ 3600;
+                                int temp = (int) hoursTemp- hours * 3600;
+                                int mins = temp / 60;
+                                temp = temp - mins * 60;
+                                int secs = temp;
+
+                                String dataTime = day + " օր " +hours+ " ժամ "+ mins + " րոպե առաջ";
 
                                 Intent intents = new Intent(LoginActivity.this, StProfActivity.class);
                                 intents.setAction(ACTION_SNOOZE);
@@ -119,18 +140,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 PendingIntent pendingIntent = PendingIntent.getActivity(LoginActivity.this, 0, intents, 0);
 
                                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(LoginActivity.this, CHANNEL_ID)
-                                        .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                        .setSmallIcon(R.drawable.ic_notifications_icon)
                                         .setContentTitle("New Message profit")
-                                        .setContentText(nText)
+                                        .setContentText(a3)
+                                        .setColor(Color.rgb(150,30,250))
                                         .setStyle(new NotificationCompat.BigTextStyle()
-                                                .bigText(nText))
+                                                .bigText(a3 + "\n"+ "\n" + dataTime))
                                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                         .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                                         .setContentIntent(pendingIntent)
                                         .setOnlyAlertOnce(true)
                                         .setAutoCancel(true)
-                                        .addAction(R.drawable.alarmw, getString(R.string.snooze),
-                                                snoozePendingIntent);
+//                                        .addAction(R.drawable.alarmw, getString(R.string.snooze),
+//                                                snoozePendingIntent);
+//                                .addAction(R.drawable.alarmw, "Notification", snoozePendingIntent)
+                                        ;
 
                                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(LoginActivity.this);
 
