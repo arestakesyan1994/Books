@@ -51,7 +51,6 @@ public class NotificationOne extends Activity implements View.OnClickListener {
 		   session.checkLogin();
 
 		   HashMap<String, String> user = session.getResponseDetails();
-		   System.out.println("start");
 
 		   String text = user.get(ResponseHandler.NOTIFICATION_TEXT);
 		   String[] notText = text.split("%");

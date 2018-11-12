@@ -29,6 +29,7 @@ import com.example.infinity.prof.fragment.CodeBattleFragment;
 import com.example.infinity.prof.fragment.FilerFragment;
 import com.example.infinity.prof.fragment.HomeFragment;
 import com.example.infinity.prof.fragment.KargavorumnerFragment;
+import com.example.infinity.prof.fragment.MainActivity;
 import com.example.infinity.prof.fragment.ModuliGnahatumFragment;
 import com.example.infinity.prof.fragment.NotificationOne;
 import com.example.infinity.prof.fragment.QnnArdFragment;
@@ -215,6 +216,10 @@ public class StProfActivity extends AppCompatActivity
         } else if (id == R.id.tesakanNyut) {
             fragment = new TesakanFragment();
             displaySelectedFragment(fragment);
+            Toast.makeText(StProfActivity.this, "Տեսական նյութ", Toast.LENGTH_SHORT).show();}
+            else if (id == R.id.tesakanNyutPorc) {
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
             Toast.makeText(StProfActivity.this, "Տեսական նյութ", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.logout) {
             session.logoutUser();

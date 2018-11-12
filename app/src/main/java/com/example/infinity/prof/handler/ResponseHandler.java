@@ -7,8 +7,6 @@ import android.content.SharedPreferences;
 import com.example.infinity.prof.LoginActivity;
 import com.example.infinity.prof.model.Response;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 public class ResponseHandler {

@@ -8,7 +8,7 @@ import java.util.List;
 import javax.annotation.Generated;
 
 @Generated("com.robohorse.robopojogenerator")
-public class Response{
+public class Response {
 
 	@SerializedName("date")
 	@Expose
@@ -182,13 +182,13 @@ public class Response{
 	}
 
 	public Response(String date, String reason, String game, List<GrafikItem> grafik, String showPhone, String examenAccess,
-					String description, Object type, String login, String isPlayingGame, String score,
-					Object gumar, String password, String paymanagriSkizb, String avg, Teacher teacher, String lessonRate,
-					String surname, Object kurs, int id, String email, Group group, String codeTaskLevel,
-					String prefers, String currentPayment, String sex, String photo, String codeLevel, String artificialRate,
-					String gameActivity, List<ModulesItem> modules, String levelName, Object zexch, String groupId,
-					Object releaseDate, String name, String online, String phoneNumber, String paymanagriAvart,
-					String showTests, List<NotificationsItem> notifications, String status) {
+                    String description, Object type, String login, String isPlayingGame, String score,
+                    Object gumar, String password, String paymanagriSkizb, String avg, Teacher teacher, String lessonRate,
+                    String surname, Object kurs, int id, String email, Group group, String codeTaskLevel,
+                    String prefers, String currentPayment, String sex, String photo, String codeLevel, String artificialRate,
+                    String gameActivity, List<ModulesItem> modules, String levelName, Object zexch, String groupId,
+                    Object releaseDate, String name, String online, String phoneNumber, String paymanagriAvart,
+                    String showTests, List<NotificationsItem> notifications, String status) {
 		this.date = date;
 		this.reason = reason;
 		this.game = game;

@@ -7,18 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 
 import com.example.infinity.prof.R;
 import com.example.infinity.prof.constants.NavigationDrawerConstants;
 import com.example.infinity.prof.handler.ResponseHandler;
+import com.example.infinity.prof.models.Response;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.HashMap;
 
-public class TesakanFragment extends Fragment {
+import retrofit2.Call;
+import retrofit2.Callback;
 
+public class TesakanFragment extends Fragment {
+    private ListView listView;
     ApiService mApiService;
     ResponseHandler session;
     @Override
@@ -40,31 +46,30 @@ public class TesakanFragment extends Fragment {
         HashMap<String, String> user = session.getResponseDetails();
         String moduleName = user.get(ResponseHandler.MODULES_NAME);
         String[] mName = moduleName.split(";");
+        System.out.println(mName);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(tesakan.getContext(),
-                android.R.layout.simple_dropdown_item_1line, mName);
-        MaterialBetterSpinner betterSpinner = (MaterialBetterSpinner) tesakan.findViewById(R.id.tesakan);
-        betterSpinner.setAdapter(arrayAdapter);
-        betterSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String i = parent.getItemAtPosition(position).toString();
-                System.out.println(i);
-
-            }
-        });
-        betterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                int i = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(tesakan.getContext(), R.layout.row_item,
+                R.id.textNot, mName);
+        listView = (ListView) tesakan.findViewById(R.id.theory);
+        listView.setAdapter(end);
+theory();
         return tesakan;
+    }
+
+    private void theory() {
+        mApiService.theory().enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                System.out.println(response.body());
+                String a = response.body().getHarc();
+                System.out.println(a);
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+
+            }
+        });
     }
 
 }
