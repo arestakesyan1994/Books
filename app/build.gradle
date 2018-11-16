@@ -66,9 +66,9 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:9.6.0'
     compile group: 'cz.msebera.android', name: 'httpclient', version: '4.4.1.2'
 
-    compile'com.txusballesteros:bubbles:1.2.1'
-    compile'com.nex3z:notification-badge:0.2.0'
-    compile'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.txusballesteros:bubbles:1.2.1'
+    compile 'com.nex3z:notification-badge:0.2.0'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 
 }
 

@@ -84,6 +84,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         if (response.body().getId() != 0) {
                             session.createResponseHandler(response.body());
+                            System.out.println("http://app.profitdeco.com/mobile/get?login=" + mUserName.getText().toString()
+                                    +"&password=" +mPasswordView.getText().toString() );
                             System.out.println(session);
 
                             Intent intent = new Intent(getApplicationContext(), StProfActivity.class);

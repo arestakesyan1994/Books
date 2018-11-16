@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:id="@+id/appbar"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="match_parent">-->
+
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:layout_width="match_parent"-->
+            <!--app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>-->
+
+        <!--<android.support.design.widget.TabLayout-->
+            <!--android:id="@+id/tabs"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:tabMode="scrollable">-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Home" />-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="About" />-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="see all" />-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="man" />-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="woman" />-->
+        <!--</android.support.design.widget.TabLayout>-->
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical"-->
+            <!--tools:context=".php">-->
+
+            <!--<SurfaceView-->
+                <!--android:id="@+id/surfaceView"-->
+                <!--android:layout_width="416dp"-->
+                <!--android:layout_height="200dp" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginBottom="8dp"-->
+                <!--android:orientation="vertical"-->
+                <!--app:layout_constraintBottom_toBottomOf="@+id/surfaceView"-->
+                <!--tools:layout_editor_absoluteX="0dp">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/textView5"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="fjkhgsfkhzgfkjhgdsfksh gfkzh gsfkj hzgkfjzh glf" />-->
+            <!--</LinearLayout>-->
+
+        <!--</LinearLayout>-->
+    <!--</android.support.v4.widget.NestedScrollView>-->
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:src="@android:drawable/ic_input_add"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="16dp"-->
+        <!--android:clickable="true" />-->
+
+    <SurfaceView
+        android:id="@+id/surfaceView2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <SurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_width="176dp"
+            android:layout_height="200dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <SurfaceView
+            android:id="@+id/surfaceView3"
+            android:layout_width="176dp"
+            android:layout_height="200dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <SurfaceView
+        android:id="@+id/surfaceView4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

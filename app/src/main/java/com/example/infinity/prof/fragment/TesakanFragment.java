@@ -1,5 +1,7 @@
 package com.example.infinity.prof.fragment;
 
+import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -27,6 +29,15 @@ public class TesakanFragment extends Fragment {
     private ListView listView;
     ApiService mApiService;
     ResponseHandler session;
+    Button php, html, jQuery, web, mvc, wordpress, js, laravel, angularJS,
+            javaScript, nodeJs, c, wpf, sql, asp, oop, angular, react, froms, vue;
+
+
+//    String[] users = new String[]{"Ընդհանուր վեբ ծրագրավորում","HTML, CSS", "JavaScript, jQuery", "PHP, MySQL", "MVC, Codeigniter","Wordpress", "Laravel", "AngularJS","JS - ընդլայնված", "JS մասնագիտացված", "Node.js", "C#",
+//            "Windows Froms,WPF", "SQL Server,ADD.NET", "ASP.NET MVC", "ES6, OOP","Node.js", "Angular", "React.js","Vue.js", "Angular, React.js, Vue.js"};
+//    String[] location = new String[]{"-1", "1", "2", "3", "4", "5", "6", "7", "13", "18", "8", "9", "10","11", "12", "19", "20", "21", "22", "23", "24"};
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,33 +54,44 @@ public class TesakanFragment extends Fragment {
         session = new ResponseHandler(getActivity().getApplicationContext());
         session.checkLogin();
 
-        HashMap<String, String> user = session.getResponseDetails();
-        String moduleName = user.get(ResponseHandler.MODULES_NAME);
-        String[] mName = moduleName.split(";");
-        System.out.println(mName);
+        php = tesakan.findViewById(R.id.php);
+        php.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(tesakan.getContext(),tasakanHome.class);
+                startActivity(intent);
+            }
+        });
 
-        ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(tesakan.getContext(), R.layout.row_item,
-                R.id.textNot, mName);
-        listView = (ListView) tesakan.findViewById(R.id.theory);
-        listView.setAdapter(end);
-theory();
+//        HashMap<String, String> user = session.getResponseDetails();
+//        String moduleName = user.get(ResponseHandler.MODULES_NAME);
+//        String[] mName = moduleName.split(";");
+//        System.out.println(mName);
+//
+//        ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(tesakan.getContext(), R.layout.thory_list,
+//                 users);
+//        listView = (ListView) tesakan.findViewById(R.id.theory);
+//        listView.setAdapter(end);
+//        theory();
         return tesakan;
     }
 
-    private void theory() {
-        mApiService.theory().enqueue(new Callback<Response>() {
-            @Override
-            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
-                System.out.println(response.body());
-                String a = response.body().getHarc();
-                System.out.println(a);
-            }
 
-            @Override
-            public void onFailure(Call<Response> call, Throwable t) {
 
-            }
-        });
-    }
+//    private void theory() {
+//        mApiService.theory().enqueue(new Callback<Response>() {
+//            @Override
+//            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+//                System.out.println(response.body());
+//                String a = response.body().getHarc();
+//                System.out.println(a);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Response> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 
 }

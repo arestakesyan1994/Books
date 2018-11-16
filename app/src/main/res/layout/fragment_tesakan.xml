@@ -6,86 +6,448 @@
     android:layout_height="match_parent"
     tools:context=".fragment.TesakanFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="368dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:fillViewport="true"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
-
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="180dp"
+                android:background="@mipmap/porc"
                 android:orientation="vertical">
-
-                <ProgressBar
-                    android:id="@+id/myProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:indeterminate="true"
-                    android:indeterminateBehavior="cycle"
-                    android:visibility="gone" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_height="200dp"
+                    android:background="@color/colorGlx"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/textView2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
+                        android:layout_height="125dp"
+                        android:gravity="top|center"
                         android:text="ՏԵՍԱԿԱՆ ՆՅՈՒԹԵՐ "
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="24sp"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView24"
+                        android:id="@+id/textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_weight="1"
-                        android:text="@string/modul"
+                        android:gravity="bottom|center"
+                        android:text="Մոդուլ"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        app:fontFamily="cursive" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center">
+
+                    <Button
+                        android:id="@+id/web"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_glx_background"
+                        android:gravity="center"
+                        android:text="Ընդհանուր\nվեբ \nծրագրավորում"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/html"
+                        style="@style/Widget.AppCompat.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/ic_html_background"
+                        android:gravity="center"
+                        android:text="  HTML \n CSS"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/jQuery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_js_background"
+                        android:gravity="center"
+                        android:text="JavaScript\n jQuery"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center">
+
+                    <Button
+                        android:id="@+id/php"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_php_background"
+                        android:gravity="center"
+                        android:text="PHP\n MySQL"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/mvc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/ic_mvc_background"
+                        android:gravity="center"
+                        android:text="MVC\n Codeigniter"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/wordpress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_word_background"
+                        android:gravity="center"
+                        android:text="Wordpress"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center">
+
+                    <Button
+                        android:id="@+id/js"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_js_background"
+                        android:gravity="center"
+                        android:text="JS \n ընդլայնված"
+                        android:textAllCaps="false"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <ListView
-                        android:id="@+id/theory"
-                        android:layout_width="match_parent"
-                        android:layout_height="500dp"
-                        android:layout_margin="5dp" />
-                </LinearLayout>
+                    <Button
+                        android:id="@+id/laravel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/ic_laravel_background"
+                        android:gravity="center"
+                        android:text="Laravel"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/angularJS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_angular_background"
+                        android:gravity="center"
+                        android:text="AngularJS"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center">
+
+                    <Button
+                        android:id="@+id/javaScript"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_jsj_background"
+                        android:gravity="center"
+                        android:text="JS \nմասնագիտացված"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/node.js"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/ic_node_background"
+                        android:gravity="center"
+                        android:text="Node.js"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_c_background"
+                        android:gravity="center"
+                        android:text="C#"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="36sp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center">
+
+                    <Button
+                        android:id="@+id/wpf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_launcher_background"
+                        android:gravity="center"
+                        android:text="Windows Froms\nWPF"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/sql"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/ic_js_background"
+                        android:gravity="center"
+                        android:text="SQL Server\nADD.NET"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/asp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_html_background"
+                        android:gravity="center"
+                        android:text="ASP.NET\n MVC"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center">
+
+                    <Button
+                        android:id="@+id/oop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_eqsma_background"
+                        android:gravity="center"
+                        android:text="ES6\n OOP"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorEx"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/angular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/ic_mvc_background"
+                        android:gravity="center"
+                        android:text="Angular"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/react"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_react_background"
+                        android:gravity="center"
+                        android:text="React.js"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center">
+
+                    <Button
+                        android:id="@+id/froms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_php_background"
+                        android:gravity="center"
+                        android:text="Angular\n React.js\n Vue.js"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/vue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/ic_vue_background"
+                        android:gravity="center"
+                        android:text="Vue.js"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <!--<android.support.design.widget.BottomNavigationView-->
+        <!--android:id="@+id/navigation"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="0dp"-->
+        <!--android:layout_marginEnd="0dp"-->
+        <!--android:background="?android:attr/windowBackground"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent" />-->
+
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:layout_width="368dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:fillViewport="true"-->
+        <!--tools:layout_editor_absoluteX="8dp"-->
+        <!--tools:layout_editor_absoluteY="8dp">-->
+
+        <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<ProgressBar-->
+                    <!--android:id="@+id/myProgressBar"-->
+                    <!--style="?android:attr/progressBarStyleHorizontal"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:indeterminate="true"-->
+                    <!--android:indeterminateBehavior="cycle"-->
+                    <!--android:visibility="gone" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/textView11"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="ՏԵՍԱԿԱՆ ՆՅՈՒԹԵՐ "-->
+                        <!--android:textColor="@android:color/background_dark"-->
+                        <!--android:textSize="24sp"-->
+                        <!--android:textStyle="bold" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/textView24"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="8dp"-->
+                        <!--android:layout_marginTop="15dp"-->
+                        <!--android:layout_marginBottom="8dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="@string/modul"-->
+                        <!--android:textColor="@android:color/background_dark"-->
+                        <!--android:textSize="18sp"-->
+                        <!--android:textStyle="bold" />-->
+
+                    <!--<ListView-->
+                        <!--android:id="@+id/theory"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="500dp"-->
+                        <!--android:layout_margin="2dp" />-->
+                <!--</LinearLayout>-->
 
 
-            </LinearLayout>
-        </ScrollView>
-    </android.support.v4.widget.NestedScrollView>
+            <!--</LinearLayout>-->
+        <!--</ScrollView>-->
+    <!--</android.support.v4.widget.NestedScrollView>-->
 
 </RelativeLayout>
