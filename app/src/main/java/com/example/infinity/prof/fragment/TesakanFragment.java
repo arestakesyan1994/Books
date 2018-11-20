@@ -16,7 +16,7 @@ import android.widget.ListView;
 import com.example.infinity.prof.R;
 import com.example.infinity.prof.constants.NavigationDrawerConstants;
 import com.example.infinity.prof.handler.ResponseHandler;
-import com.example.infinity.prof.models.Response;
+import com.example.infinity.prof.model.Responses;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
@@ -174,7 +174,6 @@ public class TesakanFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.nodeJs:
                 KEY ="8";
-                KEY="20";
                 fragment = new TesakanHomeFragment();
                 displaySelectedFragment(fragment);
                 break;

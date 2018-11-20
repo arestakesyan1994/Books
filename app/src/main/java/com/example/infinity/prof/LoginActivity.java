@@ -114,8 +114,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 int mins = temp / 60;
                                 temp = temp - mins * 60;
                                 int secs = temp;
-
-                                String dataTime = day + " օր " +hours+ " ժամ "+ mins + " րոպե առաջ";
+                                String dataTime = null;
+                                if (day !=0) {
+                                    dataTime = day + " օր " + hours + " ժամ " + mins + " րոպե առաջ";
+                                }else if (hoursTemp!=0){
+                                    dataTime =hours + " ժամ " + mins + " րոպե առաջ";
+                                }else{
+                                    dataTime = mins + " րոպե առաջ";
+                                }
 
                                 Intent intents = new Intent(LoginActivity.this, StProfActivity.class);
                                 intents.setAction(ACTION_SNOOZE);
@@ -139,7 +145,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         .setAutoCancel(true)
 //                                        .addAction(R.drawable.alarmw, getString(R.string.snooze),
 //                                                snoozePendingIntent);
-//                                .addAction(R.drawable.alarmw, "Notification", snoozePendingIntent)
+                                .addAction(R.drawable.ic_clear_black_24dp, "DELETE", snoozePendingIntent)
                                         ;
 
                                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(LoginActivity.this);

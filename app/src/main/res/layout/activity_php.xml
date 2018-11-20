@@ -107,12 +107,10 @@
             android:layout_height="330dp"
             android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
+        <ListView
+            android:id="@+id/patasxannerList"
+            android:layout_width="match_parent"
+            android:layout_height="500dp" />
         <SurfaceView
             android:id="@+id/surfaceView3"
             android:layout_width="176dp"

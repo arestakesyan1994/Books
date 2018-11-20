@@ -52,10 +52,6 @@
             android:id="@+id/tesakanNyut"
             android:icon="@drawable/ic_library"
             android:title="Տեսական նյութ" />
-        <item
-            android:id="@+id/tesakanNyutPorc"
-            android:icon="@drawable/ic_library"
-            android:title="Տեսական նյութ փ." />
 
     </group>
 
