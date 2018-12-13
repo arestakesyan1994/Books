@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.infinity.prof.R;
 
-public class tasakanHome extends AppCompatActivity {
+public class Gnahatakan extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

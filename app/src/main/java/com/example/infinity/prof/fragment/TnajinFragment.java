@@ -1,5 +1,6 @@
 package com.example.infinity.prof.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.infinity.prof.R;
@@ -23,6 +25,7 @@ public class TnajinFragment extends Fragment {
     String[] OR_SKSAC2 = {"1_HTML,CSS", "2_JavaScript", "3_jQuery", "4_Java"};
     ApiService mApiService;
     ResponseHandler session;
+    Button gnahatakanner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,15 @@ public class TnajinFragment extends Fragment {
 //        xumbStName.setAdapter(stName);
 
 
+        gnahatakanner =(Button) tn.findViewById(R.id.gnahatakanner);
+        gnahatakanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(getContext(),Gnahatakan.class);
+                startActivity(intent);
+            }
+        });
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(tn.getContext(),
                 android.R.layout.simple_dropdown_item_1line, mName);

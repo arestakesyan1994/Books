@@ -28,7 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.MainActivity"/>
         <activity
             android:name=".StProfActivity"
             android:label="@string/title_activity_st_prof"
@@ -40,7 +39,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginActivity"/>
         </activity>
-        <activity android:name=".fragment.tasakanHome" />
+        <activity android:name=".fragment.Gnahatakan" />
         <!--<activity android:name=".fragment.NotificationView"-->
             <!--android:label="@string/notification_activity"-->
             <!--android:parentActivityName=".StProfActivity">-->

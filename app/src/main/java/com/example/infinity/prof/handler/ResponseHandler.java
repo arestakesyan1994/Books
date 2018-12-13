@@ -3,6 +3,7 @@ package com.example.infinity.prof.handler;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.text.Html;
 
 import com.example.infinity.prof.LoginActivity;
 import com.example.infinity.prof.model.Response;
@@ -276,20 +277,12 @@ public class ResponseHandler {
             String nText =response.getNotifications().get(i).getText();
             String nStatus =response.getNotifications().get(i).getStatus();
             String nWhen =response.getNotifications().get(i).getWhen();
-            String a =nText.replace("<b>"," ");
-            System.out.println(a);
-            String a1 =a.replaceAll("<b>","");
-            System.out.println(a1);
-            String a2 = a1.replaceAll("</b>","");
-            System.out.println(a2);
-            String a3 = a2.replaceAll("</small>","");
-            System.out.println(a3);
 
 //            Date date = new Date();
 //            date.setTime(Long.parseLong(nWhen));
 
             long timeSec= Long.parseLong(nWhen);// Json output
-            int time = (int) (timeSec/10000);
+            int time = (int) (timeSec/1000);
             int day = (int) time/86400;
             int hoursTemp = (int) time - day*86400;
             int hours = hoursTemp/ 3600;
@@ -303,7 +296,7 @@ public class ResponseHandler {
 
             notId = notId.concat(nId + ",");
             notStId = notStId.concat(nStId + ",");
-            notText=notText.concat(a3 + "\n"+ "\n"+ dataTime + "%");
+            notText=notText.concat(Html.fromHtml(nText) + "%");
             notStatus =notStatus.concat(nStatus + ",");
             notWhen= notWhen.concat(dataTime + "%");
         }

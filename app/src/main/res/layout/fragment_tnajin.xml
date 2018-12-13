@@ -118,7 +118,7 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/gnahatakanner"
                         android:layout_width="185dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
@@ -168,15 +168,15 @@
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
-                            <Button
-                                android:id="@+id/button4"
-                                android:layout_width="149dp"
-                                android:layout_height="26dp"
-                                android:layout_margin="15dp"
-                                android:background="@android:color/holo_red_dark"
-                                android:text="@string/ww"
-                                android:textColor="@android:color/background_light"
-                                android:textStyle="bold" />
+                            <!--<Button-->
+                                <!--android:id="@+id/button4"-->
+                                <!--android:layout_width="149dp"-->
+                                <!--android:layout_height="26dp"-->
+                                <!--android:layout_margin="15dp"-->
+                                <!--android:background="@android:color/holo_red_dark"-->
+                                <!--android:text="@string/ww"-->
+                                <!--android:textColor="@android:color/background_light"-->
+                                <!--android:textStyle="bold" />-->
                         </LinearLayout>
 
                         <LinearLayout

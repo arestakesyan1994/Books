@@ -69,6 +69,7 @@ dependencies {
     compile 'com.txusballesteros:bubbles:1.2.1'
     compile 'com.nex3z:notification-badge:0.2.0'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'org.sufficientlysecure:html-textview:3.2'
 
 }
 
