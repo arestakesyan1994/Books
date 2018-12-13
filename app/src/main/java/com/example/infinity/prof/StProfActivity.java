@@ -99,16 +99,16 @@ public class StProfActivity extends AppCompatActivity
         nAndsA = navHeader.findViewById(R.id.nAndsA);
         nAndsA.setText(name + " " + surname);
 
-        this.mHandler = new Handler();
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (session.isLoggedIn()) {
-                    mHandler.postDelayed(this, 5 * 1000);
-                    Toast.makeText(StProfActivity.this, "in runnable", Toast.LENGTH_SHORT).show();
-                }
-            }
-        },5*1000);
+//        this.mHandler = new Handler();
+//        mHandler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (session.isLoggedIn()) {
+//                    mHandler.postDelayed(this, 5 * 1000);
+//                    Toast.makeText(StProfActivity.this, "in runnable", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        },5*1000);
 
         uRatingA = navHeader.findViewById(R.id.uRatingA);
         uRatingA.setText("Ռեյտինգ " + rating + "%");
