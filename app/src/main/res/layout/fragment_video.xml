@@ -19,7 +19,7 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <android.support.v4.widget.NestedScrollView
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -35,7 +35,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="WebViewLayout">
 
                 <ProgressBar
                     android:id="@+id/myProgressBar"
@@ -45,37 +46,136 @@
                     android:indeterminate="true"
                     android:indeterminateBehavior="cycle"
                     android:visibility="gone" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
+
+                <TextView
+                    android:id="@+id/textView43"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:text="ՎԻԴԵՈ ԴԱՍԵՐ"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:fontFamily="cursive" />
+
+                <!--<TextView-->
+                <!--android:id="@+id/textView48"-->
+                <!--android:layout_width="300dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_marginLeft="40dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@color/colorAccent"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:paddingTop="10dp"-->
+                <!--android:text="ՇՈՒՏՈՎ . . ."-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="18sp"-->
+                <!--android:textStyle="bold" />-->
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Դաս 5 - C# բազմաչափ զանգվածներ"
+                    android:textColor="@color/colornots"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:fontFamily="cursive" />
+
+                <WebView
+                    android:id="@+id/videoDas5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></WebView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Դաս 4 - C# զանգվածներ"
+                    android:textColor="@color/colornots"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:fontFamily="cursive" />
+
+                <WebView
+                    android:id="@+id/videoDas4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></WebView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Դաս 3 - C# ՑԻԿԼԵՐ "
+                    android:textColor="@color/colornots"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:fontFamily="cursive" />
+
+                <WebView
+                    android:id="@+id/videoDas3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></WebView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Դաս 2 - C# պայմանի օպերատոր "
+                    android:textColor="@color/colornots"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:fontFamily="cursive" />
+
+                <WebView
+                    android:id="@+id/videoDas2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></WebView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Դաս 1 - C#, ներածություն"
+                    android:textColor="@color/colornots"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:fontFamily="cursive" />
+
+                <WebView
+                    android:id="@+id/videoDas1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></WebView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView43"
-                        android:layout_width="match_parent"
+                        android:id="@+id/textView13"
+                        android:layout_width="69dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp"
-                        android:text="ՎԻԴԵՈ ԴԱՍԵՐ"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:layout_weight="1" />
 
                     <TextView
-                        android:id="@+id/textView48"
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/colorAccent"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:text="ՇՈՒՏՈՎ . . ."
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:id="@+id/textView15"
+                        android:layout_width="216dp"
+                        android:layout_height="48dp"
+                        android:text="@string/arm"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="8sp"
+                        android:textStyle="italic"
+                        android:typeface="monospace" />
 
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>

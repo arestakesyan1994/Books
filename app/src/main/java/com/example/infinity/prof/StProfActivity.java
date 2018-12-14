@@ -12,7 +12,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
@@ -176,65 +175,6 @@ public class StProfActivity extends AppCompatActivity
         System.out.println(notId);
 
     }
-//    private final Runnable mRunnable= new Runnable() {
-//        @Override
-//        public void run() {
-//            Toast.makeText(StProfActivity.this,"in runnable",Toast.LENGTH_SHORT).show();
-//            StProfActivity.this.mHandler.postDelayed(mRunnable,5000);
-//
-////            HashMap<String, String> user = session.getResponseDetails();
-////            String text = user.get(ResponseHandler.NOTIFICATION_TEXT);
-////            String[] notText = text.split("%");
-////
-////            String when = user.get(ResponseHandler.NOTIFICATION_WHEN);
-////            String[] notWhen = when.split("%");
-////
-////            for (int i = 0; i < notText.length; i++) {
-////                not.add(notText[i]);
-////            }
-////
-////            for (int i = 0; i < notWhen.length; i++) {
-////                date.add(notWhen[i]);
-////            }
-////
-////            for (int i = 0; i < not.size(); i++) {
-////                String nText = not.get(i);
-////                String nWhen = date.get(i);
-////
-////                Intent intents = new Intent(StProfActivity.this, StProfActivity.class);
-////                intents.setAction(ACTION_SNOOZE);
-////                intents.putExtra(EXTRA_NOTIFICATION_ID, 0);
-////                PendingIntent snoozePendingIntent =
-////                        PendingIntent.getBroadcast(StProfActivity.this, 0, intents, 0);
-////                intents.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-////                PendingIntent pendingIntent = PendingIntent.getActivity(StProfActivity.this, 0, intents, 0);
-////
-////                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(StProfActivity.this, CHANNEL_ID)
-////                        .setSmallIcon(R.drawable.ic_notifications_icon)
-////                        .setContentTitle("New Message profit")
-////                        .setContentText(Html.fromHtml(nText))
-////                        .setColor(Color.rgb(150, 30, 250))
-////                        .setStyle(new NotificationCompat.BigTextStyle()
-////                                .bigText(Html.fromHtml(nText) + "\n" + "\n" + nWhen))
-////                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-////                        .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-////                        .setContentIntent(pendingIntent)
-////                        .setOnlyAlertOnce(true)
-////                        .setAutoCancel(true)
-////                        .addAction(R.drawable.ic_clear_black_24dp, "DELETE", snoozePendingIntent);
-////
-////                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(StProfActivity.this);
-////                notificationManager.cancel(i);
-////                for (int j=0;j<notId.size();j++) {
-////                    if (i!=j) {
-////                        notificationManager.notify(i, mBuilder.build());
-////                    }
-////                }
-////            }
-//
-//        }
-//    };
-
 
     @Override
     public void onBackPressed() {
@@ -287,7 +227,6 @@ public class StProfActivity extends AppCompatActivity
                 startActivity(intent);
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

@@ -278,9 +278,6 @@ public class ResponseHandler {
             String nStatus =response.getNotifications().get(i).getStatus();
             String nWhen =response.getNotifications().get(i).getWhen();
 
-//            Date date = new Date();
-//            date.setTime(Long.parseLong(nWhen));
-
             long timeSec= Long.parseLong(nWhen);// Json output
             int time = (int) (timeSec/1000);
             int day = (int) time/86400;
@@ -292,7 +289,6 @@ public class ResponseHandler {
             int secs = temp;
 
             String dataTime = day + " օր " +hours+ " ժամ "+ mins + " րոպե առաջ";
-
 
             notId = notId.concat(nId + ",");
             notStId = notStId.concat(nStId + ",");

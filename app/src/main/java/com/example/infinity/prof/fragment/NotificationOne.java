@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.infinity.prof.R;
 import com.example.infinity.prof.handler.ResponseHandler;
@@ -21,9 +20,6 @@ public class NotificationOne extends Activity implements View.OnClickListener {
 	ApiService mApiService;
 	ResponseHandler session;
 	private ListView notifications;
-	private ListView notificationTime;
-	TextView not;
-	TextView timss;
 
 	@Override
 	   public void onCreate(Bundle savedInstanceState)
@@ -55,16 +51,10 @@ public class NotificationOne extends Activity implements View.OnClickListener {
 		   String text = user.get(ResponseHandler.NOTIFICATION_TEXT);
 		   String[] notText = text.split("%");
 
-		   ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(this, R.layout.row_item,
-				   R.id.textNot, notText);
+		   ArrayAdapter<CharSequence> end = new ArrayAdapter<CharSequence>(this, R.layout.row_items,
+				   notText);
 		   notifications = (ListView) findViewById(R.id.notification);
 		   notifications.setAdapter(end);
-
-//		   ArrayAdapter<CharSequence> when = new ArrayAdapter<CharSequence>(this, R.layout.list_item, time);
-//           notificationTime = (ListView) findViewById(R.id.notificationTime);
-//           notificationTime.setAdapter(when);
-
-
 	   }
 
 	@Override
