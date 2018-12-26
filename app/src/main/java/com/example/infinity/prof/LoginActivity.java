@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     Context mContext;
     ApiService mApiService;
     ResponseHandler session;
+    StProfActivity stProfActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +67,10 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                         response.body();
                         System.out.println(response.body());
-
+                        
                         if (response.body().getId() != 0) {
                             session.createResponseHandler(response.body());
+                            session.strings("http://app.profitdeco.com/mobile/get?login="+mUserName.getText().toString()+"&password="+mPasswordView.getText().toString());
 
                             Intent intent = new Intent(getApplicationContext(), StProfActivity.class);
                             startActivity(intent);

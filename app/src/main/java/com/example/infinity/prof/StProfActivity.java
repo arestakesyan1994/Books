@@ -1,6 +1,7 @@
 package com.example.infinity.prof;
 
 import android.animation.LayoutTransition;
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
@@ -44,9 +45,14 @@ import com.example.infinity.prof.fragment.TesterFragment;
 import com.example.infinity.prof.fragment.TnajinFragment;
 import com.example.infinity.prof.fragment.VideoFragment;
 import com.example.infinity.prof.handler.ResponseHandler;
+import com.example.infinity.prof.model.Response;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +61,7 @@ import static android.app.Notification.EXTRA_NOTIFICATION_ID;
 
 public class StProfActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
     private static final String ACTION_SNOOZE = "action";
     private static final String CHANNEL_ID = "channel";
     ResponseHandler session;
@@ -71,13 +78,20 @@ public class StProfActivity extends AppCompatActivity
     Button button;
     ArrayList<HashMap<String, String>> contactList;
     private Handler mHandler;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_st_prof);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        final String USER_NAME="name";
+        final String USER_PASSWORD="passvord";
+
+        System.out.println("********************************");
+        System.out.println(USER_NAME);
+        System.out.println(USER_PASSWORD);
+        System.out.println("********************************");
+
 
         mApiService = UtilsApi.getAPIService();
 
@@ -104,6 +118,7 @@ public class StProfActivity extends AppCompatActivity
 //            public void run() {
 //                if (session.isLoggedIn()) {
 //                    mHandler.postDelayed(this, 5 * 1000);
+//                    System.out.println(user.get(ResponseHandler.NOTIFICATION_STATUS));
 //                    Toast.makeText(StProfActivity.this, "in runnable", Toast.LENGTH_SHORT).show();
 //                }
 //            }
@@ -164,17 +179,24 @@ public class StProfActivity extends AppCompatActivity
                     .setContentIntent(pendingIntent)
                     .setOnlyAlertOnce(true)
                     .setAutoCancel(true)
+                    .setDefaults(Notification.DEFAULT_VIBRATE)
+                    .setDefaults(Notification.DEFAULT_LIGHTS)
+                    .setWhen(System.currentTimeMillis())
                     .addAction(R.drawable.ic_clear_black_24dp, "DELETE", snoozePendingIntent);
 
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(StProfActivity.this);
 
             notId.add(i);
+            if (nText==""){
+                notificationManager.cancelAll();
+            }else
             notificationManager.notify(i, mBuilder.build());
 
         }
         System.out.println(notId);
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -185,6 +207,7 @@ public class StProfActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

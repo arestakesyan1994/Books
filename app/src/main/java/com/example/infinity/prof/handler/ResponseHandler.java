@@ -3,21 +3,27 @@ package com.example.infinity.prof.handler;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
 import android.text.Html;
+import android.widget.Toast;
 
 import com.example.infinity.prof.LoginActivity;
+import com.example.infinity.prof.StProfActivity;
 import com.example.infinity.prof.model.Response;
 
 import java.util.HashMap;
 
-public class ResponseHandler {
+public class ResponseHandler extends Handler {
+    SQLiteDatabase sqLiteDatabase;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     private static Context _context;
     private static ResponseHandler mInstance;
+    private Handler mHandler;
 
     int PRIVATE_MODE = 0;
-
+    private static String ST="st";
     private static final String PREF_NAME = "UserSession";
     private static final String RESPONSE_EXPIRES = "expires";
     private static final String RESPONSE_EMPTY = "";
@@ -99,35 +105,39 @@ public class ResponseHandler {
     public static final String GROUP_MODULE_ID = "moduleId";
     public static final String GROUP_COLOR = "color";
     public static final String GROUP_LEVEL = "level";
-    public static final String GROUP_TEACHER_ID= "teacherId";
-    public static final String GROUP_GNAME= "gname";
-    public static final String GROUP_ACTIVE= "active";
-    public static final String GROUP_PART_ID= "partId";
+    public static final String GROUP_TEACHER_ID = "teacherId";
+    public static final String GROUP_GNAME = "gname";
+    public static final String GROUP_ACTIVE = "active";
+    public static final String GROUP_PART_ID = "partId";
 
     // Group student data
-    public static final String GROUP_STUDENTS= "students";
-    public static final String GROUP_STUDENTS_NAME= "studentsName";
-    public static final String GROUP_STUDENTS_SURNAME= "studentSurname";
-    public static final String GROUP_STUDENTS_RATING= "studentsRating";
-    public static final String GROUP_STUDENTS_IMG= "studentsImg";
+    public static final String GROUP_STUDENTS = "students";
+    public static final String GROUP_STUDENTS_NAME = "studentsName";
+    public static final String GROUP_STUDENTS_SURNAME = "studentSurname";
+    public static final String GROUP_STUDENTS_RATING = "studentsRating";
+    public static final String GROUP_STUDENTS_IMG = "studentsImg";
 
     //Notification data
     public static final String NOTIFICATION_ID = "idNot";
     public static final String NOTIFICATION_STUDENT_ID = "studentIdNot";
-    public static final String NOTIFICATION_TEXT= "textNot";
+    public static final String NOTIFICATION_TEXT = "textNot";
     public static final String NOTIFICATION_WHEN = "whenNot";
     public static final String NOTIFICATION_STATUS = "statusNot";
 
     //Modules data
     public static final String MODULES_ID = "idModules";
     public static final String MODULES_KURS = "kursModules";
-    public static final String MODULES_ABOUT= "aboutModules";
-    public static final String MODULES_LESSON_COUNT= "lessonCountModules";
+    public static final String MODULES_ABOUT = "aboutModules";
+    public static final String MODULES_LESSON_COUNT = "lessonCountModules";
     public static final String MODULES_NAME = "nameModules";
 
     public ResponseHandler(Context context) {
         this._context = context;
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+        System.out.println("PREF_NAME, PRIVATE_MODE");
+        System.out.println(PREF_NAME);
+        System.out.println(PRIVATE_MODE);
+        System.out.println("PREF_NAME, PRIVATE_MODE");
         editor = pref.edit();
     }
 
@@ -136,6 +146,21 @@ public class ResponseHandler {
             mInstance = new ResponseHandler(context);
         }
         return mInstance;
+    }
+
+    //         this.mHandler = new Handler();
+//        mHandler.postDelayed(new Runnable() {
+//        @Override
+//        public void run() {
+//            if (session.isLoggedIn()) {
+//                mHandler.postDelayed(this, 5 * 1000);
+//                Toast.makeText(StProfActivity.this, "in runnable", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    },5*1000);
+    public void strings(String string) {
+        ST=string;
+        System.out.println(ST);
     }
 
     public void createResponseHandler(Response response) {
@@ -184,13 +209,13 @@ public class ResponseHandler {
         editor.putString(RESPONSE_GRAFIK, String.valueOf(response.getGrafik()));
 
         String gId = "";
-        String gGroupId="";
-        String gDayId ="";
+        String gGroupId = "";
+        String gDayId = "";
         String gDay = "";
-        String gStart="";
+        String gStart = "";
         String gEnd = "";
-        String gTeacherId ="";
-        String gActive="";
+        String gTeacherId = "";
+        String gActive = "";
         for (int i = 0; i < response.getGrafik().size(); i++) {
             String grafikId = String.valueOf(response.getGrafik().get(i).getId());
             String grafikGroupId = response.getGrafik().get(i).getGroupId();
@@ -211,8 +236,8 @@ public class ResponseHandler {
             gActive = gActive.concat(grafikActive);
         }
         editor.putString(GRAFIK_DAY, gDay);
-        editor.putString(GRAFIK_START,gStart);
-        editor.putString(GRAFIK_END,gEnd);
+        editor.putString(GRAFIK_START, gStart);
+        editor.putString(GRAFIK_END, gEnd);
 
         // Teacher data
         editor.putString(TEACHER_ID, String.valueOf(response.getTeacher().getId()));
@@ -233,10 +258,10 @@ public class ResponseHandler {
         editor.putString(GROUP_ID, String.valueOf(response.getGroup().getId()));
         editor.putString(GROUP_GNAME, response.getGroup().getName());
         editor.putString(GROUP_PART_ID, response.getGroup().getPartId());
-        editor.putString(GROUP_COLOR,   response.getGroup().getColor());
+        editor.putString(GROUP_COLOR, response.getGroup().getColor());
         editor.putString(GROUP_LSAEAN_ID, (String) response.getGroup().getLsaranId());
         editor.putString(GROUP_LEVEL, (String) response.getGroup().getLevel());
-        editor.putString(GROUP_ACTIVE,  response.getGroup().getActive());
+        editor.putString(GROUP_ACTIVE, response.getGroup().getActive());
         editor.putString(GROUP_MODULE_ID, response.getGroup().getModuleId());
         editor.putString(GROUP_TEACHER_ID, response.getGroup().getTeacherId());
 
@@ -247,7 +272,7 @@ public class ResponseHandler {
         String gStSurname = "";
         String gStRating = "";
         String gStImg = "";
-        for (int i = 0; i<response.getGroup().getStudents().size();i++){
+        for (int i = 0; i < response.getGroup().getStudents().size(); i++) {
             String gName = response.getGroup().getStudents().get(i).getName();
             String gSurname = response.getGroup().getStudents().get(i).getSurname();
             String gRating = response.getGroup().getStudents().get(i).getAvg();
@@ -258,51 +283,51 @@ public class ResponseHandler {
             gStRating = gStRating.concat(gRating + ",");
             gStImg = gStImg.concat(gImg + ",");
         }
-        editor.putString(GROUP_STUDENTS_NAME,gStName);
-        editor.putString(GROUP_STUDENTS_SURNAME,gStSurname);
-        editor.putString(GROUP_STUDENTS_IMG,gStImg);
-        editor.putString(GROUP_STUDENTS_RATING,gStRating);
+        editor.putString(GROUP_STUDENTS_NAME, gStName);
+        editor.putString(GROUP_STUDENTS_SURNAME, gStSurname);
+        editor.putString(GROUP_STUDENTS_IMG, gStImg);
+        editor.putString(GROUP_STUDENTS_RATING, gStRating);
 
         //Notification data
         editor.putString(RESPONSE_NOTIFICATIONS, String.valueOf(response.getNotifications()));
 
         String notId = "";
-        String notStId ="";
-        String notText ="";
-        String notStatus ="";
-        String notWhen ="";
-        for (int i = 0;i<response.getNotifications().size();i++){
+        String notStId = "";
+        String notText = "";
+        String notStatus = "";
+        String notWhen = "";
+        for (int i = 0; i < response.getNotifications().size(); i++) {
             String nId = String.valueOf(response.getNotifications().get(i).getId());
-            String nStId =response.getNotifications().get(i).getStudentId();
-            String nText =response.getNotifications().get(i).getText();
-            String nStatus =response.getNotifications().get(i).getStatus();
-            String nWhen =response.getNotifications().get(i).getWhen();
+            String nStId = response.getNotifications().get(i).getStudentId();
+            String nText = response.getNotifications().get(i).getText();
+            String nStatus = response.getNotifications().get(i).getStatus();
+            String nWhen = response.getNotifications().get(i).getWhen();
 
-            long timeSec= Long.parseLong(nWhen);// Json output
-            int time = (int) (timeSec/1000);
-            int day = (int) time/86400;
-            int hoursTemp = (int) time - day*86400;
-            int hours = hoursTemp/ 3600;
-            int temp = (int) hoursTemp- hours * 3600;
+            long timeSec = Long.parseLong(nWhen);// Json output
+            int time = (int) (timeSec / 1000);
+            int day = (int) time / 86400;
+            int hoursTemp = (int) time - day * 86400;
+            int hours = hoursTemp / 3600;
+            int temp = (int) hoursTemp - hours * 3600;
             int mins = temp / 60;
             temp = temp - mins * 60;
             int secs = temp;
 
-            String dataTime = day + " օր " +hours+ " ժամ "+ mins + " րոպե առաջ";
+            String dataTime = day + " օր " + hours + " ժամ " + mins + " րոպե առաջ";
 
             notId = notId.concat(nId + ",");
             notStId = notStId.concat(nStId + ",");
-            notText=notText.concat(Html.fromHtml(nText) + "%");
-            notStatus =notStatus.concat(nStatus + ",");
-            notWhen= notWhen.concat(dataTime + "%");
+            notText = notText.concat(Html.fromHtml(nText) + "%");
+            notStatus = notStatus.concat(nStatus + ",");
+            notWhen = notWhen.concat(dataTime + "%");
         }
         int c = response.getNotifications().size();
         System.out.println(String.valueOf(c));
         editor.putString(NOTIFICATION_ID, String.valueOf(c));
-        editor.putString(NOTIFICATION_STUDENT_ID,notStId);
-        editor.putString(NOTIFICATION_TEXT,notText);
-        editor.putString(NOTIFICATION_STATUS,notStatus);
-        editor.putString(NOTIFICATION_WHEN,notWhen);
+        editor.putString(NOTIFICATION_STUDENT_ID, notStId);
+        editor.putString(NOTIFICATION_TEXT, notText);
+        editor.putString(NOTIFICATION_STATUS, notStatus);
+        editor.putString(NOTIFICATION_WHEN, notWhen);
 
         //Modules data
         editor.putString(RESPONSE_MODULES, String.valueOf(response.getModules()));
@@ -310,28 +335,27 @@ public class ResponseHandler {
         String modId = "";
         String modName = "";
         String modKurs = "";
-        String modLessonsCount= "";
+        String modLessonsCount = "";
         String modAbout = "";
-        for (int i =0;i< response.getModules().size();i++){
+        for (int i = 0; i < response.getModules().size(); i++) {
             String mId = String.valueOf(response.getModules().get(i).getId());
             String mName = response.getModules().get(i).getName();
             String mKurs = response.getModules().get(i).getKurs();
             String mLessonCount = response.getModules().get(i).getLessonsCount();
-            String mAbout =response.getModules().get(i).getAbout();
+            String mAbout = response.getModules().get(i).getAbout();
 
-            modId = modId.concat(mId+ ",");
-            modName= modName.concat(mName + ";");
-            modKurs= modKurs.concat(mKurs + ",");
+            modId = modId.concat(mId + ",");
+            modName = modName.concat(mName + ";");
+            modKurs = modKurs.concat(mKurs + ",");
             modLessonsCount = modLessonsCount.concat(mLessonCount + ",");
-            modAbout=modAbout.concat(mAbout + ",");
+            modAbout = modAbout.concat(mAbout + ",");
         }
 
-        editor.putString(MODULES_ID,modId);
-        editor.putString(MODULES_NAME,modName);
-        editor.putString(MODULES_KURS,modKurs);
-        editor.putString(MODULES_LESSON_COUNT,modLessonsCount);
-        editor.putString(MODULES_ABOUT,modAbout);
-
+        editor.putString(MODULES_ID, modId);
+        editor.putString(MODULES_NAME, modName);
+        editor.putString(MODULES_KURS, modKurs);
+        editor.putString(MODULES_LESSON_COUNT, modLessonsCount);
+        editor.putString(MODULES_ABOUT, modAbout);
         this.editor.commit();
     }
 
@@ -436,6 +460,7 @@ public class ResponseHandler {
         user.put(MODULES_KURS, pref.getString(MODULES_KURS, null));
         user.put(MODULES_ABOUT, pref.getString(MODULES_ABOUT, null));
         user.put(MODULES_LESSON_COUNT, pref.getString(MODULES_LESSON_COUNT, null));
+
 
         return user;
     }
