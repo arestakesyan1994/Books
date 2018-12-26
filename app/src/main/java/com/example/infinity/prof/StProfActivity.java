@@ -84,15 +84,6 @@ public class StProfActivity extends AppCompatActivity
         setContentView(R.layout.activity_st_prof);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        final String USER_NAME="name";
-        final String USER_PASSWORD="passvord";
-
-        System.out.println("********************************");
-        System.out.println(USER_NAME);
-        System.out.println(USER_PASSWORD);
-        System.out.println("********************************");
-
-
         mApiService = UtilsApi.getAPIService();
 
         session = new ResponseHandler(getApplicationContext());
