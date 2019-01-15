@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
@@ -104,6 +103,10 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-database:16.0.1'
 
+    compile 'com.google.firebase:firebase-messaging:10.2.1'
+
+
+//    implementation 'com.google.firebase:firebase-database:16.0.1:15.0.0'
 }
 
 android {
@@ -111,3 +114,4 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 }
+apply plugin: 'com.google.gms.google-services'

@@ -7,6 +7,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -60,6 +61,17 @@ public class LoginActivity extends AppCompatActivity {
     //m-2v7m0**a5
 
     private void requestLogin() {
+        if (TextUtils.isEmpty(mUserName.getText().toString())) {
+            mUserName.setError("Խնդրում եմ մուտքագրեք Ձեր լոգինը");
+            mUserName.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(mPasswordView.getText().toString())) {
+            mPasswordView.setError("Խնդրում եմ մուտքագրեք Ձեր ծածգագիրը");
+            mPasswordView.requestFocus();
+            return;
+        }
         mApiService.loginRequest(mUserName.getText().toString(), mPasswordView.getText().toString())
                 .enqueue(new Callback<Response>() {
                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -78,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                                     + response.body().getSurname(), Toast.LENGTH_SHORT).show();
 
                         } else {
-                            Toast.makeText(LoginActivity.this, "Sorry, User Name or Password wrong.\n try again...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Տվյալները սխալ են.\n Խնդրում եմ կրկին փորձեք ...", Toast.LENGTH_SHORT).show();
                         }
                     }
 
