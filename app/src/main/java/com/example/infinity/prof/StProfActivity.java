@@ -48,8 +48,8 @@ import com.example.infinity.prof.handler.ResponseHandler;
 import com.example.infinity.prof.model.Response;
 import com.example.infinity.prof.url.ApiService;
 import com.example.infinity.prof.url.UtilsApi;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
+//import com.google.firebase.FirebaseApp;
+//import com.google.firebase.FirebaseOptions;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -65,6 +65,7 @@ public class StProfActivity extends AppCompatActivity
     private static final String ACTION_SNOOZE = "action";
     private static final String CHANNEL_ID = "channel";
     ResponseHandler session;
+
     TextView uRating, nAnds, mrcuyt, modul, xumb, nAndsA;
     TextView uRatingA, notification;
     ImageView userImageA, userImage;

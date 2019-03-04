@@ -21,9 +21,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
-
-    private ListView gday,gstart, gend,xumbStName;
-    private ListView xumbStSurame, xumbStRating;
+    String[] group=new String[]{};
+    private ListView gday,gstart, gend;
+    private ListView xumbStSurame, xumbStRating, xumbStName;
+    private ListView harcerList;
 
     ArrayList<HashMap<String, String>> contactList;
 
@@ -105,24 +106,44 @@ public class HomeFragment extends Fragment {
 
         String groupStName = user.get(ResponseHandler.GROUP_STUDENTS_NAME);
         String[] gStName = groupStName.split(",");
-        ArrayAdapter<CharSequence> stName = new ArrayAdapter<CharSequence>(home.getContext()
-                , R.layout.list_item, gStName);
-        xumbStName = (ListView) home.findViewById(R.id.xumbStName);
-        xumbStName.setAdapter(stName);
+        System.out.println("****************************************************************");
+        for (int i = 0; i < gStName.length; i++) {
+            System.out.println(gStName[i]);
+        }
+//        ArrayAdapter<CharSequence> stName = new ArrayAdapter<CharSequence>(home.getContext()
+//                , R.layout.list_item, gStName);
+//        xumbStName = (ListView) home.findViewById(R.id.xumbStName);
+//        xumbStName.setAdapter(stName);
 
         String groupStSurname = user.get(ResponseHandler.GROUP_STUDENTS_SURNAME);
         String[] gStSurname = groupStSurname.split(",");
-        ArrayAdapter<CharSequence> stSurname = new ArrayAdapter<CharSequence>(home.getContext()
-                , R.layout.list_item, gStSurname);
-        xumbStSurame = (ListView) home.findViewById(R.id.xumbStSurname);
-        xumbStSurame.setAdapter(stSurname);
+        for (int i = 0; i < gStSurname.length; i++) {
+            System.out.println(gStSurname[i]);
+        }
+//        ArrayAdapter<CharSequence> stSurname = new ArrayAdapter<CharSequence>(home.getContext()
+//                , R.layout.list_item, gStSurname);
+//        xumbStSurame = (ListView) home.findViewById(R.id.xumbStSurname);
+//        xumbStSurame.setAdapter(stSurname);
 
         String groupStRating = user.get(ResponseHandler.GROUP_STUDENTS_RATING);
         String[] gStRating = groupStRating.split(",");
-        ArrayAdapter<CharSequence> stRating = new ArrayAdapter<CharSequence>(home.getContext()
-                , R.layout.list_item, gStRating);
-        xumbStRating = (ListView) home.findViewById(R.id.xumbStRating);
-        xumbStRating.setAdapter(stRating);
+//        ArrayAdapter<CharSequence> stRating = new ArrayAdapter<CharSequence>(home.getContext()
+//                , R.layout.list_item, gStRating);
+//        xumbStRating = (ListView) home.findViewById(R.id.xumbStRating);
+//        xumbStRating.setAdapter(stRating);
+
+
+        String h="";
+        for (int i = 0; i <gStName.length ; i++) {
+            h += gStName[i] + "     " + gStSurname[i] + "     " + gStRating[i] +  "%";
+        }
+        String [] har = h.split("%");
+        group = har;
+        System.out.println(group);
+        System.out.println(h);
+        ArrayAdapter<CharSequence> harc = new ArrayAdapter<CharSequence>(home.getContext(), R.layout.group_items, group);
+        harcerList = (ListView) home.findViewById(R.id.xumbStName);
+        harcerList.setAdapter(harc);
 
         nAnds = (TextView) home.findViewById(R.id.nAnds);
         nAnds.setText(name + " " + surname);

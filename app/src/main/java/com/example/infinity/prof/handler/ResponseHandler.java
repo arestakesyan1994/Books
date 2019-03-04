@@ -25,7 +25,7 @@ public class ResponseHandler extends Handler {
     int PRIVATE_MODE = 0;
     private static String ST="st";
     private static final String PREF_NAME = "UserSession";
-    private static final String RESPONSE_EXPIRES = "expires";
+    private static final String RESPONSE_EXPIRES = "expiresLogin";
     private static final String RESPONSE_EMPTY = "";
     private static final String IS_LOGIN = "IsLoggedIn";
     private static final String IS_LOGIN_BODY = "body";
@@ -133,10 +133,11 @@ public class ResponseHandler extends Handler {
 
     public ResponseHandler(Context context) {
         this._context = context;
-        pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+        pref = _context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         System.out.println("PREF_NAME, PRIVATE_MODE");
         System.out.println(PREF_NAME);
         System.out.println(PRIVATE_MODE);
+        System.out.println(pref.edit());
         System.out.println("PREF_NAME, PRIVATE_MODE");
         editor = pref.edit();
     }
@@ -164,6 +165,8 @@ public class ResponseHandler extends Handler {
     }
 
     public void createResponseHandler(Response response) {
+//        SharedPreferences sharedPreferences =_context.getSharedPreferences(RESPONSE_EXPIRES, Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(RESPONSE_ID, String.valueOf(response.getId()));
         editor.putString(RESPONSE_GROUP_ID, response.getGroupId());
@@ -356,7 +359,8 @@ public class ResponseHandler extends Handler {
         editor.putString(MODULES_KURS, modKurs);
         editor.putString(MODULES_LESSON_COUNT, modLessonsCount);
         editor.putString(MODULES_ABOUT, modAbout);
-        this.editor.commit();
+//        this.editor.commit();
+        editor.apply();
     }
 
     public HashMap<String, String> getResponseDetails() {

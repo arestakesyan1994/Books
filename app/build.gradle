@@ -100,13 +100,12 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
 
     compile 'org.sufficientlysecure:html-textview:3.2'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+//    implementation 'com.google.firebase:firebase-database:16.0.1'
+//
+//    compile 'com.google.firebase:firebase-messaging:10.2.1'
 
-    implementation 'com.google.firebase:firebase-database:16.0.1'
-
-    compile 'com.google.firebase:firebase-messaging:10.2.1'
-
-
-//    implementation 'com.google.firebase:firebase-database:16.0.1:15.0.0'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
 }
 
 android {
@@ -115,3 +114,5 @@ android {
     }
 }
 apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
+

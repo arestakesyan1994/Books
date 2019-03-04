@@ -1,6 +1,8 @@
 package com.example.infinity.prof.url;
 
 
+import com.example.infinity.prof.model.Homework;
+import com.example.infinity.prof.model.ModulesItem;
 import com.example.infinity.prof.model.Response;
 import com.example.infinity.prof.model.Responses;
 
@@ -13,6 +15,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ApiService {
     @FormUrlEncoded
@@ -33,5 +36,14 @@ public interface ApiService {
 //    @GET("get")
 //    Call<RequestBody> response(@Query("login") String  login,
 //                               @Query("password") String password);
+
+    @POST("getModules")
+    Call<List<ModulesItem>> modulse();
+
+    @POST("getHomeworkByModule")
+    Call<Homework> homework(
+            @Query("id") String moduleId,
+            @Query("group") String groupId
+    );
 
 }
